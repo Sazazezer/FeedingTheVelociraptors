@@ -1,0 +1,14 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script_interacts.rpy", line 202: reached end of line when expecting ':'.
+    if ReceptionDeskCheck == 1
+                              ^
+
+File "game/script_interacts.rpy", line 208: reached end of line when expecting ':'.
+    if ReceptionDeskCheck == 2
+                              ^
+
+Ren'Py Version: Ren'Py 7.4.6.1693
+Tue Aug 24 15:08:21 2021
