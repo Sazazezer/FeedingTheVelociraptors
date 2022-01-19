@@ -22,40 +22,12 @@ init:
             add "site/offices.png"
             imagebutton:
                 style "interacter"
-                auto "interactives/offices/%s/2.png"
-                if interact_mode:
-                    action [SetVariable("interact_mode",False),Jump('check_offices_2')]
-                else:
-                    sensitive False
-            imagebutton:
-                style "interacter"
-                if prog == 1:
-                    auto "interactives/offices/%s/3b.png"
-                else:
-                    auto "interactives/offices/%s/3a.png"
-                if interact_mode:
-                    action [SetVariable("interact_mode",False),Jump('check_offices_3')]
-                else:
-                    sensitive False
-            imagebutton:
-                style "interacter"
-                auto "interactives/offices/%s/4.png"
-                if interact_mode:
-                    action [SetVariable("interact_mode",False),Jump('check_offices_4')]
-                else:
-                    sensitive False
-            imagebutton:
-                style "interacter"
-                if prog == 0:
-                    auto "interactives/offices/%s/1a.png"
-                else:
-                    auto "interactives/offices/%s/1b.png"
+                auto "interactives/offices/%s/1.png"
                 if interact_mode:
                     action [SetVariable("interact_mode",False),Jump('check_offices_1')]
                 else:
                     sensitive False
-            if inferno:
-                add "interactives/offices/5.png"
+
 
 ## 2: Reception was Parlor/parlor
     screen sc_room_2():
@@ -81,7 +53,7 @@ init:
                     action [SetVariable("interact_mode",False),Jump('check_reception_2')]
                 else:
                     sensitive False
-            if not have_cash:
+            if not have_wadofcash:
                 imagebutton:
                     style "interacter"
                     auto "interactives/reception/%s/3.png"
@@ -300,5 +272,66 @@ init:
                     auto "interactives/securityroom/%s/3.png"
                     if interact_mode:
                         action [SetVariable("interact_mode",False),Jump('check_securityroom_3')]
+                    else:
+                        sensitive False
+## 9: Temporary version of the corridor for early scene
+    screen sc_room_9():
+        tag room_screen
+        layer "under_master"
+        use sc_room_frame():
+            add "site/corridor.png"
+            if tonyincorridor:
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/corridor/%s/temp.png"
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('temp_corridor')]
+                    else:
+                        sensitive False
+## 10: Raptor room
+    screen sc_room_10():
+        tag room_screen
+        layer "under_master"
+        use sc_room_frame():
+            add "site/raptorroom.png"
+            
+            if not kickedOut:
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/corridor/%s/temp.png" #!!fix!
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('raptorroom')]
+                    else:
+                        sensitive False
+            if raptorRoomAK:
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/raptorroom/%s/ak.png"
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('temp_corridor')]
+                    else:
+                        sensitive False
+            if raptorRoomGrenade:
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/raptorroom/%s/grenade.png"
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('temp_corridor')]
+                    else:
+                        sensitive False
+            if raptorRoomGrenadeNoPin:
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/raptorroom/%s/grenadenopin.png"
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('temp_corridor')]
+                    else:
+                        sensitive False
+            if raptorRoomWadOfCash:
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/raptorroom/wadofcash.png"
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('temp_corridor')]
                     else:
                         sensitive False

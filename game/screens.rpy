@@ -394,7 +394,7 @@ screen main_menu():
     #vbox:
       #  text _("Jam and the Mystery of the\nMysteriously Spooky Mansion") xanchor 0.5 xpos 340 ypos -30 size 50 outlines [(absolute(35),'#000',0,0)] color '#ffffff'
     vbox:
-       text _("A tale of noble sacrifice \n by Sazazezer") xanchor 0.5 ypos 950 xpos 970 size 28 outlines [(absolute(4),'#000',0,0)] color '#ffffff'
+       text _("A tale of noble sacrifice \n by Sazazezer \n workHate Inc") xanchor 0.5 ypos 950 xpos 970 size 28 outlines [(absolute(4),'#000',0,0)] color '#ffffff'
 style main_menu_frame is empty
 style main_menu_vbox is vbox
 style main_menu_text is gui_text
@@ -1153,7 +1153,7 @@ screen checklist():
                 text _("[[ ] Ending #02: ???") size 18 color "#888"
 
             if persistent.end_03:
-                text _("[[x] Ending #03: The Gutter of Depravity") size 18
+                text _("[[x] Ending #03: Definitely Adrian's fault") size 18
             else:
                 text _("[[ ] Ending #03: ???") size 18 color "#888"
 

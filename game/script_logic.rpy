@@ -10,6 +10,9 @@ label investistart:
     $ interact_mode = True
     ">>> Investigate the room with \[MOUSE\].\n>>> Change rooms with \[MAP\].{fast}"(advance=False)
 
+label forceroomrefresh:
+    $ refresh_location()
+
 label evi_tally:
     if evi_count == 1:
         j jneutral "Alright, that's one piece of evidence down."
@@ -91,8 +94,11 @@ label accusation:
     jump investistart
 
 label finale:
-    if "gnome" in evidence_selected and "knife" in evidence_selected:
-        $ route = _("3/16: The Gutter of Depravity")
+    #if "gnome" in evidence_selected and "knife" in evidence_selected:
+    #    $ route = _("3/16: The Gutter of Depravity")
+    #    jump route01
+    if "photo" in evidence_selected and "printout" in evidence_selected:
+        $ route = _("3/16: Definitely Adrian's fault") #!! maybe rephrase for the adrian forgery ending
         jump route01
     elif "gnome" in evidence_selected and "cash" in evidence_selected:
         $ route = _("2/16: Lucky Benny’s House of Gnomes")
@@ -146,7 +152,7 @@ label endcard:
     $ evidence_cue = False
     $ stuff_cue = False
 
-    if "gnome" in evidence_selected and "knife" in evidence_selected:
+    if "photo" in evidence_selected and "printout" in evidence_selected:
         $ persistent.end_03 = True
     elif "gnome" in evidence_selected and "cash" in evidence_selected:
         $ persistent.end_02 = True

@@ -1,23 +1,27 @@
 ## Alexandre
 label check_offices_1:
     if prog == 0:
-        t "So, it’s decided. PC has to die."
+        t "So, it’s decided. Paul has to die."
+        $ have_ak47 = True
+        $ have_grenade = True
+        $ location = 9
+        jump forceroomrefresh
         a "This is horrible. I can’t believe it’s come down to this."
         $ prog = 1
         h "It is the only remaining response. The raptors have swarmed the compound. The lockdown system will only be active for a few more hours." 
-        h "Communications are out. We have no defensive capabilities."
+        t "Communications are out. We have no defensive capabilities."
         a "Yeah but, what you’re suggesting is-"
-        j "Oh, can it. It’s their fault we’re in this mess in the first place. Who tries to deliver data reports by disabling the security fields and wandering over to the boss."
+        j "Oh, can it. It’s his fault we’re in this mess in the first place. Who tries to deliver data reports by disabling the security fields and wandering over to the boss."
         p phappy "Well no one now, considering how much blood isn’t in his body."
         j "If the raptors hadn’t eaten Todd, we might have been abe to get communications back online."
-        p "And if todd hadn’t been so delicious, then the Raptors probably wouldn’t have eaten him. Really, it’s his fault we’re in this mess."
-        h "Anywhere! The plan is clear. Once our route has been secured, PC will be thrown out through the back entrance of the building and left to fend for themselves." 
+        p "And if Todd hadn’t been so delicious, then the Raptors probably wouldn’t have eaten him. Really, it’s his fault we’re in this mess."
+        h "Anyway! The plan is clear. Once our route has been secured, Paul will be thrown out through the back entrance of the building and left to fend for themselves." 
         h "With the ensuring distraction, we will make our way to the helicopter in the parking lot."
         t "Heh, and you said me trying to validate my parking was ridiculous."
         h "People are still dead, Tony."
         t "Right… Sorry."
-        h "Now, i’m sure there may be a desperate desire to be selfish and do what we can to ensure that we stay alive. At the very least, recognise that Geoff must stay alive."
-        h "he is the only one here that can pilot a helicopter. None of us live without him."
+        h "Now, i’m sure there may be a desperate desire to be selfish and do what we can to ensure that we stay alive. At the very least, recognise that Tony must stay alive."
+        h "He is the only one here that can pilot a helicopter. None of us live without him."
         p "Pretty sure i don’t get to live at all."
         h "Nonsense. If the four of us successfully escape and you remain uneaten and manage to find a way into a part of the building that cannot be accessed by velociraptors,"
         h " then you are free to stay alive until the cleanup crew arrives to take care of this mess."
@@ -38,51 +42,19 @@ label check_offices_1:
         t "Donald didn’t get a chance."
         p "Donald was slower than me, and more susceptible to getting dirt thrown in his eyes. It was survival of the fittest out there."
         t "He was the only one of us armed and trained to fight those things and you shoved him into that tree first chance you got."
-        p "Oh please. If he was really trained and not just lying on his cv, shouldn’t he have been able to take out three turkey dinosaurs before they overwhelmed him?"
+        p "Oh please. If he was really trained and not just lying on his CV, shouldn’t he have been able to take out three turkey dinosaurs before they overwhelmed him?"
         j "Not with the dirt in his eyes."
-        a " Leilah. I really don’t think-"
+        a "Jenny. I really don’t think-"
         h "Oh. Fine. You have one hour. We need to prepare anyway."
         h "Don’t leave the building. Don’t turn lockdown off. If you come up with a better plan that lets all five of us survive, then we’ll hear it."
         t "You can’t be serious."
-        h "They’re no threat to us anyway, and we need the time. This is an administrative building. There’s nothing here of any use anyway. "
+        h "He's no threat to us anyway, and we need the time. This is an administrative building. There’s nothing here of any use anyway. "
         h "And if they do find something, it’s not like i’m against them coming with us."
         p "You sure there’s no way for me to leave the building."
         h "Jesus, no. And don’t even try. The lockdown field is the only thing keeping us alive."
         j "Go. You have one hour."
-        stop music fadeout 4.0
-
-        p "Well, this is a sticky little pickle i’ve gotten us into. How will i escape today?"
-        t "Oi."
-        p "Ah, helicopter man. Excellent. I knew you’d come around."
-        t "What?"
-        p "Why, we are the only true smart ones here. Come, let us escape together."
-        t "No. God no. What the hell is wrong with-"
-        t "Look, i just came out here to say. To be clear with you."
-        t "you’re going to be dead after this hour is up."
-        t "I’ve seen people in their final moments before. Unexpected. Not wanting to be there. It’s rarely the clean and noble death people want."
-        p "Sooo, you wanna swap."
-        t "Of course not. What i’m trying to say is, don’t use this hour to figure out some non-existant escape. "
-        t "Use it to find your peace. Most of the guys i used to work with would kill to know it’s their final hour on earth, rather than have it sneak up on them."
-        t "You’ve got one last opportunity here. Use it wisely."
-        p "… Understood. Got it."
-        t "Good. See you about in about an hour."
-        p "Oh you’ll see me, alright."
-        t "What was that?"
-        p "Nothing, commander. See you in an hour."
-        show mono empty
-        p ". . ."
-        p ". . ."
-        p "Welp, let’s get out of here. No way i’m dying today."
-        p "My horoscope mentioned nothing about it"
-        p "So, i basically have two options."
-        p "I need to either find an escape route for myself, or barring that, find a way to convince those wonderful people in there that i should go in the copter instead."
-        p "Possibly in place of Adrian."
-        p "Stupid receptionist. Expects me to laugh at his jokes every morning."
-        p "This shouldn’t be too difficult."
-        show mono empty
-        ">>> Explore the Administration building to find \[EQUIPMENT\] to escape.\n>>> Gather \[STUFF\] to solve problems that you may encounter.{fast}"
-        play music "FTV-A.wav"
-        $ prog = 2
+        $ location = 9
+        jump forceroomrefresh
     else:
         if evi_count > 1:
             if fire_count == 4:
@@ -91,8 +63,8 @@ label check_offices_1:
                 j janger "Anyway, let's wrap this up."
                 j jsmug "I know what you did, and I've got the evidence to prove it!"
             else:
-                j janger "Alrighty, time to wrap this up."
-                j jsmug "I know what you did, and I've got the evidence to prove it!"
+                p "Alrighty, time to wrap this up."
+                p "I know what you did, and I've got the evidence to prove it!"
             jump accusation
         else:
             if fire_count == 4:
@@ -125,69 +97,41 @@ label check_offices_1:
                 j jneutral "Nope."
     jump investistart
 
-label check_offices_2:
-    if prog == 0:
-        if unprog == 0:
-            $ unprog += 1
-            ">>> The lamp is on, providing the perfect lighting for a dramatic confrontation."
-        elif unprog == 1:
-            $ unprog += 1
-            ">>> By the light of the lamp, it's possible to discern a mysterious, masked man tied to a chair in the middle of the room."
-        else:
-            ">>> The lampshade is decorated with a faint print of prancing circus elephants."
-            ">>> If it wasn't already evident, there's also another, slightly more pressing elephant in the room . . ."
-        jump falsestart
-    else:
-        j jthink "It looks like this lamp's still using incandescent bulbs."
-        j jgrim "I guess there's technically nothing illegal about energy-inefficient appliances."
-        j jdoubt "But warm lighting with this color palette? That's got to be criminal."
-        jump investistart
-
-label check_offices_3:
-    if prog == 0:
-        if unprog == 0:
-            $ unprog += 1
-            ">>> An elaborate painting hangs on the wall behind the masked criminal."
-        elif unprog == 1:
-            $ unprog += 1
-            ">>> The painting depicts a mysterious man."
-            ">>> Speaking of mysterious men, there's one tied to a chair in the middle of the room."
-        else:
-            ">>> The painting looks very expensive."
-            ">>> It would be a terrible shame if, for instance, the painting were stolen because someone couldn't be bothered to deal with the very obvious burglar sitting right in front of it."
-        jump falsestart
-    else:
-        if not paint_talk:
-            $ paint_talk = True
-            j jthink "Nice painting. I bet it's worth an awful lot."
-            j janger "Wouldn't you agree, Badmann?"
-            a aneutral "For the last time, kid, I'm not here to steal anything!"
-            a adoubt "And besides, I know a reproduction painting when I see one, and I'm fairly confident you could buy that one for like ten bucks at IKEA."
-        else:
-            j jthink "Hmmm. On closer inspection, this painting does appear to be a Swedish reproduction."
-            j "You can tell from some of the brush strokes, and also the fact that no one ever took off the price tag."
-        jump investistart
-
-label check_offices_4:
-    if prog == 0:
-        if unprog == 0:
-            $ unprog += 1
-            ">>> A fire extinguisher sits on the dresser, but nothing seems to be on fire. {w}Yet."
-        elif unprog == 1:
-            $ unprog += 1
-            ">>> If anything were on fire, due to, say, a mysterious masked arsonist who's currently tied to a chair in the middle of the room, this would come in very handy."
-        else:
-            ">>> This sure would be a great time to set everything else aside and explore the hidden intricacies of the modern fire extinguisher."
-            ">>> After all, there's apparently nothing else of interest to investigate in this room."
-        jump falsestart
-    else:
-        if fire_count == 4:
-            $ route = "16/16: Housewarming Party"
-            jump secret_ending
-        else:
-            j jdoubt "Pretty sure a fire extinguisher is like the opposite of evidence."
-            j jneutral "Still, it's good to have one handy in a place like this. This house is probably even older than asbestos."
-            jump investistart
+label temp_corridor:
+    p "Well, this is a sticky little pickle i’ve gotten us into. How will i escape today?"
+    t "Oi."
+    p "Ah, helicopter man. Excellent. I knew you’d come around."
+    t "What?"
+    p "Why, we are the only true smart ones here. Come, let us escape together."
+    t "No. God no. What the hell is wrong with-"
+    t "Look, i just came out here to say. To be clear with you."
+    t "you’re going to be dead after this hour is up."
+    t "I’ve seen people in their final moments before. Unexpected. Not wanting to be there. It’s rarely the clean and noble death people want."
+    p "Sooo, you wanna swap?"
+    t "..."
+    t " What i’m trying to say is, don’t use this hour to figure out some non-existant escape. "
+    t "Use it to find your peace. Most of the guys i used to work with would kill to know it’s their final hour on earth, rather than have it sneak up on them."
+    t "You’ve got one last opportunity here. Use it wisely."
+    p "… Understood. Got it."
+    t "Good. See you about in about an hour."
+    p "Oh you’ll see me, alright."
+    t "What was that?"
+    p "Nothing, commander. See you in an hour."
+    $ tonyincorridor = False
+    p ". . ."
+    p ". . ."
+    p "Welp, let’s get out of here. No way i’m dying today."
+    p "My horoscope mentioned nothing about it"
+    p "So, i basically have two options."
+    p "I need to either find an escape route for myself, or barring that, find a way to convince those wonderful people in there that i should go in the copter instead."
+    p "Possibly in place of Adrian."
+    p "Stupid receptionist. Expects me to laugh at his jokes every morning."
+    p "So, let's find me some incriminating evidence to pass the role of bait onto someone else. Shouldn’t be too difficult."
+    show mono empty
+    ">>> Explore the Administration building to find \[EVIDENCE\] to switch with another passenger.\n>>> Gather \[STUFF\] to solve problems that you may encounter.{fast}"
+    play music "FTV-A.wav"
+    $ prog = 2
+    jump investistart
 
 label check_reception_1:
     if desk_check == 0:
@@ -213,56 +157,63 @@ label check_reception_1:
         p "A photo of his wife and kids."
         p "A personal item? Just out of sight of anyone coming by, as if to hide his crimes against the company."
         p "I think i might have to take this."
+        show screen sc_evidence_pane
+        $ ev_bo = True
         $ have_photo = True
+        $ evi_count += 1
         jump investistart
 
 label check_reception_2:
-    p "Yup. that is one locked filing cabinet."
     p "Yup. that is one locked filing cabinet."
     p "Not getting in there anytime soon."
     p "Certain not with any tools."
     p "That i might happen to find."
     p "Certainly not a crowbar or anything."
+    p "Though to speed up game testing, let's say i found a personal printout here, which incriminates Adrian for certain."
+    show screen sc_evidence_pane
+    $ ev_bo = True
+    $ have_printout = True
+    $ evi_count += 1
     jump investistart
 
 label check_reception_3:
     if receptionDoorsCheck == 0:
-    p "A beautiful garden… erm… front entryway thing."
-    p "You know, the things that they have in front of businessey buildings"
-    p "With grass and seats and fountains."
-    p "To make the corporate world seem more in tune with nature."
-    p "They probably have a term. I should ask somebody."
-    p "It feels like it’s one of those things that everyone sort of knows, but it escapes your mind when you’re trying to think of it."
-    p "But yeah, basically one of those."
-    p "Oh, and there are four velociraptors on the lawn parts."
-    $ receptionDoorsCheck = 1
-    jump investistart
+        p "A beautiful garden… erm… front entryway thing."
+        p "You know, the things that they have in front of businessey buildings"
+        p "With grass and seats and fountains."
+        p "To make the corporate world seem more in tune with nature."
+        p "They probably have a term. I should ask somebody."
+        p "It feels like it’s one of those things that everyone sort of knows, but it escapes your mind when you’re trying to think of it."
+        p "But yeah, basically one of those."
+        p "Oh, and there are four velociraptors on the lawn parts."
+        $ receptionDoorsCheck = 1
+        jump investistart
 
     if receptionDoorsCheck == 1:
-    p "Well, they’ve stopped scratching at the force field now."
-    p "They’ve probably realised that bone nails aren’t going to do a thing against magical electrical barriers."
-    p "Though luckily for them they won’t have to worry about that for much longer."
-    p "God they look stupid."
-    p "We’ll have historically accurate dinosaurs. Our park will be ‘more correct’."
-    p "Who wants feathers on a velociraptor?"
-    p "Ruins the brutal mystique."
-    p "I’m certain that’s what Todd was thinking as they were eating him."
-    p "Cretasious corners."
-    p "Yep, that’s the name of the park"
-    p "I get the feeling Triassic Tark would have just been too obvious."
-    p "Richard Hammand would have definitely come swooping down on his Pteradactyl if we had done that."
-    p "This is just enough off the mark though."
-    p "It uses trademark theft juuuuust right."
-    jump investistart
+        p "Well, they’ve stopped scratching at the force field now."
+        p "They’ve probably realised that bone nails aren’t going to do a thing against magical electrical barriers."
+        p "Though luckily for them they won’t have to worry about that for much longer."
+        p "God they look stupid."
+        p "We’ll have historically accurate dinosaurs. Our park will be ‘more correct’."
+        p "Who wants feathers on a velociraptor?"
+        p "Ruins the brutal mystique."
+        p "I’m certain that’s what Todd was thinking as they were eating him."
+        p "Cretasious corners."
+        p "Yep, that’s the name of the park"
+        p "I get the feeling Triassic Tark would have just been too obvious."
+        p "Richard Hammand would have definitely come swooping down on his Pteradactyl if we had done that."
+        p "This is just enough off the mark though."
+        p "It uses trademark theft juuuuust right."
+        jump investistart
 
-    if westTowerQuest == 1
-    p "So, getting to the Tower and back will get Helen to swap me ou with Adrian."
-    p "That’s definitely what i heard her say."
-    p "But, not only are they’re Raptors and a five hundred meter heavy jog involved, but also that pesky force field."
-    p "I won’t be able to get through that just as much as those raptors can’t get in."
-    p "I’m going to need to find a way around it."
-    $ westTowerQuest = 2
-    jump investistart
+    if westTowerQuest == 1:
+        p "So, getting to the Tower and back will get Helen to swap me ou with Adrian."
+        p "That’s definitely what i heard her say."
+        p "But, not only are they’re Raptors and a five hundred meter heavy jog involved, but also that pesky force field."
+        p "I won’t be able to get through that just as much as those raptors can’t get in."
+        p "I’m going to need to find a way around it."
+        $ westTowerQuest = 2
+        jump investistart
 
 
 ## corridor ##

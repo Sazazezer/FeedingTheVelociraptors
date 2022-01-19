@@ -1,28 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script_interacts.rpy", line 193, in script
-    if desk_check == 0:
-  File "game/script_interacts.rpy", line 193, in <module>
-    if desk_check == 0:
-NameError: name 'desk_check' is not defined
+  File "game/end_scripts.rpy", line 33, in script
+    P "Well. Go play catch."
+Exception: Sayer 'P' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script_interacts.rpy", line 193, in script
-    if desk_check == 0:
-  File "renpy/ast.py", line 1892, in execute
-    if renpy.python.py_eval(condition):
-  File "renpy/python.py", line 2249, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "renpy/python.py", line 2242, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script_interacts.rpy", line 193, in <module>
-    if desk_check == 0:
-NameError: name 'desk_check' is not defined
+  File "game/end_scripts.rpy", line 33, in script
+    P "Well. Go play catch."
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ast.py", line 676, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ast.py", line 574, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who.encode("utf-8"))
+Exception: Sayer 'P' is not defined.
 
-Windows-10-10.0.17134
-Ren'Py 7.4.6.1693
+Windows-8-6.2.9200
+Ren'Py 7.3.2.320
 Jam and the Mystery of the Mysteriously Spooky Mansion 1.2
-Tue Aug 24 15:17:40 2021
+Wed Jan 19 16:27:40 2022

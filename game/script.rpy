@@ -188,7 +188,7 @@ init:
                                     action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"gnome"),Jump("finale")]
                             else:
                                 action NullAction()
-                if have_cash:
+                if have_wadofcash:
                     imagebutton:
                         hover_sound "button_hover.wav"
                         focus_mask True
@@ -288,7 +288,56 @@ init:
                                     action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"jaw"),Jump("finale")]
                             else:
                                 action NullAction()
+                if have_photo:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        hovered NullAction()
 
+                        alt _("Human Photo?")
+                        tooltip _("Human Photo?")
+
+                        if "photo" in evidence_selected:
+                            idle "evidence/photo_select.png"
+                            if evidence_cue:
+                                action Function(evidence_selected.remove,"photo")
+                            else:
+                                action NullAction()
+                        else:
+                            idle "evidence/photo.png"
+                            if evidence_cue:
+                                activate_sound "button_select.wav"
+                                if len(evidence_selected) == 0:
+                                    action Function(evidence_selected.append,"photo")
+                                else:
+                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"photo"),Jump("finale")]
+                            else:
+                                action NullAction()
+                if have_printout:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        hovered NullAction()
+
+                        alt _("Printout?")
+                        tooltip _("Printout?")
+
+                        if "printout" in evidence_selected:
+                            idle "evidence/printout_select.png"
+                            if evidence_cue:
+                                action Function(evidence_selected.remove,"printout")
+                            else:
+                                action NullAction()
+                        else:
+                            idle "evidence/printout.png"
+                            if evidence_cue:
+                                activate_sound "button_select.wav"
+                                if len(evidence_selected) == 0:
+                                    action Function(evidence_selected.append,"printout")
+                                else:
+                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"printout"),Jump("finale")]
+                            else:
+                                action NullAction()
     screen sc_stuff_pane():
         zorder 2
         tag rightpane
@@ -350,18 +399,18 @@ init:
                             action [SetVariable("stuff_selected","ruler"),SetVariable("stuff_cue",False),Jump("stuff_check")]
                         else:
                             action NullAction()
-                if have_photo:
+                if have_printout:
                     imagebutton:
                         hover_sound "button_hover.wav"
                         focus_mask True
-                        idle "stuff/photo.png"
-                        tooltip _("Adrian's Photo")
+                        idle "stuff/printout.png"
+                        tooltip _("Adrian's PrintOut")
                         alt _("Adrian's Photo")
                         if stuff_cue:
                             activate_sound "button_select.wav"
                             action [SetVariable("stuff_selected","key"),SetVariable("stuff_cue",False),Jump("stuff_check")]
                         else:
-                            action NullAction()
+                            action NullAction()                
                 if have_mask:
                     imagebutton:
                         hover_sound "button_hover.wav"
@@ -689,6 +738,7 @@ define a = Character(_('ADRIAN'), image='mono', what_prefix='"', what_suffix='"'
 define h = Character(_('HELEN'), image='mono', what_prefix='"', what_suffix='"', color='#ffffff')
 define t = Character(_('TONY'), image='mono', what_prefix='"', what_suffix='"', color='#ffffff')
 define j = Character(_('JENNY'), image='mono', what_prefix='"', what_suffix='"', color='#ffffff')
+define r = Character(_('RAPTOR'), image='mono', what_prefix='"', what_suffix='"', color='#ffffff')
 
 
 
@@ -704,7 +754,7 @@ image billy:
 label start:
 ## Location variables
     $ location = 1
-    $ location_index = [_("Outside"),_("Offices"),_("Reception"),_("Corridor"),_("Ceo"),_("Bunks"),_("Toilet"),_("Staff Room"),_("Security Room")]
+    $ location_index = [_("Outside"),_("Offices"),_("Reception"),_("Corridor"),_("Ceo"),_("Bunks"),_("Toilet"),_("Staff Room"),_("Security Room"),_("Temp Corridor"),("Outside")]
 
 ## Bool for whether the right pane is Evidence or Stuff
     $ ev_bo = True
@@ -724,7 +774,7 @@ label start:
     $ have_knife = False
     $ have_gnome = False
     $ have_jaw = False
-    $ have_cash = False
+    $ have_wadofcash = False
     $ have_fish = False
     $ have_note = False
 
@@ -736,6 +786,10 @@ label start:
     $ have_key = False
 
     $ have_photo = False
+    $ have_printout = False
+    $ have_ak47 = False
+    $ have_grenade = False
+    $ have_poop = False
 
 ## Other stuff
     $ evi_count = 0
@@ -749,6 +803,12 @@ label start:
     $ desk_check = 0
     $ receptionDoorsCheck = 0
     $ westTowerQuest = 0
+    $ tonyincorridor = True
+    $ raptorRoomAK = False
+    $ raptorRoomGrenade = False
+    $ raptorRoomGrenadeNoPin = False
+    $ raptorRoomWadOfCash = False
+    $ kickedOut = False
     # Pertaining to this and that
     $ used_mask = False
     $ paint_talk = False
