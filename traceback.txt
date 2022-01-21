@@ -1,22 +1,77 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/end_scripts.rpy", line 33, in script
-    P "Well. Go play catch."
-Exception: Sayer 'P' is not defined.
+  File "game/script_logic.rpy", line 7, in script
+    $ refresh_location()
+  File "game/script_logic.rpy", line 7, in <module>
+    $ refresh_location()
+  File "game/script.rpy", line 35, in refresh_location
+    renpy.show_screen("sc_room_"+str(location))
+  File "game/script_room_screens.rpy", line 33, in execute
+    screen sc_room_2():
+  File "game/script_room_screens.rpy", line 33, in execute
+    screen sc_room_2():
+  File "game/script_room_screens.rpy", line 36, in execute
+    use sc_room_frame():
+  File "game/script_room_screens.rpy", line 2, in execute
+    screen sc_room_frame():
+  File "game/script_room_screens.rpy", line 2, in execute
+    screen sc_room_frame():
+  File "game/script_room_screens.rpy", line 5, in execute
+    viewport:
+  File "game/script_room_screens.rpy", line 8, in execute
+    transclude
+  File "game/script_room_screens.rpy", line 36, in execute
+    use sc_room_frame():
+  File "game/script_room_screens.rpy", line 38, in execute
+    if lookOutsideReception:
+NameError: name 'lookOutsideReception' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/end_scripts.rpy", line 33, in script
-    P "Well. Go play catch."
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ast.py", line 676, in execute
-    who = eval_who(self.who, self.who_fast)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ast.py", line 574, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who.encode("utf-8"))
-Exception: Sayer 'P' is not defined.
+  File "game/script_logic.rpy", line 7, in script
+    $ refresh_location()
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ast.py", line 912, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\python.py", line 2004, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/script_logic.rpy", line 7, in <module>
+    $ refresh_location()
+  File "game/script.rpy", line 35, in refresh_location
+    renpy.show_screen("sc_room_"+str(location))
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\screen.py", line 1125, in show_screen
+    sls.add(_layer, d, _tag, zorder=_zorder, transient=_transient, keep_st=True, name=name)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 1087, in add
+    self.hide_or_replace(layer, remove_index, "replaced")
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 1108, in hide_or_replace
+    if not oldsle.displayable._handles_event(prefix):
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\screen.py", line 473, in _handles_event
+    self.update()
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\screen.py", line 625, in update
+    self.screen.function(**self.scope)
+  File "game/script_room_screens.rpy", line 33, in execute
+    screen sc_room_2():
+  File "game/script_room_screens.rpy", line 33, in execute
+    screen sc_room_2():
+  File "game/script_room_screens.rpy", line 36, in execute
+    use sc_room_frame():
+  File "game/script_room_screens.rpy", line 2, in execute
+    screen sc_room_frame():
+  File "game/script_room_screens.rpy", line 2, in execute
+    screen sc_room_frame():
+  File "game/script_room_screens.rpy", line 5, in execute
+    viewport:
+  File "game/script_room_screens.rpy", line 8, in execute
+    transclude
+  File "game/script_room_screens.rpy", line 36, in execute
+    use sc_room_frame():
+  File "game/script_room_screens.rpy", line 38, in execute
+    if lookOutsideReception:
+  File "<screen language>", line 38, in <module>
+NameError: name 'lookOutsideReception' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 7.3.2.320
 Jam and the Mystery of the Mysteriously Spooky Mansion 1.2
-Wed Jan 19 16:27:40 2022
+Fri Jan 21 16:55:31 2022

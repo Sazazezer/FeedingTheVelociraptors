@@ -15,27 +15,34 @@ label forceroomrefresh:
 
 label evi_tally:
     if evi_count == 1:
-        j jneutral "Alright, that's one piece of evidence down."
-        j jthink "I think I should get at least one more before I go and confront Alexandre."
+        p "I'm no fool though."
+        p "I know i need at least two pieces of watertight evidence in order to pin this on someone."
+        p "And one piece is all leaky and stuff."
     elif evi_count == 2:
-        j jneutral "Anyway, that makes two pieces of evidence."
-        j jsmug "I should be able to figure out what Alexandre's up to with this."
-        j jthink "Still, maybe gathering a little more evidence could be useful?"
-    elif evi_count == 6:
-        j jthink "Now, let's see . . ."
-        j jneutral "Wow, that's six pieces of evidence!"
-        j jdoubt "I seriously doubt there's anything else useful left in this trash heap."
-        j jneutral "Better go confront Alexandre and get it done with."
+        p "Excellent. Two pieces of evidence."
+        p "That's more than enough to make some kind of accusation."
+        p "I could always look for more though."
+        p "Maybe make the accusation valid."
+    elif evi_count == 8:
+        p "I can safetly say with absolute certainly..."
+        p "Almost s if the god of this world was speaking through me..."
+        p "That all the evidence has definitely been found."
+        p "That being said..."
+        p "There's more than one way to obtain evidence beyond merely 'finding' it."
+        p "Heh heh heh."
+        p "I wonder why i don't have any friends."
+    elif evi_count == 10:
+        p "And with that-"
+        p "I must definitely have all the evidence i would ever need."
+        p "There definitely can't be anymore."
+        p "For one, the box to the right of me is all filled up."
+        p "Guess i better go finish this."
     jump investistart
 
 label fire_tally:
     if fire_count == 4:
-        j jdoubt "Wait, what's that smell?"
-        j "Is it just me, or is it starting to get kinda smoky in here?"
-        j jthink "What a mysterious phenomenon . . ."
-        j ". . ."
-        j jgrim "Okay, in hindsight, maybe not that mysterious."
-        j "Guess I'd better go find that fire extinguisher . . ."
+        p "Will fire exist in this game."
+        p "Find out on the next episode of Feeding the raptors Z"
         jump investistart
     else:
         jump investistart
@@ -69,9 +76,11 @@ label stuff_check:
         $ renpy.jump(jamp_3)
     else:
         if interacting_with == "check_lounge_1":
-            j jterror "oh god i don't think that's gonna work"
+            p "This is a special option that MAtt forgot to set."
         else:
-            j jgrim "I don't think that's gonna work."
+            p "That's probably not right."
+            p "Maybe if i smoosh them together."
+            p "Nope. Not right."
         jump stuff_prompt
 
 ## Evidence prompt
@@ -88,9 +97,10 @@ label accusation:
     $ evidence_cue = False
     $ evidence_selected = []
 
-    j jthink "Hmmm. Actually, I'm gonna need another minute."
-    a aalarm "Wait! Don't just leave me here!"
-
+    p "Ah, i don't think i'm quite ready yet."
+    p "So… i guess i should sneak back out of the room before anyone asks what i’m dong back here again?"
+    t "You do realise we can all hear you right?"
+    p "NO YOU CAN’T!"
     jump investistart
 
 label finale:

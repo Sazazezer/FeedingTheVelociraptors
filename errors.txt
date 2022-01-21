@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script_room_screens.rpy", line 298: Line is indented, but the preceding add statement does not expect a block. Please check this line's indentation.
-    imagebutton:
+File "game/script_interacts.rpy", line 383: Line is indented, but the preceding jump statement statement does not expect a block. Please check this line's indentation.
+    label .req1: 
     ^
 
 Ren'Py Version: Ren'Py 7.3.2.320
-Wed Jan 19 16:04:29 2022
+Fri Jan 21 15:12:03 2022

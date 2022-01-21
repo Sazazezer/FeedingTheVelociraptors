@@ -809,6 +809,9 @@ label start:
     $ raptorRoomGrenadeNoPin = False
     $ raptorRoomWadOfCash = False
     $ kickedOut = False
+    $ filingCabinetOpen = False
+    $ playWithGrenade = 0
+    $ lookOutsideReception = False
     # Pertaining to this and that
     $ used_mask = False
     $ paint_talk = False

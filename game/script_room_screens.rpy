@@ -63,6 +63,14 @@ init:
                         sensitive False
             if siggy:
                 add "interactives/reception/2c.png"
+            if lookOutsideReception:
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/reception/%s/4.png"
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_reception_1')]
+                    else:
+                        sensitive False
 
 ## 3: Corridor was Study / study
     screen sc_room_3():
@@ -151,34 +159,11 @@ init:
                     action [SetVariable("interact_mode",False),Jump('check_bunks_2')]
                 else:
                     sensitive False
-            if clown_down:
-                imagebutton:
+            imagebutton:
                     style "interacter"
-                    auto "interactives/bunks/%s/3d.png"
+                    auto "interactives/bunks/%s/3.png"
                     if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_bunks_3d')]
-                    else:
-                        sensitive False
-            else:
-                imagebutton:
-                    style "interacter"
-                    auto "interactives/bunks/%s/3a.png"
-                    if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_bunks_3a')]
-                    else:
-                        sensitive False
-                imagebutton:
-                    style "interacter"
-                    auto "interactives/bunks/%s/3b.png"
-                    if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_bunks_3b')]
-                    else:
-                        sensitive False
-                imagebutton:
-                    style "interacter"
-                    auto "interactives/bunks/%s/3c.png"
-                    if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_bunks_3c')]
+                        action [SetVariable("interact_mode",False),Jump('check_bunks_3')]
                     else:
                         sensitive False
 
@@ -202,10 +187,7 @@ init:
                     action [SetVariable("interact_mode",False),Jump('check_toilet_1')]
                 else:
                     sensitive False
-            if cake_bake:
-                add "interactives/toilet/1b.png"
-            if not cake_prep:
-                imagebutton:
+            imagebutton:
                     style "interacter"
                     auto "interactives/toilet/%s/3.png"
                     if interact_mode:

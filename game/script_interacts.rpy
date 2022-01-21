@@ -63,8 +63,9 @@ label check_offices_1:
                 j janger "Anyway, let's wrap this up."
                 j jsmug "I know what you did, and I've got the evidence to prove it!"
             else:
-                p "Alrighty, time to wrap this up."
-                p "I know what you did, and I've got the evidence to prove it!"
+                p "Well. I think i’m good to go."
+                p "The crowd has gathered. Is it time for me to present the evidence that i have so painstakingly uncovered?"
+
             jump accusation
         else:
             if fire_count == 4:
@@ -133,7 +134,8 @@ label temp_corridor:
     $ prog = 2
     jump investistart
 
-label check_reception_1:
+label check_reception_1: #desk
+    #!!checking three times is kind of meh, need to fix
     if desk_check == 0:
         p "Adrian’s desk is here. God he ticks me off."
         p "It’s not so much his stupid face as it is the eyes, nose, nose and ears that belong on it"
@@ -161,20 +163,43 @@ label check_reception_1:
         $ ev_bo = True
         $ have_photo = True
         $ evi_count += 1
-        jump investistart
+        jump evi_tally
 
-label check_reception_2:
-    p "Yup. that is one locked filing cabinet."
-    p "Not getting in there anytime soon."
-    p "Certain not with any tools."
-    p "That i might happen to find."
-    p "Certainly not a crowbar or anything."
-    p "Though to speed up game testing, let's say i found a personal printout here, which incriminates Adrian for certain."
-    show screen sc_evidence_pane
-    $ ev_bo = True
-    $ have_printout = True
-    $ evi_count += 1
-    jump investistart
+label check_reception_2: #filing cabinet
+    if not filingCabinetOpen:
+        p "Yup. that is one locked filing cabinet."
+        p "Not getting in there anytime soon."
+        p "Certain not with any tools."
+        p "That i might happen to find."
+        p "Certainly not a crowbar or anything."
+        $ interacting_with = "check_reception_2"
+        $ req = ["crowbar,grenade"]
+        jump stuff_prompt
+        label .req1:  
+            p "Huh, whaddya know."
+            p "This locker was-"
+            p "This locker-"
+            p "Hold on."
+            $ filingCabinetOpen = true
+            #!!Add broken loker as 2b
+            p "This filing cabinet was open the entire time."
+            p "And what's this?"
+            p "Tickets?"
+            P "For some kind of personal event."
+            p "Oh, Adrian."
+            p "You should not be using the company printer for this kind of thing."
+            p "Methinks this could work against you in a court of your peers."
+            show screen sc_evidence_pane
+            $ ev_bo = True
+            $ have_printout = True
+            $ evi_count += 1
+            jump evi_tally
+        label .req2:
+            jump play_with_grenade
+    else:
+        p "The Cabinet has been searched and returned back to its original state."
+        jump investistart
+        #!!need broken cabinet image
 
 label check_reception_3:
     if receptionDoorsCheck == 0:
@@ -185,7 +210,10 @@ label check_reception_3:
         p "They probably have a term. I should ask somebody."
         p "It feels like it’s one of those things that everyone sort of knows, but it escapes your mind when you’re trying to think of it."
         p "But yeah, basically one of those."
+        $ lookOutsideReception = True
         p "Oh, and there are four velociraptors on the lawn parts."
+        #!!Fix colouring issue
+        $ lookOutsideReception = False
         $ receptionDoorsCheck = 1
         jump investistart
 
@@ -215,476 +243,183 @@ label check_reception_3:
         $ westTowerQuest = 2
         jump investistart
 
+        $ interacting_with = "check_reception_2"
+        $ req = ["ak47, grenade"]
+        jump stuff_prompt
+        label .req1:  
+            p "Wait."
+            p "Thinking about it…"
+            p "Rationally and logically of course."
+            p "RatioLogically, you could say."
+            p "What if i were touse this gun"
+            p "To make the bullets located in the clip of the gun"
+            p "Travel really fast."
+            p "Into the raptor."
+            p "Why that’s just crazy enough to work."
+            p "I mean, there’s more than one raptor, but if i start with this one."
+            p "And work my way up."
+            p "Or across i guess."
+            p "Unless some are on a hill."
+            p "Then the bullets could deal with the raptors for me."
+            p "Yeah."
+            p "YEAH!"
+            p "Let’s do this."
+            p "Now. I’ve never used a gun before."
+            p "But i have played plenty of videogames."
+            p "But i’m not stupid enough to think that gameplay transitions perfectly into reality."
+            p "It will only mostly transition."
+            p "So, there should be a safety on the gun."
+            p "Make sure that’s turned off."
+            p "Don’t wantthe raptors to be safe now. Do we?"
+            p "Ha ha ha."
+            p "Next. Make sure the clips in."
+            p "Yep. That’s definitely a clip containing bullets."
+            p "Then… i think i need to cock the gun."
+            p "Movies do that all the time right?"
+            p "But sometimes they don’t."
+            p "Does a gun always need cocking."
+            p "Well, i’ll guess i’ll just cock it anyway."
+            p "Then it;ll be doubly loaded."
+            p "Then next i guess i just point and shoot"
+            #!!BANGBANGBANGBANG"
+            #!!(scene o raptor looking from outside the force field, completely unhardmed, from a position that makes it clearly Paul is on the floor. Dying.)"
+            p "So… something went wrong."
+            p "Painfully wrong in fact."
+            p "Oh this hurts so much."
+            p "Not sure what it cold have been."
+            p "Unless bullets can’t travel thrugh the force field."
+            p "Video games may have failed me this time."
+            p "No. It got be video games fault i have a gun. That’s just passing the blame."
+            p "Well, with nay luck someone wold have heard the gunshot and be coming to help me out."
+            p "I’m sure tat’s a thing that’s about to happen."
+            p "You just waitthere, mister Raptor. You’ll get your commupance soon."
+        label .req2:
+            jump play_with_grenade
 
 ## corridor ##
 label check_corridor_1:
-    alt "The bust stares eerily at Jam."
-    j jdoubt "Billy S. . . ."
-    j jgrim "No idea who this chump is, but he's got some seriously creepy eyes."
-    j "It's like they can follow you around the room."
-
-    $ interacting_with = "check_corridor_1"
-    $ req = ["gun","mask","key"]
-    jump stuff_prompt
-
-    label .req1:
-        j jgun "Probably not the best idea."
-        j jgun "But I mean, I can't say I'm not tempted."
-        jump investistart
-    label .req2:
-        alt "Jam dons the horse mask."
-        j jmask "Hey, you."
-        j "Yeah, you there, Billy. You lookin' at me? Huh?"
-        j "What's that? No? Yeah, I didn't think so!"
-        j "Better watch yourself, punk. I've got my upsettingly detailed eye on you."
-        jump investistart
-    label .req3:
-        j jthink "Maybe this statue's got some kinda secret mechanism in it?"
-        j jsmug "And if that's the case, there must be a way to activate it."
-        j jthink "Maybe if I use this key . . ."
-        j jgrim "Kinda hard to fit it up his nose, though."
-        jump investistart
-label check_corridor_2:
-    j jsurprise "Ooh, what's this? A mysterious letter?"
-    j jsmug "I bet it's full of all kinds of dirt on Badmann!"
-    show mono jthink
-    "The concludent statement of Dee Kieller:"
-    "As this rubescent haze essipates from abouts my consciousness, in most total clarity do I revisit those actions which over the preceding month I did peragitate."
-    "This house—how it reeks of that most sanguinous humor! And so too my sullied, sullied hands, which did that humor spill!"
-    "He and I thought ourselves bold, but that facade crumbled like ash before that timendous horror that from out mine floor did emerge."
-    "To merely witness it rising from the circle would, itself, percuss the brain to insensibility."
-    show mono jneutral
-    "It is best not to think of such things."
-    "The deed is done, and undone can it not be, yet these words assuage my woe little."
-    "That vitessence which from mine friend I reapt that I might invoke the demon—how glad would I be to have it back, and the demon perlineated from this earth!"
-    "I was mad, then. So too was he."
-    show mono jgrim
-    "And now, of him, only his lone mandible remains."
-    "As for that demon, I have sealed its essence within the lawn statuary, and transpaled its corporeal form upon my harpooning gun."
-    "Still does it stand, as though a corpus lifelorn."
-    "But full well I know that comely Death desires as little to do with the demon as I."
-    "And oh! the worms—the worms that out from its immaculate corpse do wriggle and breem!"
-    "The worms!"
-    "The WORMS!"
-    "I am but a festering rind of cheese swollen to bursting with worms!"
-    "Their bloodravenous susurrations churn the rancid milk of my soul!"
-    "The writhing! The gnawing! The boundless hunger!"
-    "Even now, I can feel their corpulent bodies crawling within my teeth{nw}"
-    j janger "BORING!"
-    j jdoubt "I could barely even read most of that."
-    j jneutral "But whatever it said, I'm pretty sure it has nothing to do with the crimes that Badmann definitely committed here."
+    p "Nothing special here. Just the corridor to the upstairs."
+    p "I mean, i still say it’s the perfect place for a little indoor baseball r bowling."
+    p "But the othrs disagree."
+    p "Something about projectiles in a small corridor and the frajility of the human skull."
+    p "It’s not my fault they hire cleaning ladies."
+    p "And of course the top of stairs is where you should place the pins. "
+    p "The balls meant to roll down into the gutter after it’s done its job."
+    p "This corridor’s kind of slopey anyway.. It’s like it was made for this."
     jump investistart
 
-label check_corridor_3:
-    j jsurprise "A locked box!"
-    j jsmug "Narrative convention dictates that it's gotta be full of treasure, or at least an important bit of evidence."
-    j jthink "But how to open it . . ."
+label check_corridor_2:
+    p "A standard issue fire extinguisher."
+    p "This one’s the electrical fire one."
+    p "So it’s a cloud of crap rather than foam or water."
+    p "No need to take this with me."
+    p "Normally when i start fires other people sort it out for me."
+    p "Plus it’s heavy."
+    p "I should only get this if it’s absolutely necessary."
+    jump investistart
 
-    $ interacting_with = "check_corridor_3"
-    $ req = ["key","book","gun"]
-    jump stuff_prompt
-
-    label .req1:
-        j jneutral "I guess a key would probably make the most sense."
-        j ". . . and it's open!"
-        show screen sc_evidence_pane
-        $ ev_bo = True
-        $ have_knife = True
-        $ evi_count += 1
-        j jalarm "A bloodstained knife!"
-        j jthink "There's like a zero-percent chance this baby wasn't involved in some crime or another."
-        j "Not really sure what crime, but I can work it out as I go."
-        jump evi_tally
-    label .req2:
-        j jthink "Maybe—just maybe—this box is actually locked . . ."
-        j jneutral ". . . in metric."
-        j jthink "Let's see . . . If you carry the nine, and follow PEMDAS . . ."
-        j ". . . . . ."
-        j jgrim "Nope, still locked."
-        j "Maybe if I tried radians . . ."
-        jump stuff_prompt
-    label .req3:
-        j jgun "I could try unlocking it with the gun, I suppose."
-        j jgrim "Though a bobby pin would be a lot easier to fit into the tumbler."
-        jump stuff_prompt
 
 ## ceo ##
 label check_ceo_1:
-    j jsurprise "Why, who's that supremely graceful and astute supersleuth in the mirror?"
-    j "Could it be . . ."
-    j jsmug ". . . Jam, the world's greatest kid detective between the ages of 4 and 17 in the western half of Linn County?"
-    j jneutral "Oh, I'm ever so busy solving crimes; I couldn't possibly stop to pose for the cover of the Nancy Drew Review."
-    j jsmug "Okay, maybe just this once."
-
-    $ interacting_with = "check_ceo_1"
-    $ req = ["mask","book","gun"]
-    jump stuff_prompt
-
-    label .req1:
-        j jneutral "Please, just a moment while I put on something more suitable."
-        alt "Jam puts on the mask."
-        j jmask ". {w}. {w}."
-        j ". . . Why did I think this was a good idea?"
-        jump investistart
-    label .req2:
-        j jthink "Maybe I should be holding a book, to showcase my thoughtful, meticulous side?"
-        j "Just casually brushing up on the metric system, you know."
-        j "Been measuring some Kelvins lately. Doin' some hec—some hecta—uh, heckometers."
-        j "Why yes, I do use the 24-hour clock. How did you know?"
-        jump investistart
-    label .req3:
-        j jgun "It's a dark and stormy night in the city, and a mysterious figure is prowling the streets with a gun in hand . . ."
-        j "That's right . . ."
-        j jsmug "Jam the world's greatest adult detective above the age of 18 in the western half of Linn County is on the case!"
-        j jsurprise "Taller than two kids in a trenchcoat, and infinitely more capable of voting in state and federal elections!"
-        j jsmug "And of course, legally allowed to say cusses."
-        j jneutral "Sh . . ."
-        j "Shi . . ."
-        j "S . . .{w} on of a heck."
-        j jgrim "Well, maybe give it 1–14 years . . ."
-        jump investistart
-label check_ceo_2:
-    j jthink "Is there something in the tub?"
-    j "Let's see . . ."
-    show screen sc_stuff_pane
-    $ ev_bo = False
-    $ have_mask = True
-    alt "Jam retrieves an upsettingly detailed horse mask from the tub."
-    j jdoubt "Oh."
-    j "Oh god."
-    j "I don't want this."
-    j "I don't think anyone has ever wanted this."
+    p "This was the Boss’s office."
+    p "It still is, technically."
+    p "Were i to throw his body in here, he would technically be doing just as much work as he were when he was alive."
+    p "I know i shouldn’t gripe. It was him who got me this job."
+    p "Leaving me trapped here with a bunch of predators who are intent in seeing my flesh flayed from my bones."
+    p "Not to mention the whole raptor problem."
     jump investistart
 
-label check_ceo_3:
-    if have_jaw:
-        j jdoubt "Pretty sure I don't need to be rummaging around in this trash fire again."
-        jump investistart
-    else:
-        if trash_fire:
-            j jdoubt "Well, that's pretty soundly on fire."
-            j jsurprise "Ooh! And it looks like there's something in there after all!"
-            j jgrim "Just gotta reach through the flames real quick and . . ."
-            show screen sc_evidence_pane
-            $ ev_bo = True
-            $ have_jaw = True
-            $ evi_count += 1
-            j jsurprise "Got it!"
-            j jdoubt "Oh."
-            j janger "That . . . is definitely someone's jaw."
-            j "What a lovely piece of evidence."
-            j jdoubt "I think I'm gonna wash my hands now."
-            jump evi_tally
-        else:
-            j jsurprise "If there's one thing I've learned from playing a copious amount of video games, it's that you always need to check the trash cans."
-            j jneutral "You never know where someone might have hidden a secret treasure, or even an equippable item that heals one sixteenth of your maximum HP per turn!"
-            j jgrim ". . . Okay, maybe one of those is slightly less useful than the other in this situation."
-            j jdoubt "Still, even if there were something good in there, I can't say I'm super thrilled about reaching in and grabbing it."
-            j "There are some pretty nasty-looking tissues wadded up in there . . ."
+label check_ceo_1: #CEO Desk
+    p "Now this is a desk like what i want to have."
+    p "It’s shiny, and it’s wood."
+    p "… and it’s shiny."
+    p "That proper kind of shine. Not the type that gets scratched off after a month of use."
+    jump investistart
 
-            $ interacting_with = "check_ceo_3"
-            $ req = ["candle","ruler","key"]
-            jump stuff_prompt
+label check_ceo_2: #finding grenade
+    jump investistart
 
-            label .req1:
-                j jneutral "Good thing I have this handy candle already lit!"
-                j "If there's a second thing I've learned from playing a copious amount of video games, it's that an adequate quantity of fire solves pretty much anything."
-                alt "Jam lights the trash can on fire."
-                $ trash_fire = True
-                $ fire_count += 1
-                jump fire_tally
-            label .req2:
-                j jneutral "Yeah, that's a great idea! I'll use my trusty meterstick and my newfound mastery of the metric arts to solve this puzzle!"
-                j jthink "Let's see . . . factoring in the amperage, and rounding to three significant figures . . ."
-                j "According to my calculations and measurements, this trash can is . . ."
-                j janger ". . . absolutely disgusting."
-                jump stuff_prompt
-            label .req3:
-                j jthink "I've got a bit of string in my backpack, and I've got this key."
-                j "If there's something at the bottom of the trash can, maybe I could fish it out?"
-                j jneutral "Alright, let's give it a shot."
-                j ". . ."
-                j jgrim "Hmmm . . . Nothing biting, huh?"
-                j jdoubt "Ugh, and now the key is gross too . . ."
-                jump stuff_prompt
 
 ## bunks ##
 label check_bunks_1:
-    if not have_gun:
-        j jsurprise "Hey, that bedside table looks pretty promising."
-        j jsmug "Bet there's some solid evidence in there."
-        j jgrim "That, or another Gideon Bible . . ."
-        j jthink "Let's see . . ."
-        show screen sc_stuff_pane
-        $ ev_bo = False
-        $ have_gun = True
-        j jgun "Lucky me! It's a revolver!"
-        j "And it's still got five bullets loaded in it!"
-        j "What a totally innocuous and normal item for an American teenager to find lying around the house."
-        j jneutral "Ha, ha, totally normal."
-    else:
-        j jgrim "Yeah, I'm gonna have to pass on the Gideon Bible."
+    p "This is where we all sleep together as one big happy family."
+    p "Well, i say that."
+    p "The boss got me my own private room over in the west tower."
+    p "It was nice of my dad to arrange that with him."
+    p "My bunk is technically the one at the back."
+    p "I come him occasionally for an afternoon nap."
+    p "Though i took yesterday’s afternoon nap on Adrian’s bunk."
+    p "It was hot so i was sweaty. Didn’t want to ruin my mattress."
+    p "The day before that i slept on Todd’s bunk."
+    p "I feel less guilty about that now, but only by comparison,"
     jump investistart
+
 label check_bunks_2:
-    if summoning == 0:
-        j jdoubt "That's got to be the most terribly drawn demonic summoning circle I've ever seen."
-        j "Still pretty spooky, though."
-        j jneutral "In terms of occultic likelihood to corrupt the youth and steal their souls for the devil, I'd rank it like five points above rock music, and just a smidge below Magic: The Gathering."
-
-        $ interacting_with = "check_bunks_2"
-        $ req = ["candle","mask","ruler"]
-        jump stuff_prompt
-
-        label .req1:
-            j jthink "Maybe I could get in on a little of this demon-summoning action. Just need to put the candle in place and . . ."
-            j jalarm "O mighty demons or whatever! Heed my call!"
-            j "I dunno what your deal is, but I've got a pretty ripe soul to trade, if that's your thing."
-            j jsurprise "It's all yours, as long as you can get me a bestselling series of beloved children's detective novels about my heroic exploits."
-            j jsmug "And the Netflix adaptation had better last at least three seasons, or the deal's off."
-            jump stuff_prompt
-        label .req2:
-            j jthink "I wonder if it's possible to commune with the demons."
-            j jneutral "Only one way to find out . . ."
-            j jmask "hey."
-            j ". . . . . ."
-            j "Actually, maybe this would be better for exorcising them . . ."
-            jump stuff_prompt
-        label .req3:
-            j jgrim "Honestly, though, with a pentagram this poorly arranged, I doubt you could commune with the ghost of Colonel Sanders, let alone any proper demons."
-            j jneutral "Good thing I've got this meterstick to help fix things up!"
-            j jthink "An acute angle here . . .{w} a fallen angel here . . ."
-            $ summoning += 1
-            alt "Jam finishes correcting the summoning circle."
-            j jneutral "And we're done!"
-            j jsmug "Now then, let's see how it works."
-            jump investistart
-    elif summoning == 1:
-        j jalarm "Demons of the afterrealm! I invoke thee!"
-        j "Rise! Ascend! Materialize!"
-        j "Come on out or whatever!"
-        j jsurprise ". . . Uh, demons? Hello?"
-        j "Is anybody there?"
-        j "Can you hear me? Should I, like, invoke louder or—"
-        $ summoning += 1
-        $ fire_count += 1
-        alt "The summoning circle bursts into flame."
-        j ". . ."
-        j jdoubt "Well, alrighty then."
-        j "I guess that's a no?"
-        jump fire_tally
-    else:
-        j jdoubt "I think I'm good on the whole demon-summoning thing for now, actually."
+    p "This is tony’s bunk box."
+    p "We each have one, though they don’t really get used."
+    p "It appears to have some kind of arcane spell placed upon it, preventing me access."
+    p "If it were to cfind a counter spell, i could probably remove it"
+    $ interacting_with = "check_reception_2"
+    $ req = ["crowbar"]
+    jump stuff_prompt
+    label .req1:  
+        p "Using my honed magic skills, which i have always had, i cast crowbar on Tony’s bunk box, revealing the contents of his chest."
+        p "But what do i find here?!!"
         jump investistart
 
-label check_bunks_3a:
-    ">>> The middle clown stares down with an expression of incalculable grief, his hands raised in supplication to an absent god."
-    ">>> Jam boops him on the nose."
-    if clown_code[0] == 0:
-        $ clown_code[0] = 2
-        ">>> There is a faint click."
-    elif clown_code[1] == 0:
-        $ clown_code[1] = 2
-        ">>> The click is slightly louder this time."
-    elif clown_code[2] == 0:
-        $ clown_code[2] = 2
-        jump check_bunks_3part4
+label check_bunks_3:
+    p "Adrian has left his Bunk box open like a pitiful loser with no notion of mystery."
+    p "In it is a towel, several pairs of socks, some stationary and a book of fraudulent tax claims he has made against the state."
+    p "All useless to me."
+    p "So useless they do not even get an art asset drawn for their close up."
+    p "So it's just me talking again."
     jump investistart
-label check_bunks_3b:
-    ">>> The right-hand clown smirks in the shadows. His bowtie weighs heavy with the sacred promise of a seltzer to the face."
-    ">>> Jam boops him on the nose."
-    if clown_code[0] == 0:
-        $ clown_code[0] = 3
-        ">>> There is a faint click."
-    elif clown_code[1] == 0:
-        $ clown_code[1] = 3
-        ">>> The click is slightly louder this time."
-    elif clown_code[2] == 0:
-        $ clown_code[2] = 3
-        jump check_bunks_3part4
-    jump investistart
-label check_bunks_3c:
-    ">>> The left-hand clown barrels toward the viewer like the world's most exuberant freight train, the vector of his relentless advance a reminder of one's own impotence."
-    ">>> Jam boops him on the nose."
-    if clown_code[0] == 0:
-        $ clown_code[0] = 1
-        ">>> There is a faint click."
-    elif clown_code[1] == 0:
-        $ clown_code[1] = 1
-        ">>> The click is slightly louder this time."
-    elif clown_code[2] == 0:
-        $ clown_code[2] = 1
-        jump check_bunks_3part4
-    jump investistart
-label check_bunks_3part4:
-    if clown_code == [1,3,2]:
-        $ clown_down = True
-        ">>> The painting opens to reveal a secret compartment!"
-        jump investistart
-    else:
-        $ clown_code = [0,0,0]
-        $ clowning_around += 1
 
-        if clowning_around == 7:
-            "C R E A K"
-            ">>> From somewhere behind the painting comes the sound of delicate machinery shattering into a thousand tiny pieces."
-            $ clown_down = True
-            ">>> The painting opens to reveal a secret compartment!"
-            j jsurprise "Wow! Sure looks like I solved that puzzle."
-            j jneutral "And by 'solved', I mean 'brute-forced my way through with no idea what I was actually doing', but that still technically counts."
-            jump investistart
-        else:
-            ">>> From somewhere behind the painting comes the sound of shifting machinery."
-            ">>> The mechanism seems to have reset itself."
-            if clowning_around == 1:
-                j jthink "Hmmm . . . Is there something I'm missing?"
-                jump investistart
-            else:
-                if hint_get:
-                    $ big_hint += 1
-
-                    if big_hint == 1:
-                        j jthink "Alright, so that wasn't it."
-                        j "I wonder what the pattern could be . . ."
-                    elif big_hint == 2:
-                        j jgrim "That didn't work either, huh? This puzzle must be trickier than I thought."
-                        j jthink "Hmmm. A trio of clowns . . . There's something familiar about that. Maybe it's their gestures?"
-                    elif big_hint == 3:
-                        j jthink "Okay, so maybe it wasn't their gestures."
-                        j jgrim "But they are, beyond a doubt, jesters."
-                    elif big_hint == 4:
-                        j jdoubt "Wait, didn't I read a book about jesters recently?"
-                        j "Or try to read anyway? I'm pretty sure like half of that thing was in German, but it definitely had a trio of clowns in it."
-                    elif big_hint == 5:
-                         j janger "Okay, I've just about had it with this clown puzzle."
-                         j jgrim "The nose-booping thing was kinda fun at first, but now my finger's getting booped out, and I still haven't solved it."
-                         j "If this next combination doesn't solve it, when I'm done with this case, I'm gonna have to write a very strongly worded letter to Cirque du Soleil."
-                else:
-                    if clowning_around == 2:
-                        j jgrim "It still feels like I'm missing some piece of this puzzle."
-                        j jthink "Now, according to the sacred Law of Puzzles, whoever designed this thing was legally obligated to hide some kind of clue inside this mansion."
-                        j "The only question is where?"
-                    elif clowning_around == 3:
-                        j jthink "Okay, I guess the third time isn't always the charm."
-                    elif clowning_around == 4:
-                        j jthink "Is there, like, a manual for this thing?"
-                    elif clowning_around == 5:
-                        j jgrim ". . . lousy juggling nose-honking tiny-car-driving glorified stand-up comedians . . ."
-                    elif clowning_around == 6:
-                        j janger "Okay, I've just about had it with this clown puzzle."
-                        j jgrim "The nose-booping thing was kinda fun at first, but now my finger's getting booped out, and I still haven't solved it."
-                        j "If this next combination doesn't solve it, when I'm done with this case, I'm gonna have to write a very strongly worded letter to Cirque du Soleil."
-                jump investistart
-
-label check_bunks_3d:
-    if not have_gnome:
-        j jsmug "Alright, let's see what's in here."
-        j "It'd better be something cool considering it was locked behind that stupid clown puzzle."
-        show screen sc_evidence_pane
-        $ ev_bo = True
-        $ have_gnome = True
-        $ evi_count += 1
-        j jsurprise "A garden gnome?"
-        j jgrim "Eh, I could live without it."
-        j jthink "Weird thing to put in a secret compartment, though."
-        j "Guess that means I could use it as evidence?"
-        jump evi_tally
-    else:
-        j jgrim "As much as I wish there'd been something cooler than a garden gnome in that secret compartment, I'm pretty sure that's all there was."
+label check_bunks_4:
+    p "This is Jenny’s bunk box."
+    p "I don’t dare look."
+    p "It’s not that i’m assuming the contents of her bunk box is the source of the smell she carries around with her at all times."
+    p "I’m just saying i’m not willing enough to take that risk."
+    p "Now, if i had a way to break open the box from a distance, with no risk to the inside contents, then i might be willing to take a gander inside."
+    $ interacting_with = "check_reception_2"
+    $ req = ["crowbar"]
+    jump stuff_prompt
+    label .req1: 
+        p "…"
+        p "Mmmm’yep"
+        p "That sure is fire."
+        p "It kind of smells."
+        p "…"
+        p "I don’t think the source of the smell was in here."
+        p "I mean, the fire would have burnt it out long ago if that was the case."
+        p "…"
+        p "Maybe Jenny herself is the source of the smell."
         jump investistart
 
 ## toilet ##
-label check_toilet_1:
-    if not cake_bake:
-        if not cake_prep:
-            j jneutral "The oven seems to work, at least."
-            j "Might be fun to try my hand at a little baking while I'm here."
-            jump investistart
-        else:
-            j jneutral "Now then, let's get this cake a-bakin\'!"
-            j jthink "Just need to figure out how."
-
-            $ interacting_with = "check_toilet_1"
-            $ req = ["book","candle","gun"]
-            jump stuff_prompt
-
-            label .req1:
-                j jthink "Naturally, the only proper way to bake a cake is in degrees Celsius."
-                j jgrim "Wait, or was that Kelvins?"
-                j "Uh, just to be safe, why don't we go with something halfway in-between the two?"
-                j jthink "Okay, so if it's like between 180 C and 450 K, that would be . . ."
-                j jdoubt "320 C? Yeah, that sounds right."
-                j "And if we're working in centiminutes, then I should probably leave it in for a good three hours."
-                j jneutral "Alright, there we go. All set!"
-                $ cake_bake = True
-                $ fire_count += 1
-                alt "The oven bursts into flames."
-                j "Gosh I love baking."
-                jump fire_tally
-            label .req2:
-                j jsurprise "Ooh, I think I saw this in a fancy restaurant once!"
-                j "The waitress set the cake on fire and then served it!"
-                j jthink "They called it a baked Arkansas or something."
-                j jneutral "Well, whatever it was, I'm sure it can't be that hard."
-                j jthink "I just need to take my trusty candle, and . . ."
-                $ cake_bake = True
-                $ fire_count += 1
-                alt "The oven bursts into flames."
-                j jneutral "Viola!"
-                j "Gosh I love baking."
-                jump fire_tally
-            label .req3:
-                j jthink "If this is a gas stove, then I guess I need some kind of spark to ignite it."
-                j "But just to be safe, I should light it from a distance."
-                j jgun "For this sort of situation, I've got just the tool."
-                j jthink "But first, I'd better figure out how to open the gas vent or whatever."
-                j jdoubt "Wow, these metal bits are really stuck."
-                j jgun "Maybe if I whack it with the gun . . ."
-                $ cake_bake = True
-                $ fire_count += 1
-                alt "The oven bursts into flames."
-                ""
-                j jneutral "Well, I guess that worked."
-                j jneutral "Gosh I love baking."
-                jump fire_tally
-    else:
-        j jneutral "Pretty sure that cake's gonna need at least another hour."
+    label check_toilet_1:
+        #mirror and sink i guess
+        p "It’s my home away from home."
+        p "Well, away from my desk anyway."
+        p "Technically the whole building is my home."
+        p "It’s the place where i spend a lot of my time basically."
+        p "I can gather my thoughts. Take stock of things. Make revenge plans."
+        p "Adrian will pay for his crimes."
+        p "I can’t imagine i’ll find anything of use here."
         jump investistart
-label check_toilet_2:
-    if not have_fish:
-        j jthink "You do hear an awful lot about dead bodies being stuffed in fridges."
-        j "Assuming it's still functional, it'd be the perfect place to hide evidence."
-        j "I'll just open it up, and . . ."
-        j janger "Huh."
-        j jdoubt"I guess that's technically still food."
-        j "The yellow mold seems to be enjoying it, anyway."
-        j jsurprise "Oh, what's this?"
-        show screen sc_evidence_pane
-        $ ev_bo = True
-        $ have_fish = True
-        $ evi_count += 1
-        alt "Jam finds a red fish in the fridge."
-        j jdoubt "This fish seems . . . well, relatively fresh."
-        j "Which, given the circumstances, is pretty suspicious if you ask me!"
-        j "Guess I'll just . . . take it . . . with me?"
-        jump evi_tally
-    else:
-        j jdoubt "Yeah, no. I'm good."
-    jump investistart
-label check_toilet_3:
-    j jsurprise "Ooh, someone left out their ingredients!"
-    j jneutral "Looks like they were going to bake a cake with all this."
-    j jsmug "Hehehe. If they're not gonna do it, maybe I'll take a crack at it."
-    j jthink "Okay, let's add the flour . . ."
-    j ". . . some eggs . . ."
-    j jneutral "(whole, of course, for the extra nutrition!)"
-    j jthink ". . . then a stick of butter . . ."
-    j ". . . a spoonful of sugar . . ."
-    j ". . . whatever this weird bitter almond sauce is . . ."
-    j ". . . vanilla flavoring . . ."
-    j ". . . and mix it all together!"
-    $ cake_prep = True
-    j jneutral "Looking good! Next up, time to bake!"
-    jump investistart
+
+    label check_toilet_2:
+        #actual toilet
+        p "Jenny has done unspeakable things here."
+        p "But we are all aware of this transgression."
+        p "So there’s nothing i could find here that could be used against her."
+        p "Also, what would i be bringing from here to use against her."
+        p "Maybe we could fling our poop at the raptors."
+        p "Primates against large turkeys?"
+        p "Yeah. That could work."
+        p "I don’t need to go though."
+        jump investistart
+#need toilet itmes, puzzle
 
 ## staffroom ##
 label check_staffroom_1:
@@ -787,78 +522,115 @@ label check_staffroom_3:
 
 ## securityroom ##
 label check_securityroom_1:
-    j jsurprise "Hey, there's a book on that chair! Well spotted, Jam!"
-    j jsmug "A book tucked away in a hard-to-find location? It's gotta have all sorts of clues and evidence squirreled away inside."
-    j "I'll just open it and . . ."
-    show screen sc_evidence_pane
-    $ ev_bo = True
-    $ have_note = True
-    $ evi_count += 1
-    j jsurprise "Oh! Something fell out!"
-    j jthink "An aging post-it note . . . Was someone using this as a bookmark?"
-    j "And the text . . ."
-    j "\'Iron Snail Authorization\'"
-    j "What could it mean?"
-    j jgrim "I mean, aside from \'Alexandre V. Badmann is super, super guilty,\' because that's totally what it says to me."
-    jump evi_tally
+    p "The Security Office."
+    p "This is Jenny’s workplace, hence the smell."
+    p "I’d rather spend as little time here as possible, but there might be something i can use here to get people to stop liking her."
     jump investistart
-label check_securityroom_2:
-    ## A translation from the faux-Middle English
 
-    ## The Book of Dubiously Plot-Related Information
-    ## Chapter Fifteen: The Tale of the Three Brothers
-    ## Once upon a time, there were three jesters who called themselves brothers.
-    ## The first jester was named Melech; the second, Mahendra; the third, Jimbo.
-    ## One day, these three brothers were merrily strolling down the street when they were halted by the specter of Death.
-    ## "Ho, knaves!" cried Death. "Of you three, one of you must die, in order for the other two to pass."
-    ## At this, the brothers wept profoundly: alas, how tragic!
-    ## None of them wished to see his brothers die before himself, so they devised a cunning plan.
-    ## "If one of us must die," said Mahendra, a man of relentless exuberance, "take me first! I was born first, so I should die first."
-    ## "No!" shouted Jimbo with a grin, his hand upon his bowtie. "First in, last out, as they say. It should be me instead!"
-    ## "Can't we compromise?" wept Mahendra, his hands raised in supplication. "Instead, take me, the middle brother!"
-    ## And so, moved by this show of brotherly loyalty, Death killed all three jesters and went off on their merry way.
-    ## The end.
-    ## Chapter Sixteen: The Tale of the Unreadable Text
-    ## Once upon a time, there was a curse that randomly changed vowels into Y's and stuck E's onto the ends of words...
+label check_security_room_2:
 
-    ">>> The book is titled \'Ye Tome of Dubiously Plotte-Related Infourmacioun\'."
-    ">>> It's open to a chapter somewhere in the middle."
-    "Chaptere Fifteen: Ye Taile of ye Broutheres Three:"
-    "Once ypon a tyme there weren three jesteres who dyd themselves broutheres call."
-    "Ye fyrst jester was clepped Melech; ye secounde, Mahendra; and ye thirdde, Jimbo."
-    "One daye weren these three broutheres with fulle merrimount ajaunte doun ye streete, when yon spectre of Deathe did them stoppe."
-    "\'Ho! knaves,\' cryed Deathe. \'Of ye three, one muste needes die, that ye othere two mayen pass.\'"
-    "To this, ye broutheres wepte profoundly; allas and weylaway!"
-    "Nonne of them wished to seen his kinne befoure hymself peryshe, so a cunninge planne didst they devyse."
-    "\'Yf one of us must needs die,\' spake Melech, a manne of relentless exuberance, \'taken me fyrst! Fyrst was I bourne, and fyrst shallen I die.\'"
-    "\'Nay!\' excabrulated Jimbo withe a grinne, his honde upon his bow-tye. \'Fyrst inne, laste oute, as they sayen. It muste needs be me!\'"
-    "\'Canne we notte comprymyse?\' wept Mahendra, his hondes raised inne supplicacioun. \'Instead, taken me, ye myddle brouthere!\'"
-    "And so Deathe, mouved by this shouw of broutherely louyaulty, killed all three jesteres and wente off on their merrie way."
-    "The ende."
-    "Chaptere Syxteene: Ye Tyle yf ye Ynryedyble Tyxte:"
-    "Ynce ypon a tyme, thyre wysen y cyrse thyte ryndymly dydst chyngen vywels ynto Ys, ynd yponne the yndes of wyrdes yffyxe Es . . ."
-    if not hint_get:
-        $ hint_get = True
-    jump investistart
-label check_securityroom_3:
-    if not have_book:
-        j jthink "If this is a proper spooky mansion, it stands to reason that there must be at least one rotating bookshelf."
-        j "Badmann probably has a secret passage hidden behind it, safe from prying eyes."
-        j jsmug "But not from me!"
-        j jthink "Now, if I were Badmann, which book would I choose as the switch?"
-        j "This riddle will require a thorough analysis of his life and background."
-        j ". . ."
-        j jgrim ". . . though on second thought, I'm not sure I actually know anything personal about him."
-        j jdoubt "Uh, his name sounds kinda old-timey?"
-        j "Is he like European or something?"
-        j janger "Well, if that's the case, then there's only one book on this shelf that could be the switch!"
-        show screen sc_stuff_pane
-        $ ev_bo = False
-        $ have_book = True
-        j jgrim "Huh."
-        j jdoubt "Well, I guess that wasn't it."
-        j "Maybe it's just a regular bookshelf after all."
-    else:
-        j jgrim "If I wanted more weird, vaguely European reading material, I'd pirate it off the internet."
-        j jdoubt "Or try and figure out how securityroom cards work, I guess."
-    jump investistart
+    if monitorCheck = 0:
+        p "Hey, it’s the security monitor for the office area."
+        p "Those four looks like ants from in here."
+        p "Hey, i can listen into them if i press this."
+        $ monitorCheck = 1
+    #switch to monitor
+    if monitorCheck = 1:
+        a "Oh god. We’re all going to die here, aren’t we? We’re all going to die here."
+        j "Calm down, Adrian. We can do this."
+        a "What? No we can’t. We’re just deluding ourselves."
+        a "Getting to the helicopter? You realise if even one of those things opts not to chase Paul we’re done for."
+        a "All it’ll needs is to get Tony once. Even if he survives he won’t be flying us out of here."
+        t "Hey. I’m not going to let that happen."
+        a "Is your skin made out of dinosaur-proof flesh, or are you just as edible as the rest of us."
+        j "Calm it, boy. Where will panicking get you."
+        a "Oh. Where’s does being stoic get me? Maimed. Devoured. It’ll be better for me to just jump off the balcony now."
+        h "Knock yourself out."
+        a "I… What?"
+        h "Throw yourself off the balcony. It’ll distract the raptors for us. They’ll go round to feast on your body, and we can all get out."
+        a "Well… i mean."
+        h "Paul as well."
+        a "Right. Okay. I’m sorry. I’m just terrified, and my wife has no idea and… I just needed to vent."
+        h "I know."
+        a "..."
+        h "Success is never a guarantee in general. But failure is the default result of inaction."
+        h "Do nothing, and you’ll just die, no matter how long it takes."
+        a "Right. You’re right. I’ve just got to have hope."
+        h "No. You’ve just got to run fast."
+        #switch back
+        p "..."
+        p "Ha. Adrian is such a loser."
+        $ monitorCheck = 2
+    if monitorCheck = 2:
+        p "They're just milling around now."
+        p "So unproductive."
+        jump investistart    
+
+label play_with_grenade:
+    if playWithGrenade = 0:
+        p "This is a grenade i found in Jenny’s Bunk"
+        p "I do not know why she has a grenade."
+        p "I only know that her having a grenade will be used in exchange for me having a seat on the helicopter."
+        p "As such, it is vital that i ensure this grenade is kept in one piece and not be used for anything."
+        $ playWithGrenade = 1
+        jump investistart
+    if playWithGrenade = 0:
+        p "I know itis tempting."
+        p "To have a grenade is to want to use a grenade."
+        p "Grenades have long been the chocolate bar of the armed forces."
+        p "To have a grenade is to want to use the grenades."
+        p "Vide games have taught me well for this."
+        p "But i must hold back."
+        $ playWithGrenade = 2
+        jump investistart
+    if playWithGrenade = 2:
+        p "I must be rational about this."
+        p "Ther are uses for this grenade. IT could even save the day."
+        p "To use grenade on raptor could result in the deaths of many raptors"
+        p "But it is unlikely that a single grenade could receive the result i am looking for."
+        p "No. It is better to use the grenade as evidence"
+        p "To ensure that another takes my place"
+        p "On the Raptor killing grounds."
+        $ playWithGrenade = 3
+        jump investistart
+    if playWithGrenade = 3:
+        p "Though saying all that…"
+        p "It is entirely possible that this grenade simply does not work."
+        p "It is not out of the question that Jenny would have a dud grenade."
+        p "She is know for her crazy irrational ways."
+        p "And as an uncrazy unirrational person,"
+        p "It is clear to me that relying on Jenny to have a working grenade is not something i can rely on."
+        p "Perhaps testing is in order."
+        $ playWithGrenade = 4
+        jump investistart
+    if playWithGrenade = 4:
+        p "But a test alone wuld be difficult to do."
+        p "For one, there is only one grenade."
+        p "I would need some kind of second control grenade in order to compare it to."
+        p "Also, to achieve statistical reigour, i would need about another thirty seven grenades."
+        p "Also, i would probably still need this grenade afterwards."
+        p "Which would be difficult if it is in pieces."
+        $ playWithGrenade = 5
+        jump investistart
+    if playWithGrenade = 5:
+        p "Perhaps the key here would be to stick to the hypothesis, rather than wade into the complexities of the practical."
+        p "Being a man of science, which i now am, for i am doing experiments, i am smart enough to know that i can only test the grenade once. "
+        p "And to attempt to test the grenade a second time would be impractical."
+        p "And so, i should not do it."
+        p "But whatis science, is not a traversal from the realm of the hypothetical, to a realm of practical."
+        p "Would Louis Pastuer have not created pasta in his kitchen sink, if he spent so long worrying about the theoretical possibilities of bacteria?"
+        p "Wold von Nueman have ever created the computer, if he had not stopped dating Turing first?"
+        p "Clearly there is a time for action."
+        p "But is that time now? (picture of Paul holding grenade pin!!)"
+        $ playWithGrenade = 6
+        jump investistart
+    if playWithGrenade = 6:
+        p "Ulp. Never mind. The pin just fell out."
+        p "Barely touched it and it slipped right through its…"
+        p "its…"
+        p "Ah, what’s the latch thing called. The thing that just popped off."
+        p "I know it’s got a name."
+        p "Is it just latch?"
+        p "People probably do just call it a latch."
+        p "Perhaps i should go ask someone."
+        jump grenadeend
