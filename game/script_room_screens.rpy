@@ -78,29 +78,6 @@ init:
         layer "under_master"
         use sc_room_frame():
             add "site/corridor.png"
-            if not have_knife:
-                imagebutton:
-                    style "interacter"
-                    auto "interactives/corridor/%s/3.png"
-                    if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_corridor_3')]
-                    else:
-                        sensitive False
-            imagebutton:
-                style "interacter"
-                idle "billy"
-                hover "interactives/corridor/hover/1.png"
-                if interact_mode:
-                    action [SetVariable("interact_mode",False),Jump('check_corridor_1')]
-                else:
-                    sensitive False
-            imagebutton:
-                style "interacter"
-                auto "interactives/corridor/%s/2.png"
-                if interact_mode:
-                    action [SetVariable("interact_mode",False),Jump('check_corridor_2')]
-                else:
-                    sensitive False
 
 ## 4: Ceo was Bathroom \ bathroom
     screen sc_room_4():
@@ -188,12 +165,12 @@ init:
                 else:
                     sensitive False
             imagebutton:
-                    style "interacter"
-                    auto "interactives/toilet/%s/3.png"
-                    if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_toilet_3')]
-                    else:
-                        sensitive False
+                style "interacter"
+                auto "interactives/toilet/%s/3.png"
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_toilet_3')]
+                else:
+                    sensitive False
 
 ## 7: Staff Room
     screen sc_room_7():
@@ -201,32 +178,7 @@ init:
         layer "under_master"
         use sc_room_frame():
             add "site/staffroom.png"
-            imagebutton:
-                style "interacter"
-                if used_mask:
-                    auto "interactives/staffroom/%s/1b.png"
-                else:
-                    auto "interactives/staffroom/%s/1a.png"
-                if interact_mode:
-                    action [SetVariable("interact_mode",False),Jump('check_staffroom_1')]
-                else:
-                    sensitive False
-            if not have_ruler:
-                imagebutton:
-                    style "interacter"
-                    auto "interactives/staffroom/%s/2.png"
-                    if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_staffroom_2')]
-                    else:
-                        sensitive False
-            if not have_candle:
-                imagebutton:
-                    style "interacter"
-                    auto "interactives/staffroom/%s/3.png"
-                    if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_staffroom_3')]
-                    else:
-                        sensitive False
+
 ## 8: Security Room
     screen sc_room_8():
         tag room_screen

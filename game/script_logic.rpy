@@ -110,17 +110,17 @@ label finale:
     if "photo" in evidence_selected and "printout" in evidence_selected:
         $ route = _("3/16: Definitely Adrian's fault") #!! maybe rephrase for the adrian forgery ending
         jump route01
-    elif "gnome" in evidence_selected and "cash" in evidence_selected:
-        $ route = _("2/16: Lucky Benny’s House of Gnomes")
+    elif "grenade" in evidence_selected and "dictaphone" in evidence_selected:
+        $ route = _("4/16: J'accuse La Jenny")
         jump route02
-    elif "gnome" in evidence_selected and "jaw" in evidence_selected:
-        $ route = _("13/16: The Necrognomicon")
+    elif "raptorclaw" in evidence_selected and "researchjournal" in evidence_selected:
+        $ route = _("5/16: Oh... Helen actually did do something bad.")
         jump route03
-    elif "gnome" in evidence_selected and "fish" in evidence_selected:
-        $ route = _("12/16: Schrodinger’s KFC/Taco Bell")
+    elif "assassin" in evidence_selected and "wadofcash" in evidence_selected:
+        $ route = _("6/16: Tony the Ass Asser")
         jump route04
-    elif "gnome" in evidence_selected and "note" in evidence_selected:
-        $ route = _("7/16: Gnome Crime Doesn’t Pay")
+    elif "fakepaper" in evidence_selected and "fakeid" in evidence_selected:
+        $ route = _("7/16: Definitely defiitely Adrian's fault")
         jump route05
     elif "jaw" in evidence_selected and "cash" in evidence_selected:
         $ route = _("14/16: Inspector Valjert")
@@ -164,13 +164,13 @@ label endcard:
 
     if "photo" in evidence_selected and "printout" in evidence_selected:
         $ persistent.end_03 = True
-    elif "gnome" in evidence_selected and "cash" in evidence_selected:
-        $ persistent.end_02 = True
-    elif "gnome" in evidence_selected and "jaw" in evidence_selected:
-        $ persistent.end_13 = True
-    elif "gnome" in evidence_selected and "fish" in evidence_selected:
-        $ persistent.end_12 = True
-    elif "gnome" in evidence_selected and "note" in evidence_selected:
+    elif "grenade" in evidence_selected and "dictaphone" in evidence_selected:
+        $ persistent.end_04 = True
+    elif "raptorclaw" in evidence_selected and "researchjournal" in evidence_selected:
+        $ persistent.end_05 = True
+    elif "assassin" in evidence_selected and "wadofcash" in evidence_selected:
+        $ persistent.end_06 = True
+    elif "fakepaper" in evidence_selected and "fakeid" in evidence_selected:
         $ persistent.end_07 = True
     elif "jaw" in evidence_selected and "cash" in evidence_selected:
         $ persistent.end_14 = True

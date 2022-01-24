@@ -50,7 +50,7 @@ label raptorroom:
     r "Crunch."
     jump endcard
 
-label route01:
+label route01: #accussing adrian - Evidence -  print out and personal photo / Stuff - Crowbar - Find Crowbar in toilets. USe it to break open Locker. Both items are found in Reception
     p "My fellow employees."
     #!!toskip for testing
     $ location = 10
@@ -145,7 +145,7 @@ label route01:
     $ location = 10
     jump forceroomrefresh
 
-label route02:
+label route02: # Accussing Jenny - Evidence - Grenade - Dictaphone/Transcript / Stuff - Match/ some other firestarter - Grenade found in Security Room - Dictaphone found in JEnny's Bunk box, accessible by start a fire in the bunks, with match and fuel can. Match found in CEO Office, Fuel can found in Corridor.
     p "My fellow employees"
     t "Oh. You’re back."
     $ location = 10
@@ -244,7 +244,7 @@ label route02:
     $ location = 10
     jump forceroomrefresh
 
-label route03:
+label route03: # Accussing Helen - Evidence - Research Journal/Raptor Claw / Stuff - Research Journal found under chair in Lab (staff room) - Raptor Claw found by using security card on containment lock. Card found behind Toilet
     p "My fellow Americans"
     $ location = 10
     jump forceroomrefresh
@@ -282,7 +282,7 @@ label route03:
     h "Erm"
     t "Jesus."
     a "With this method, reproduction rates would increase from zero to three raptors a day within the space of about three weeks. "
-    t "Wouldn’t that overrun the park."
+    t "Wouldn’t that overrun the park?"
     j "We were having problems keeping the ten we have at the moment contained"
     j "I mean, it was doable, but there were daily issues."
     a "IF this happened, it would have been so much worse than the current situation."
@@ -344,7 +344,7 @@ label route03:
     #!!removeaftertesting
 
 
-label route04:
+label route04: # Accussing Tony - Evidence - Assassin Contract/Wad of Cash / Stuff - Hammer Wad of cash found in Tony's bunk. Contract found in CEO office globe by smashing globe with hammer. HAmmer found under teddy bear in bunks
     j "Oh good. You’re here."
     $ location = 10
     jump forceroomrefresh
@@ -443,7 +443,7 @@ label route04:
     $ location = 10
     jump forceroomrefresh
 
-label route05:
+label route05: # faking evidence to accuse Adrian - Evidence - Fake Transcript/ Fake ID card / Stuff - Plain paper/ Plain ID card - Plain paper found in reception, ID found in Lab, security puzzle completed in security room
     a "And that’s why i’m thinking we should be nicer to the guy. IF he is going to die today, then the least we could do is not be dicks about it and-"
     $ location = 10
     jump forceroomrefresh
@@ -541,7 +541,7 @@ label route05:
     jump forceroomrefresh
     #!!removeaftertesting
 
-label route06:
+label route06: # any combination of incorrect evidence
     p "Greetings all. I have returned."
     $ location = 10
     jump forceroomrefresh
@@ -609,7 +609,7 @@ label route06:
     jump forceroomrefresh
     #!!removeaftertesting
 
-label route07:
+label route07: # brain broken due to puzzle
     p "So if this bit goes here and that bit goes there."
     p "And that bit goes there and this bit goes here."
     p "Then it makes sense that this bit doesn’t belong here."
@@ -671,6 +671,6 @@ label route07:
     #!!catapult ending
     jump endcard
 
-label grenadeend:
+label grenadeend: # checking the grenade
     jump endcard
 
