@@ -288,6 +288,7 @@ init:
                                     action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"jaw"),Jump("finale")]
                             else:
                                 action NullAction()
+
                 if have_photo:
                     imagebutton:
                         hover_sound "button_hover.wav"
@@ -336,6 +337,56 @@ init:
                                     action Function(evidence_selected.append,"printout")
                                 else:
                                     action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"printout"),Jump("finale")]
+                            else:
+                                action NullAction()
+                if have_grenade:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        hovered NullAction()
+
+                        alt _("Grenade?")
+                        tooltip _("Grenade?")
+
+                        if "grenade" in evidence_selected:
+                            idle "evidence/grenade_select.png"
+                            if evidence_cue:
+                                action Function(evidence_selected.remove,"grenade")
+                            else:
+                                action NullAction()
+                        else:
+                            idle "evidence/grenade.png"
+                            if evidence_cue:
+                                activate_sound "button_select.wav"
+                                if len(evidence_selected) == 0:
+                                    action Function(evidence_selected.append,"grenade")
+                                else:
+                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"grenade"),Jump("finale")]
+                            else:
+                                action NullAction()
+                if have_dictaphone:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        hovered NullAction()
+
+                        alt _("Dictaphone?")
+                        tooltip _("Dictaphone?")
+
+                        if "grenade" in evidence_selected:
+                            idle "evidence/dictaphone_select.png"
+                            if evidence_cue:
+                                action Function(evidence_selected.remove,"dictaphone")
+                            else:
+                                action NullAction()
+                        else:
+                            idle "evidence/dictaphone.png"
+                            if evidence_cue:
+                                activate_sound "button_select.wav"
+                                if len(evidence_selected) == 0:
+                                    action Function(evidence_selected.append,"dictaphone")
+                                else:
+                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"dictaphone"),Jump("finale")]
                             else:
                                 action NullAction()
     screen sc_stuff_pane():
@@ -424,6 +475,66 @@ init:
                         else:
                             action NullAction()
 
+                if have_crowbar:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        idle "stuff/crowbar.png"
+                        tooltip _("Crowbar")
+                        alt _("Crowbar")
+                        if stuff_cue:
+                            activate_sound "button_select.wav"
+                            action [SetVariable("stuff_selected","crowbar"),SetVariable("stuff_cue",False),Jump("stuff_check")]
+                        else:
+                            action NullAction()
+                if have_grenade:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        idle "stuff/grenade.png"
+                        tooltip _("Grenade")
+                        alt _("Crowbar")
+                        if stuff_cue:
+                            activate_sound "button_select.wav"
+                            action [SetVariable("stuff_selected","grenade"),SetVariable("stuff_cue",False),Jump("stuff_check")]
+                        else:
+                            action NullAction()
+                if have_ak47:
+                                    imagebutton:
+                                        hover_sound "button_hover.wav"
+                                        focus_mask True
+                                        idle "stuff/ak47.png"
+                                        tooltip _("AK47")
+                                        alt _("AK47")
+                                        if stuff_cue:
+                                            activate_sound "button_select.wav"
+                                            action [SetVariable("stuff_selected","ak47"),SetVariable("stuff_cue",False),Jump("stuff_check")]
+                                        else:
+                                            action NullAction()
+                if have_match:
+                                    imagebutton:
+                                        hover_sound "button_hover.wav"
+                                        focus_mask True
+                                        idle "stuff/match.png"
+                                        tooltip _("match")
+                                        alt _("match")
+                                        if stuff_cue:
+                                            activate_sound "button_select.wav"
+                                            action [SetVariable("stuff_selected","match"),SetVariable("stuff_cue",False),Jump("stuff_check")]
+                                        else:
+                                            action NullAction()
+                if have_fuelcan:
+                                    imagebutton:
+                                        hover_sound "button_hover.wav"
+                                        focus_mask True
+                                        idle "stuff/fuelcan.png"
+                                        tooltip _("fuelcan")
+                                        alt _("fuelcan")
+                                        if stuff_cue:
+                                            activate_sound "button_select.wav"
+                                            action [SetVariable("stuff_selected","fuelcan"),SetVariable("stuff_cue",False),Jump("stuff_check")]
+                                        else:
+                                            action NullAction()
     screen sc_buttons():
         zorder 3
         ## STUFF ##
@@ -790,6 +901,10 @@ label start:
     $ have_ak47 = False
     $ have_grenade = False
     $ have_poop = False
+    $ have_crowbar = False
+    $ have_match = False
+    $ have_fuelcan = False
+    $ have_dictaphone = False
 
 ## Other stuff
     $ evi_count = 0
@@ -812,6 +927,8 @@ label start:
     $ filingCabinetOpen = False
     $ playWithGrenade = 0
     $ lookOutsideReception = False
+    $ securityCabinetClosed = True
+    $ fuelApplied = False
     # Pertaining to this and that
     $ used_mask = False
     $ paint_talk = False

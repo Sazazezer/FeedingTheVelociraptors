@@ -35,17 +35,16 @@ init:
         layer "under_master"
         use sc_room_frame():
             add "site/reception.png"
-            if not have_key:
-                imagebutton:
-                    style "interacter"
-                    auto "interactives/reception/%s/1.png"
-                    if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_reception_1')]
-                    else:
-                        sensitive False
             imagebutton:
                 style "interacter"
-                if not still_life:
+                auto "interactives/reception/%s/1.png"
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_reception_1')]
+                else:
+                    sensitive False
+            imagebutton:
+                style "interacter"
+                if filingCabinetOpen:
                     auto "interactives/reception/%s/2a.png"
                 else:
                     auto "interactives/reception/%s/2b.png"
@@ -53,14 +52,13 @@ init:
                     action [SetVariable("interact_mode",False),Jump('check_reception_2')]
                 else:
                     sensitive False
-            if not have_wadofcash:
-                imagebutton:
-                    style "interacter"
-                    auto "interactives/reception/%s/3.png"
-                    if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_reception_3')]
-                    else:
-                        sensitive False
+            imagebutton:
+                style "interacter"
+                auto "interactives/reception/%s/3.png"
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_reception_3')]
+                else:
+                    sensitive False
             if siggy:
                 add "interactives/reception/2c.png"
             if lookOutsideReception:
@@ -78,6 +76,14 @@ init:
         layer "under_master"
         use sc_room_frame():
             add "site/corridor.png"
+            if not have_fuelcan:
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/corridor/%s/2.png"
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_corridor_2')]
+                    else:
+                        sensitive False
 
 ## 4: Ceo was Bathroom \ bathroom
     screen sc_room_4():
@@ -85,12 +91,12 @@ init:
         layer "under_master"
         use sc_room_frame():
             add "site/ceo.png"
-            if not have_mask and not used_mask:
+            if not have_match:
                 imagebutton:
                     style "interacter"
-                    auto "interactives/ceo/%s/2.png"
+                    auto "interactives/ceo/%s/6.png"
                     if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_ceo_2')]
+                        action [SetVariable("interact_mode",False),Jump('check_ceo_6')]
                     else:
                         sensitive False
             imagebutton:
@@ -111,6 +117,7 @@ init:
                 else:
                     sensitive False
 
+
 ## 5: Bunks was Bedroom
     screen sc_room_5():
         tag room_screen
@@ -126,12 +133,12 @@ init:
                     sensitive False
             imagebutton:
                 style "interacter"
-                if summoning == 0:
-                    auto "interactives/bunks/%s/2a.png"
-                elif summoning == 1:
+                if fuelApplied and matchApplied:
+                    auto "interactives/bunks/%s/2c.png"
+                elif fuelApplied and not matchApplied:
                     auto "interactives/bunks/%s/2b.png"
                 else:
-                    auto "interactives/bunks/%s/2c.png"
+                    auto "interactives/bunks/%s/2a.png"
                 if interact_mode:
                     action [SetVariable("interact_mode",False),Jump('check_bunks_2')]
                 else:
@@ -164,13 +171,22 @@ init:
                     action [SetVariable("interact_mode",False),Jump('check_toilet_1')]
                 else:
                     sensitive False
-            imagebutton:
-                style "interacter"
-                auto "interactives/toilet/%s/3.png"
-                if interact_mode:
-                    action [SetVariable("interact_mode",False),Jump('check_toilet_3')]
-                else:
-                    sensitive False
+            if not have_crowbar:
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/toilet/%s/3a.png"
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_toilet_3')]
+                    else:
+                        sensitive False
+            else:
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/toilet/%s/3b.png"
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_toilet_3')]
+                    else:
+                        sensitive False
 
 ## 7: Staff Room
     screen sc_room_7():
@@ -185,21 +201,26 @@ init:
         layer "under_master"
         use sc_room_frame():
             add "site/securityroom.png"
-            if not have_note:
-                imagebutton:
-                    style "interacter"
-                    auto "interactives/securityroom/%s/1.png"
-                    if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_securityroom_1')]
-                    else:
-                        sensitive False
             imagebutton:
                 style "interacter"
-                auto "interactives/securityroom/%s/2.png"
+                auto "interactives/securityroom/%s/1.png"
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_securityroom_1')]
+                else:
+                    sensitive False
+            imagebutton:
+                style "interacter"
+                if not securityCabinetClosed and have_AK47:
+                    auto "interactives/securityroom/%s/2c.png"
+                elif not securityCabinetClosed and not have_AK47:
+                    auto "interactives/securityroom/%s/2b.png"
+                else:
+                    auto "interactives/securityroom/%s/2a.png"
                 if interact_mode:
                     action [SetVariable("interact_mode",False),Jump('check_securityroom_2')]
                 else:
                     sensitive False
+
             if not have_book:
                 imagebutton:
                     style "interacter"

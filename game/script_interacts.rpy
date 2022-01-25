@@ -143,6 +143,7 @@ label check_reception_1: #desk
         p "It’s kind of peppy. Full of the joy of every morning we have to go to work."
         p "Doesn’t he know that people are supposed to hate work."
         p "What sitcoms did he spend his life watching?"
+        p "What else is on here?"
         $ desk_check = 1
         jump investistart
     if desk_check == 1:
@@ -308,7 +309,7 @@ label check_corridor_1:
     p "This corridor’s kind of slopey anyway.. It’s like it was made for this."
     jump investistart
 
-label check_corridor_2:
+label check_corridor_6:
     p "A standard issue fire extinguisher."
     p "This one’s the electrical fire one."
     p "So it’s a cloud of crap rather than foam or water."
@@ -317,6 +318,21 @@ label check_corridor_2:
     p "Plus it’s heavy."
     p "I should only get this if it’s absolutely necessary."
     jump investistart
+
+label check_corridor_2:
+    p "Oh, what's this doing here?"
+    p "Todd told me to take that to the oily rags room."
+    p "I must have left it here randomly for no reason."
+    p "Though i don't recall doing so."
+    p "Or spreading half the contents of the can everywhere."
+    p "How strange."
+    p "..."
+    p "Oh well, nothing to do but take this with me."
+    p "I'm sure i'll get back to the oily rags room at some point."
+    p "Just as soon as i figure out where that is."
+    $ have_fuelcan = true
+    jump investistart
+
 
 
 ## ceo ##
@@ -339,6 +355,26 @@ label check_ceo_1: #CEO Desk
 label check_ceo_2: #finding grenade
     jump investistart
 
+label check_ceo_6:
+    if have_match:
+        p "A box of matches."
+        p "Perfectly safe for me to have."
+        p "I remember Todd himsefl saying:"
+        p "Paul, i wish i could burn this place to the ground."
+        p "And i fully plan to one day."
+        p "Just as soon as the insurance is all sorted out."
+        p "Don't tell anyone."
+        p "Great guy. Shame about the raptor thing."
+        p "Anyway, i'm sure he won't miss them."
+        show screen sc_stuff_pane
+        $ have_match = True
+        jump investistart
+    else:
+        p "I only really need one."
+        p "I am, after all, an expert with matches."
+        p "Having played with them for so long."
+        jump investistart
+
 
 ## bunks ##
 label check_bunks_1:
@@ -355,6 +391,65 @@ label check_bunks_1:
     jump investistart
 
 label check_bunks_2:
+    if not fuelApplied:
+        p "This is Jenny’s bunk box."
+        p "I don’t dare look."
+        p "It’s not that i’m assuming the contents of her bunk box is the source of the smell she carries around with her at all times."
+        p "I’m just saying i’m not willing enough to take that risk."
+        p "Now, if i had a way to break open the box from a distance, with no risk to the inside contents, then i might be willing to take a gander inside."
+        $ interacting_with = "check_bunks_4"
+        $ req = ["fuelcan,grenade"]
+        jump stuff_prompt
+        label .req1: 
+            p "Maybe i can use the fuel in this can to lubricate the lock."
+            p "Which will almost certainly help in prying it open."
+            p "Yep. That is how locks works."
+            p "I'll just- Whoops-"
+            $ fuelApplied = True
+            p "Well... more is less."
+            p "As they say."
+            jump investistart
+        label .req2:
+            jump play_with_grenade
+    if fuelApplied and not matchApplied:
+        p "Well, that didn't help loosen the lock."
+        p "But maybe adding something more to this fuel will help."
+        $ req = ["match,grenade"]
+        jump stuff_prompt
+        label .req1: 
+            p "Wait a second."
+            p "Is this reasonable?"
+            p "Well i probably won't find a lock pick around here."
+            p "But i'm pretty sure i can lockpick using any straight object."
+            p "It is at least worth a reasonable try."
+            $ matchApplied = True
+            p "…"
+            p "Mmmm’yep"
+            p "That sure was a lot fire for about a second."
+            p "It kind of smells."
+            p "…"
+            p "I don’t think the source of the smell was in here."
+            p "I mean, the fire would have burnt it out long ago if that was the case."
+            p "…"
+            p "Maybe Jenny herself is the source of the smell."
+            p "What's in here?"
+            jump investistart
+        label .req2:
+            jump play_with_grenade
+    if fuelApplied and matchApplied:
+        p "Huh, a dictaphone"
+        p "i Believe this is what people used to record their thoughts before we invented mind reading technology and mp3."
+        p "this probably contains a lot of Jenny's innermost thoughts."
+        p "And therefore probably evidence of all her wrongdoings."
+        p "No time to listen to it now though."
+        p "I shall do so when and if i show it to everyone else."
+        show screen sc_evidence_pane
+        $ ev_bo = True
+        $ have_dictaphone = True
+        $ evi_count += 1
+        jump evi_tally
+        
+label check_bunks_4:
     p "This is tony’s bunk box."
     p "We each have one, though they don’t really get used."
     p "It appears to have some kind of arcane spell placed upon it, preventing me access."
@@ -375,26 +470,7 @@ label check_bunks_3:
     p "So it's just me talking again."
     jump investistart
 
-label check_bunks_4:
-    p "This is Jenny’s bunk box."
-    p "I don’t dare look."
-    p "It’s not that i’m assuming the contents of her bunk box is the source of the smell she carries around with her at all times."
-    p "I’m just saying i’m not willing enough to take that risk."
-    p "Now, if i had a way to break open the box from a distance, with no risk to the inside contents, then i might be willing to take a gander inside."
-    $ interacting_with = "check_reception_2"
-    $ req = ["crowbar"]
-    jump stuff_prompt
-    label .req1: 
-        p "…"
-        p "Mmmm’yep"
-        p "That sure is fire."
-        p "It kind of smells."
-        p "…"
-        p "I don’t think the source of the smell was in here."
-        p "I mean, the fire would have burnt it out long ago if that was the case."
-        p "…"
-        p "Maybe Jenny herself is the source of the smell."
-        jump investistart
+
 
 ## toilet ##
     label check_toilet_1:
@@ -419,6 +495,23 @@ label check_bunks_4:
         p "Yeah. That could work."
         p "I don’t need to go though."
         jump investistart
+
+    label check_toilet_3
+        # crowbar item pickup
+        if not have_crowbar
+            p "Jammed behind the toilet pipe is a crowbar."
+            p "There's also some note written in an arcane language."
+            p "I can speak arcane language, but i'm not being paid to do that."
+            p "It's very important i only do the job i am paid for."
+            p "My father told me that on the day he left my mother."
+            p "Anyway. I'll be taking this."
+            show screen sc_stuff_pane
+            $ have_crowbar = True
+            jump investistart
+        else
+            p "The pipe has started leaking for some reason."
+            p "It is also not my job to notice this."
+            jump investistart    
 #need toilet itmes, puzzle
 
 ## staffroom ##
@@ -521,15 +614,12 @@ label check_staffroom_3:
         jump investistart
 
 ## securityroom ##
-label check_securityroom_1:
-    p "The Security Office."
-    p "This is Jenny’s workplace, hence the smell."
-    p "I’d rather spend as little time here as possible, but there might be something i can use here to get people to stop liking her."
-    jump investistart
-
-label check_security_room_2:
+label check_security_room_1:
 
     if monitorCheck = 0:
+        p "The Security Office."
+        p "This is Jenny’s workplace, hence the smell."
+        p "I’d rather spend as little time here as possible, but there might be something i can use here to get people to stop liking her."
         p "Hey, it’s the security monitor for the office area."
         p "Those four looks like ants from in here."
         p "Hey, i can listen into them if i press this."
@@ -564,11 +654,52 @@ label check_security_room_2:
     if monitorCheck = 2:
         p "They're just milling around now."
         p "So unproductive."
-        jump investistart    
+        jump investistart
+
+label check_securityroom_2:
+    if securityCabinetClosed:
+        p "Some kind of locked cabinet thingy."
+        p "HHmmm no sign of a key."
+        p "Or a keyhole."
+        p "Or any kind of clear asset that will allow me to open it."
+        p "Hhhhmmmmmmmmmmmm."
+        $ interacting_with = "check_reception_2"
+        $ req = ["crowbar"]
+        jump stuff_prompt
+        label .req1: 
+            $ securityCabinetClosed = False
+            p "Ah! There we go."
+            p "It turns out the crowbar was the friends we made along the way."
+            p "Or something like that."
+            p "Now, let's have a look."
+            jump investistart
+    if not securityCabinetClosed and not have_ak47:
+        p "Oh!"
+        p "Oh ho ho."
+        p "Very nice."
+        p "Very nice indeed."
+        p "This is a perfect storage cloest."
+        p "I could store all manner of things in here."
+        p "It would be perfect for my collection of motorcycle magazines."
+        p "I just need to get these other things out of here first."
+        show screen sc_stuff_pane
+        $ have_ak47 = true
+        $ have_grenade = true
+        p "Thinking about it."
+        p "Why would Jenny have a grenade."
+        p "Oh, for nefarious purposes of course."
+        p "No doubt that this was intended for nothing less than absolute villany."
+        p "Oh i am onto you Jenny."
+        jump investistart
+    if not securityCabinetClosed and have_ak47:
+        p "Excellent. All that remains is to collect my motorstyle magazines from the West Tower."
+        p "..."
+        p "I suppose that will have to wait."
+
 
 label play_with_grenade:
     if playWithGrenade = 0:
-        p "This is a grenade i found in Jenny’s Bunk"
+        p "This is a grenade i found in Jenny’s Security Room"
         p "I do not know why she has a grenade."
         p "I only know that her having a grenade will be used in exchange for me having a seat on the helicopter."
         p "As such, it is vital that i ensure this grenade is kept in one piece and not be used for anything."
