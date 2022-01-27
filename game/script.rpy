@@ -373,7 +373,7 @@ init:
                         alt _("Dictaphone?")
                         tooltip _("Dictaphone?")
 
-                        if "grenade" in evidence_selected:
+                        if "dictaphone" in evidence_selected:
                             idle "evidence/dictaphone_select.png"
                             if evidence_cue:
                                 action Function(evidence_selected.remove,"dictaphone")
@@ -389,6 +389,156 @@ init:
                                     action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"dictaphone"),Jump("finale")]
                             else:
                                 action NullAction()
+                if have_raptorclaw:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        hovered NullAction()
+
+                        alt _("Raptor Claw?")
+                        tooltip _("Raptor Claw?")
+
+                        if "raptorclaw" in evidence_selected:
+                            idle "evidence/raptorclaw_select.png"
+                            if evidence_cue:
+                                action Function(evidence_selected.remove,"raptorclaw")
+                            else:
+                                action NullAction()
+                        else:
+                            idle "evidence/raptorclaw.png"
+                            if evidence_cue:
+                                activate_sound "button_select.wav"
+                                if len(evidence_selected) == 0:
+                                    action Function(evidence_selected.append,"raptorclaw")
+                                else:
+                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"raptorclaw"),Jump("finale")]
+                            else:
+                                action NullAction()
+                if have_research:
+                                    imagebutton:
+                                        hover_sound "button_hover.wav"
+                                        focus_mask True
+                                        hovered NullAction()
+
+                                        alt _("Research Journal?")
+                                        tooltip _("Research Journal?")
+
+                                        if "research" in evidence_selected:
+                                            idle "evidence/research_select.png"
+                                            if evidence_cue:
+                                                action Function(evidence_selected.remove,"research")
+                                            else:
+                                                action NullAction()
+                                        else:
+                                            idle "evidence/research.png"
+                                            if evidence_cue:
+                                                activate_sound "button_select.wav"
+                                                if len(evidence_selected) == 0:
+                                                    action Function(evidence_selected.append,"research")
+                                                else:
+                                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"research"),Jump("finale")]
+                                            else:
+                                                action NullAction()    
+                if have_wadofcash:
+                                    imagebutton:
+                                        hover_sound "button_hover.wav"
+                                        focus_mask True
+                                        hovered NullAction()
+
+                                        alt _("Wad of Cash?")
+                                        tooltip _("Wad of Cash?")
+
+                                        if "wadofcash" in evidence_selected:
+                                            idle "evidence/wadofcash_select.png"
+                                            if evidence_cue:
+                                                action Function(evidence_selected.remove,"wadofcash")
+                                            else:
+                                                action NullAction()
+                                        else:
+                                            idle "evidence/wadofcash.png"
+                                            if evidence_cue:
+                                                activate_sound "button_select.wav"
+                                                if len(evidence_selected) == 0:
+                                                    action Function(evidence_selected.append,"wadofcash")
+                                                else:
+                                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"wadofcash"),Jump("finale")]
+                                            else:
+                                                action NullAction()    
+                if have_contract:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        hovered NullAction()
+
+                        alt _("Assassin Contract?")
+                        tooltip _("Assassin Contract?")
+
+                        if "wadofcash" in evidence_selected:
+                            idle "evidence/contract_select.png"
+                            if evidence_cue:
+                                action Function(evidence_selected.remove,"contract")
+                            else:
+                                action NullAction()
+                        else:
+                            idle "evidence/contract.png"
+                            if evidence_cue:
+                                activate_sound "button_select.wav"
+                                if len(evidence_selected) == 0:
+                                    action Function(evidence_selected.append,"contract")
+                                else:
+                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"contract"),Jump("finale")]
+                            else:
+                                action NullAction()    
+                if have_fakePaper1:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        hovered NullAction()
+
+                        alt _("Manufactured Evidence 1 of 2?")
+                        tooltip _("Manufactured Evidence 1 of 2?")
+
+                        if "fakepaper1" in evidence_selected:
+                            idle "evidence/fakepaper_select.png"
+                            if evidence_cue:
+                                action Function(evidence_selected.remove,"fakepaper1")
+                            else:
+                                action NullAction()
+                        else:
+                            idle "evidence/fakepaper.png"
+                            if evidence_cue:
+                                activate_sound "button_select.wav"
+                                if len(evidence_selected) == 0:
+                                    action Function(evidence_selected.append,"fakepaper1")
+                                else:
+                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"fakepaper1"),Jump("finale")]
+                            else:
+                                action NullAction()  
+                if have_fakePaper2:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        hovered NullAction()
+
+                        alt _("Manufactured Evidence 2 of 2?")
+                        tooltip _("Manufactured Evidence 2 of 2?")
+
+                        if "fakepaper2" in evidence_selected:
+                            idle "evidence/fakepaper_select.png"
+                            if evidence_cue:
+                                action Function(evidence_selected.remove,"fakepaper2")
+                            else:
+                                action NullAction()
+                        else:
+                            idle "evidence/fakepaper.png"
+                            if evidence_cue:
+                                activate_sound "button_select.wav"
+                                if len(evidence_selected) == 0:
+                                    action Function(evidence_selected.append,"fakepaper2")
+                                else:
+                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"fakepaper2"),Jump("finale")]
+                            else:
+                                action NullAction() 
     screen sc_stuff_pane():
         zorder 2
         tag rightpane
@@ -535,6 +685,54 @@ init:
                                             action [SetVariable("stuff_selected","fuelcan"),SetVariable("stuff_cue",False),Jump("stuff_check")]
                                         else:
                                             action NullAction()
+                if have_idcard:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        idle "stuff/idcard.png"
+                        tooltip _("ID card")
+                        alt _("ID card")
+                        if stuff_cue:
+                            activate_sound "button_select.wav"
+                            action [SetVariable("stuff_selected","idcard"),SetVariable("stuff_cue",False),Jump("stuff_check")]
+                        else:
+                            action NullAction()
+                if have_hammer:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        idle "stuff/hammer.png"
+                        tooltip _("Hammer")
+                        alt _("Hammer")
+                        if stuff_cue:
+                            activate_sound "button_select.wav"
+                            action [SetVariable("stuff_selected","hammer"),SetVariable("stuff_cue",False),Jump("stuff_check")]
+                        else:
+                            action NullAction()
+                if have_blankPaper:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        idle "stuff/blankpaper.png"
+                        tooltip _("Blank Paper")
+                        alt _("Blank Paper")
+                        if stuff_cue:
+                            activate_sound "button_select.wav"
+                            action [SetVariable("stuff_selected","blankPaper"),SetVariable("stuff_cue",False),Jump("stuff_check")]
+                        else:
+                            action NullAction()
+                if have_adrianID:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        idle "stuff/adrianid.png"
+                        tooltip _("Adrian ID")
+                        alt _("Adrian ID")
+                        if stuff_cue:
+                            activate_sound "button_select.wav"
+                            action [SetVariable("stuff_selected","adrianid"),SetVariable("stuff_cue",False),Jump("stuff_check")]
+                        else:
+                            action NullAction()
     screen sc_buttons():
         zorder 3
         ## STUFF ##
@@ -905,6 +1103,16 @@ label start:
     $ have_match = False
     $ have_fuelcan = False
     $ have_dictaphone = False
+    $ have_idcard = False
+    $ have_raptorclaw = False
+    $ have_research = False
+    $ have_wadofcash = False
+    $ have_hammer = False
+    $ have_contract = False
+    $ have_blankPaper = False
+    $ have_adrianID = False
+    $ have_fakePaper1 = False
+    $ have_fakePaper2 = False
 
 ## Other stuff
     $ evi_count = 0
@@ -929,6 +1137,17 @@ label start:
     $ lookOutsideReception = False
     $ securityCabinetClosed = True
     $ fuelApplied = False
+    $ matchApplied = False
+    $ showIDCard = False
+    $ tonyChestOpen = False
+    $ globeSmashed = False
+    $ showAdrianID = False
+    $ viewSecurityPanel = False
+    # security room puzzle
+    $ securityPuzzleOpen = False
+    $ adrianAccused = False
+    $ currentPuzzleState = 0
+
     # Pertaining to this and that
     $ used_mask = False
     $ paint_talk = False

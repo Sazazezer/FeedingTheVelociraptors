@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script_interacts.rpy", line 383: Line is indented, but the preceding jump statement statement does not expect a block. Please check this line's indentation.
-    label .req1: 
-    ^
+File "game/script_room_screens.rpy", line 235: reached end of line when expecting ':'.
+    if not have_blankPaper
+                          ^
 
 Ren'Py Version: Ren'Py 7.3.2.320
-Fri Jan 21 15:12:03 2022
+Thu Jan 27 17:13:34 2022

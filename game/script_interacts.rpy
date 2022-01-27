@@ -294,6 +294,7 @@ label check_reception_3:
             p "Well, with nay luck someone wold have heard the gunshot and be coming to help me out."
             p "I’m sure tat’s a thing that’s about to happen."
             p "You just waitthere, mister Raptor. You’ll get your commupance soon."
+            # !!AK death scene.
         label .req2:
             jump play_with_grenade
 
@@ -350,6 +351,20 @@ label check_ceo_1: #CEO Desk
     p "It’s shiny, and it’s wood."
     p "… and it’s shiny."
     p "That proper kind of shine. Not the type that gets scratched off after a month of use."
+    p "And there's a drawer."
+    p "A sort of Dead Man's drawer."
+    p "Let's see what's in here."
+    $ showIDCard = True
+    p "Huh. It's Todd's ID card."
+    p "It looks kind of odd."
+    p "Oh wait. It's just upside down."
+    p "Yup. There's ol' Todd."
+    p "Looking completely normaly and boring as ever."
+    $ showIDCard = False
+    p "Well i guess i should keep this."
+    p "I'll probably need to hand it to his father at some point."
+    show screen sc_stuff_pane
+    $ have_idcard = True
     jump investistart
 
 label check_ceo_2: #finding grenade
@@ -375,6 +390,72 @@ label check_ceo_6:
         p "Having played with them for so long."
         jump investistart
 
+label check_ceo_3:
+    if not globeSmashed:
+        p "It's the Entire World."
+        p "Or some kind of model of it anyway."
+        p "Perfect for standing over and imagining yourself like a giant."
+        p "Or proving that Uruguay doesn't really exist."
+        p "... You know, the world always has been mean to me."
+        p "What has it really given me."
+        p "Clearly not much, if people are actively planning to feed me to dinosaurs."
+        p "I think i'm owed some retribution."
+        p "But what item to use..."
+        $ interacting_with = "check_ceo_3"
+        $ req = ["hammer,grenade"]
+        jump stuff_prompt
+        label .req1:
+            p "Well, i suppose the best way to solve the iceberg crisis is to smash up the icebergs so they can't threaten anyone."
+            p "Maybe if i die, people will see what i've done here and be inspired."
+            p "YAAAAAHHH. YAAAAAHHHHHHHH"
+            p "SMaSHY SMAsHy!"
+            $ globeSmashed = True
+            p "Phew, that felt good."
+            p "Oh hey, and there's something in here."
+            p "A piece of paper."
+            p "Looks like a job contract."
+            p "Assassination contract..."
+            p "This contract is a legal agreement, enforceable by Assassin law..."
+            p "To pay Tony Floyover the sum of..."
+            p "To Assassinate Todd Raptorman..."
+            p "in the name of John Hammond..."
+            p "...signed Tony Flyover."
+            p "Oh..."
+            p "Oh wow..."
+            p "I guess this IS actual evidence."
+            p "I better get this over to the group."
+            p "Wait, i'll probably need proof he got paid or something as well."
+            p "Some kind of crimson liquid currency or something."
+            show screen sc_evidence_pane
+            $ ev_bo = True
+            $ have_contract = True
+            $ evi_count += 1
+            jump evi_tally
+        label .req2:
+            jump play_with_grenade
+    else:
+        p "Yup."
+        p "Definitely no Uruguay on here."
+        p "That Gypsy was definitely wrong."
+        jump investistart
+label check_ceo_4:
+    if not have_adrianID:
+        p "It is a Cup Board."
+        p "A long board of wood, specifcally designed to hold cups."
+        p "An ingenious invention created in 2002 that prevent many spillages around the house."
+        p "This is one of the newer fancier ones that also has storage underneath it."
+        p "Let's have a look."
+        p "Huh."
+        $ showAdrianID = True
+        p "It's Adrian's ID card."
+        p "If i recall Todd took it off him as a prank."
+        p "It was hilarious and fully deserved."
+        $ showAdrianID = False
+        p "Well, i'm sure i can used this for something."
+        show screen sc_stuff_pane
+        $ have_AdrianID = True
+        jump investistart
+
 
 ## bunks ##
 label check_bunks_1:
@@ -397,7 +478,7 @@ label check_bunks_2:
         p "It’s not that i’m assuming the contents of her bunk box is the source of the smell she carries around with her at all times."
         p "I’m just saying i’m not willing enough to take that risk."
         p "Now, if i had a way to break open the box from a distance, with no risk to the inside contents, then i might be willing to take a gander inside."
-        $ interacting_with = "check_bunks_4"
+        $ interacting_with = "check_bunks_2"
         $ req = ["fuelcan,grenade"]
         jump stuff_prompt
         label .req1: 
@@ -414,6 +495,7 @@ label check_bunks_2:
     if fuelApplied and not matchApplied:
         p "Well, that didn't help loosen the lock."
         p "But maybe adding something more to this fuel will help."
+        $ interacting_with = "check_bunks_2"
         $ req = ["match,grenade"]
         jump stuff_prompt
         label .req1: 
@@ -450,19 +532,62 @@ label check_bunks_2:
         jump evi_tally
         
 label check_bunks_4:
-    p "This is tony’s bunk box."
-    p "We each have one, though they don’t really get used."
-    p "It appears to have some kind of arcane spell placed upon it, preventing me access."
-    p "If it were to cfind a counter spell, i could probably remove it"
-    $ interacting_with = "check_reception_2"
-    $ req = ["crowbar"]
-    jump stuff_prompt
-    label .req1:  
-        p "Using my honed magic skills, which i have always had, i cast crowbar on Tony’s bunk box, revealing the contents of his chest."
-        p "But what do i find here?!!"
+    if not have_wadofcash:
+        p "This is Tony’s bunk box."
+        p "We each have one, though they don’t really get used."
+        p "It appears to have some kind of arcane spell placed upon it, preventing me access."
+        p "If it were to cfind a counter spell, i could probably remove it"
+        $ interacting_with = "check_reception_2"
+        $ req = ["crowbar","grenade"]# !!check how choices work again...
+        jump stuff_prompt
+        label .req1:  
+            p "Using my honed magic skills, which i have always had, i cast crowbar on Tony’s bunk box, revealing the contents of his chest."
+            p "But what do i find here?!!"
+            #show bloody cash!!
+            p "A wad of cash with bloodstains on it."
+            p "..."
+            p "That's certainly interesting."
+            p "I wonder what this Blood covered money is all about."
+            p "Probably something dastardly."
+            p "I should keep it."
+            p "You know... for Evidence."
+            p "Evidence..."
+            show screen sc_evidence_pane
+            $ ev_bo = True
+            $ have_wadofcash = True
+            $ evi_count += 1
+            jump evi_tally
+        label .req2:
+            jump play_with_grenade 
+    else:
+        p "There's some helicopter magazines in here as well."
+        p "Helicopters aren't as cool as motorcycles."
+        p "So i have no interest."
         jump investistart
 
 label check_bunks_3:
+    if not have_hammer:
+        p "This is Todd's Teddy bear."
+        p "His name is Nixon, and he is a friend to all."
+        p "I have often requested that Todd allow me to sleep with Nixon some nights."
+        p "But he said that some friendships are too deep to share with peons."
+        p "It was weird that he referred to his bear as a peon."
+        p "But i felt really close to him that night."
+        p "So i didn't need the Teddy bear after all."
+        p "Maybe next time, Nixon."
+        p "Inside Nixon is a hammer."
+        p "It is important you store that which is most important to you inside a bear named after the 37th President of the United States."
+        show screen sc_stuff_pane
+        $ have_hammer = True
+        jump investistart
+    elif matchApplied:
+        p "Teddy Nixon will remain safe here."
+        p "In this room once filled with fire."
+        jump investistart
+    else:
+        p "Teddy Nixon will remain safe here."
+        jump investistart
+label check_bunks_4:
     p "Adrian has left his Bunk box open like a pitiful loser with no notion of mystery."
     p "In it is a towel, several pairs of socks, some stationary and a book of fraudulent tax claims he has made against the state."
     p "All useless to me."
@@ -496,9 +621,9 @@ label check_bunks_3:
         p "I don’t need to go though."
         jump investistart
 
-    label check_toilet_3
+    label check_toilet_3:
         # crowbar item pickup
-        if not have_crowbar
+        if not have_crowbar:
             p "Jammed behind the toilet pipe is a crowbar."
             p "There's also some note written in an arcane language."
             p "I can speak arcane language, but i'm not being paid to do that."
@@ -508,7 +633,7 @@ label check_bunks_3:
             show screen sc_stuff_pane
             $ have_crowbar = True
             jump investistart
-        else
+        else:
             p "The pipe has started leaking for some reason."
             p "It is also not my job to notice this."
             jump investistart    
@@ -516,101 +641,71 @@ label check_bunks_3:
 
 ## staffroom ##
 label check_staffroom_1:
-    if not used_mask:
-        alt "The horrifying thing glowers down at Jam."
-        j jterror "oh god what is that thing"
-        j "why does it have so many eyes"
-        j "oh god oh man oh god"
-
-        $ interacting_with = "check_staffroom_1"
-        $ req = ["mask","gun","book"]
+    if not gotRaptorClaw:
+        p "This appears to be Helen's Containment box."
+        p "For containing secreative things."
+        p "Don't know what it's doing in the staff room like this."
+        p "Almost like someone didn't plan their art assets properly and began to run out of time and so made something up."
+        p "Irregardless! It must contain evidence of wrong doing by Helen."
+        p "But i need some manner of getting into it."
+        $ interacting_with = "check_reception_2"
+        $ req = ["crowbar,idcard, grenade"]
         jump stuff_prompt
-
         label .req1:
-            j jterror "Ri—right! Maybe I could use the mask!"
-            j "If I just put it on . . ."
-            j jmask ". . ."
-            j "This isn't helping!"
-            j jterror "Okay, maybe if I put the mask on it instead . . ."
-            $ used_mask = True
-            $ have_mask = False
-            alt "Jam sticks the mask over the demon's head."
-            j ". . ."
-            j jdoubt ". . ."
-            j janger ". . ."
-            j "Wow, that's somehow exactly as terrible as it was before."
-            j jneutral "Still, at least it's not any worse?"
+            p "Hhhmmm, a valiant effort."
+            p "But there's nothing really to crow the bar into."
+            p "There's this card scanner. I could probably get some torque on that."
+            p "Torque is a funny word and i know exactly what it means."
+            p "What was i doing again?"
+            p "Whatever it is, it doesn't involve this crowbar."
             jump investistart
         label .req2:
-            j jgun "Keep it together, Jam!"
-            j "It's just a taxidermied model. All I need to do is take the gun, look that thing in the eyes, and—"
-            j jterror "oh my god i'm gonna die"
-            jump stuff_prompt
+            p "As CEO, Todd had access to everything."
+            p "NOW HE HAS ACCESS ONLY TO DEATH."
+            p "I'm sure he's doing fine in the underworld."
+            p "Oh, it worked. The container opened."
+            p "Strange, felt like there should be more destruction."
+            p "Anyway, there's some raptor claw in here."
+            p "Probably for an illegitimate science experiement from the mad scientist known only as Helen Smithson."
+            p "I will take this for evidence."
+            p "Like any good detective would."
+            show screen sc_evidence_pane
+            $ ev_bo = True
+            $ have_raptorclaw = True
+            $ evi_count += 1
+            jump evi_tally
         label .req3:
-            j jterror "If it's a demon, it probably got here by magic, so magic can send it back, right?"
-            j jdoubt "Just got to find the right spell in this book . . ."
-            j jalarm "Uh . . . centi, milli, micro, nano?"
-            j jterror "oh god it's not working"
-            jump stuff_prompt
-    else:
-        j jneutral ".{w} .{w} ."
-        j "nope"
-        jump investistart
+            jump play_with_grenade
+    jump investistart
+
 label check_staffroom_2:
-    if not used_mask:
-        j jneutral "Oh, cool, a yardstick!"
-        j "All I need to do is walk past that—"
-        j jterror "—that demonic monstrosity holy crap it's going to eat me alive"
-        jump investistart
-    else:
-        j jneutral "I sure am glad that I can walk past this absolute nightmare without any issues at all, ha ha."
-        j "Yep, just gonna walk on over to pick up this yardstick while avoiding looking to my left at all costs. Totally cool!"
-        j jdoubt "Wait a second . . ."
-        j janger "This isn't a yard stick! It's all in centimeters and stuff!"
-        j "What a waste of wood. Honestly, how are you even supposed to use that?"
+    if not have_research:
+        p "What's this on the floor?"
+        #!!show journal in top right
+        p "Oh, it appears to be a Research Journal from Helen, the scientist."
+        p "With a qick cursory glance, i can see that it definitely contains evidence of Helen's wrong-doing."
+        p "This is definitely a good start."
+        p "Lucky i found it just lying on the floor like that."
+        p "Yup. Some hard-boiled detective work was done here today."
+        p "Yessir, not lazy at all."
+        p "..."
+        show screen sc_evidence_pane
+        $ ev_bo = True
+        $ have_research = True
+        $ evi_count += 1
+        jump evi_tally
 
-        $ interacting_with = "check_staffroom_2"
-        $ req = ["book","candle","gun"]
-        jump stuff_prompt
-
-        label .req1:
-            j jgrim "Ugh. I suppose I did pick up that book on metric back in the securityroom."
-            j janger "I g u e s s I could try and figure it out."
-            j jthink "Hmmm . . ."
-            j ". . . units of measurement . . . international standard . . ."
-            j ". . . divisible by ten . . . something French or whatever . . ."
-            j ". . . one kilometer is equal to 0.62 miles . . ."
-            j jsurprise "Wow! I think I get it!"
-            j jsmug "Of course, such instantaneous mastery is to be expected, seeing as I'm Jam, the world's greatest kid detective between the ages of 4 and 17 in the western half of Linn County."
-            j "A prodigy like me eats newtons for breakfast."
-            j jneutral ". . . well, fig newtons, anyway."
-            show screen sc_stuff_pane
-            $ ev_bo = False
-            $ have_ruler = True
-            jump investistart
-        label .req2:
-            j jthink "I suppose if I lit it on fire, it might make for a decent torch."
-            j "Not that there's any arson I urgently need to commit right now, but I'll keep that in mind!"
-            jump stuff_prompt
-        label .req3:
-            j jsurprise "Aha! Brilliant idea, Jam!"
-            j jsmug "If I attach the revolver to the end of the stick, I can practically double my range!"
-            j "The final boss won't even know what hit it."
-            j jdoubt "There is going to be a final boss, isn't there?"
-            j jgrim "Hmmm . . . Maybe there's a better way to use this."
-            jump stuff_prompt
-label check_staffroom_3:
-    if not used_mask:
-        j jterror "can't look at candle too busy trying not to get my soul sucked out through my teeth"
-        jump investistart
-    else:
-        j jthink "Ha, ha, alright, well, now that the taxidermied demonic entity is out of the way, I can get back to what's really important here:"
-        j jneutral "Pocketing everything within eyeshot that isn't nailed down!"
-        j jsmug "Starting with this candle!"
+label check_staffroom_4:
+    if not have_blankPaper:
+        p "Hey, some spare paper."
+        p "This is always good for me to collect."
+        p "For a vairety of reasons."
+        p "For one, to add to the pile of paper that i've been collecting in my office."
+        p "For two,"
+        p "..."
+        p "There's probably a reason i'm doing this."
         show screen sc_stuff_pane
-        $ ev_bo = False
-        $ have_candle = True
-        j jneutral "Not actually sure I'm gonna need this, seeing as the house is pretty adequately lit already, but I'm not really opposed to the ability to light random things on fire either."
+        $ have_blankPaper = true
         jump investistart
 
 ## securityroom ##
@@ -695,6 +790,113 @@ label check_securityroom_2:
         p "Excellent. All that remains is to collect my motorstyle magazines from the West Tower."
         p "..."
         p "I suppose that will have to wait."
+label check_securityroom_3:
+    if have_adrianID and have_blankPaper and have_idcard:
+        p "Hey, thinking about it."
+        p "Not that i have some paper and these ID cards."
+        p "Maybe i could go beyond simply finding evidence."
+        p "Maybe i could go into the business of making evidence."
+        p "I've never much been involved in the law before."
+        p "Well, save for all those chicken smuggling arrests that kept happening."
+        p "But that's why Uncle Ernie got that job as a Judge."
+        p "Let's see what i can do."
+        $ securityPuzzleOpen = True
+        jump investistart
+    elif not viewSecurityPanel:
+        p "Oh, i know this one."
+        p "This is the ID log reports systems."
+        p "It shows all ID usage within the park."
+        p "Who opened what and what not."
+        p "Me and Todd used to come in here to alter logs for a laugh."
+        p "Make it look like employees weren't in their designated areas when they should have been."
+        p "It was funny."
+        p "Though thinking about it, i never did see any of those staff members again after Todd did that."
+        p "Weird."
+        p "Anyway, useless to me i suppose."
+        p "Though with the right tools this could make some interesting things happen."
+        $ viewSecurityPanel = True
+        jump investistart
+    else:
+        p "Still useless to me."
+        p "I'd probably need some ID cards to make something happen with it."
+
+label check_securityroom_5:
+    p "This is the log system."
+    p "The mere presence of Todd's card is enough to put it into Edit mode."
+    p "So i can apparently make changes."
+    p "Let's see. To make changes, simply slide the dials, press the sliders..."
+    p "honk the buttons and twiddle the switches in the order just stated."
+    p "This will change the current log files to the nearest non-Todd ID."
+    p "Once complete, flick the chicken to receive the printout."
+    p "Seems easy enough."
+    # need a way to escape the puzzle
+    jump investistart
+
+label check_secruityroom_6:
+    if currentPuzzleState = 1:
+        p "Okay then..."
+        $ currentPuzzleState = 2
+        jump investistart
+    else:
+        p "I don't think that's right."
+        $ currentPuzzleState = 0
+        jump investistart
+
+label check_secruityroom_7:
+    if currentPuzzleState = 0:
+        p "Mmmm hmmm..."
+        $ currentPuzzleState = 1
+        jump investistart
+    else:
+        p "I don't think that's right."
+        $ currentPuzzleState = 0
+        jump investistart
+
+label check_secruityroom_8:
+    if currentPuzzleState = 3:
+        p "Right... Ok..."
+        $ currentPuzzleState = 4
+        jump investistart
+    else:
+        p "I don't think that's right."
+        $ currentPuzzleState = 0
+        jump investistart
+
+label check_secruityroom_9:
+    if currentPuzzleState = 2:
+        p "Yeah... i think that's it."
+        $ currentPuzzleState = 3
+        jump investistart
+    else:
+        p "I don't think that's right."
+        $ currentPuzzleState = 0
+        jump investistart
+
+label check_secruityroom_10:
+    if currentPuzzleState = 4:
+        p "So i should just need to push this..."
+        $ currentPuzzleState = 5
+        p "Oh, it worked."
+        p "Excellent. I knew i'd get it right."
+        p "Oh, and what's this?"
+        p "A print out of the logs, showing that it was in fact Adrian that opened up the Raptor gates."
+        p "All this time i thought it was Paul."
+        p "Because i am Paul, and I opened the gates."
+        p "But this shows that i am wrong and i am Paul and not Adrian."
+        p "And Adrian was the one who opened the gates."
+        p "I am willing to admit my mistakes."
+        p "Let's go see if Adrian would as well."
+        show screen sc_evidence_pane
+        $ ev_bo = True
+        $ have_fakePaper1 = True
+        $ have_fakePaper2 = True
+        $ evi_count += 1
+        $ evi_count += 1
+        jump evi_tally
+    else:
+        p "I don't think that's right."
+        $ currentPuzzleState = 0
+        jump investistart
 
 
 label play_with_grenade:

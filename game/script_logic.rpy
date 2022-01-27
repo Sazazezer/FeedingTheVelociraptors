@@ -166,11 +166,11 @@ label endcard:
         $ persistent.end_03 = True
     elif "grenade" in evidence_selected and "dictaphone" in evidence_selected:
         $ persistent.end_04 = True
-    elif "raptorclaw" in evidence_selected and "researchjournal" in evidence_selected:
+    elif "raptorclaw" in evidence_selected and "research" in evidence_selected:
         $ persistent.end_05 = True
     elif "assassin" in evidence_selected and "wadofcash" in evidence_selected:
         $ persistent.end_06 = True
-    elif "fakepaper" in evidence_selected and "fakeid" in evidence_selected:
+    elif "fakepaper1" in evidence_selected and "fakepaper2" in evidence_selected:
         $ persistent.end_07 = True
     elif "jaw" in evidence_selected and "cash" in evidence_selected:
         $ persistent.end_14 = True

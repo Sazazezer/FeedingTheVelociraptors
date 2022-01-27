@@ -244,7 +244,7 @@ label route02: # Accussing Jenny - Evidence - Grenade - Dictaphone/Transcript / 
     $ location = 10
     jump forceroomrefresh
 
-label route03: # Accussing Helen - Evidence - Research Journal/Raptor Claw / Stuff - Research Journal found under chair in Lab (staff room) - Raptor Claw found by using security card on containment lock. Card found behind Toilet
+label route03: # Accussing Helen - Evidence - Research Journal/Raptor Claw / Stuff - Research Journal found under chair in Lab (staff room) - Raptor Claw found by using security card on containment lock. Card found in CEO office
     p "My fellow Americans"
     $ location = 10
     jump forceroomrefresh
