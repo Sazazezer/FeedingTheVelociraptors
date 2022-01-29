@@ -665,7 +665,7 @@ init:
                                     imagebutton:
                                         hover_sound "button_hover.wav"
                                         focus_mask True
-                                        idle "stuff/match.png"
+                                        idle "stuff/matchbox.png"
                                         tooltip _("match")
                                         alt _("match")
                                         if stuff_cue:
@@ -1048,7 +1048,7 @@ define h = Character(_('HELEN'), image='mono', what_prefix='"', what_suffix='"',
 define t = Character(_('TONY'), image='mono', what_prefix='"', what_suffix='"', color='#ffffff')
 define j = Character(_('JENNY'), image='mono', what_prefix='"', what_suffix='"', color='#ffffff')
 define r = Character(_('RAPTOR'), image='mono', what_prefix='"', what_suffix='"', color='#ffffff')
-
+define n = Character(_(''), image='mono', what_prefix='"', what_suffix='"', color='#ffffff')
 
 
 ## SHAKES ##
@@ -1143,6 +1143,9 @@ label start:
     $ globeSmashed = False
     $ showAdrianID = False
     $ viewSecurityPanel = False
+    $ ak47Scare = False
+    $ monitorCheck = False
+    $ monitorCheckStop = False
     # security room puzzle
     $ securityPuzzleOpen = False
     $ adrianAccused = False

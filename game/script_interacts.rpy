@@ -2,8 +2,7 @@
 label check_offices_1:
     if prog == 0:
         t "So, it’s decided. Paul has to die."
-        $ have_ak47 = True
-        $ have_grenade = True
+        $ have_match = True
         $ location = 9
         jump forceroomrefresh
         a "This is horrible. I can’t believe it’s come down to this."
@@ -19,7 +18,7 @@ label check_offices_1:
         h "With the ensuring distraction, we will make our way to the helicopter in the parking lot."
         t "Heh, and you said me trying to validate my parking was ridiculous."
         h "People are still dead, Tony."
-        t "Right… Sorry."
+        t "Right... Sorry."
         h "Now, i’m sure there may be a desperate desire to be selfish and do what we can to ensure that we stay alive. At the very least, recognise that Tony must stay alive."
         h "He is the only one here that can pilot a helicopter. None of us live without him."
         p "Pretty sure i don’t get to live at all."
@@ -56,50 +55,50 @@ label check_offices_1:
         $ location = 9
         jump forceroomrefresh
     else:
-        if evi_count > 1:
-            if fire_count == 4:
-                a afear "Kid, do you, uh, smell something burning?"
-                j jalarm "No idea what you're talking about!"
-                j janger "Anyway, let's wrap this up."
-                j jsmug "I know what you did, and I've got the evidence to prove it!"
-            else:
+        if have_ak47 and not ak47Scare:
+            alt "Jam appears holding the gun." #!! test to see if this shows in game
+            p "Hey everyone."
+            j "Oh good lord."
+            p "Just checking in. How's everyone doing?"
+            j "Paul... where- where did you get that?"
+            p "Oh this? I found it."
+            j "And... what are you going to do with it?"
+            p "Oh. i guess we'll all see."
+            j "..."
+            a "..."
+            t "..."
+            h "..."
+            p "..."
+            p "Well. Nothing much going on here. I'll catch you all later."
+            p "Or not. Who knows."
+            show mono empty
+            j ". . . What the hell?"
+            $ ak47Scare = True
+            $ location = 3
+            jump forceroomrefresh
+        else:
+            if evi_count > 1:
                 p "Well. I think i’m good to go."
                 p "The crowd has gathered. Is it time for me to present the evidence that i have so painstakingly uncovered?"
-
-            jump accusation
-        else:
-            if fire_count == 4:
-                a afear "Uh, do you smell something burning?"
-                j jalarm "Everything's fine! Everything's totally cool!"
-                j "I just left my cake in the oven too long!"
-                a adoubt "Wait, you're baking a cake? Like, right now? In this house of horrors?"
-                j jalarm "It's for, uh, your birthday! We're having a surprise party!"
-                j jneutral "Now if you'll excuse me, I've to go wrap the cake. I mean frost your presents."
-            elif have_mask:
-                alt "Jam appears wearing the horse mask."
-                j jmask "NEIGH"
-                a aalarm "OH GOD IT'S BACK TO oh wait it's just you again."
-                a agrin "So, uh, you ready to untie me yet?"
-                j jmask ". . ."
-                j "neigh"
-            elif have_gun:
-                alt "Jam appears holding the gun."
-                j jgun ". . . . . ."
-                a afear ". . . Jam?"
-                a "What exactly are you gonna do with that?"
-                j jgun "Oh, nothing much."
-                a afear "That thing's not loaded, right?"
-                a "Right, Jam?"
-                show mono empty
-                a ". . . Jam?"
+                jump accusation
             else:
-                a agrin "So, uh, you ready to untie me yet?"
-                j janger ". . . . . . . . ."
-                j jneutral "Nope."
-    jump investistart
+                t "Oh. You're back."
+                t "It's not been an hour yet. Or are you ready to begin."
+                p "No no. Just having a bit of a wander."
+                p "Still haven't had my lunch yet."
+                p "Be back soon."
+                t "..."
+                $ location = 3
+                jump forceroomrefresh
+
 
 label temp_corridor:
     p "Well, this is a sticky little pickle i’ve gotten us into. How will i escape today?"
+    #!!remvoe test skip
+    $ tonyincorridor = False
+    play music "FTV-A.wav"
+    $ prog = 2
+    jump investistart
     t "Oi."
     p "Ah, helicopter man. Excellent. I knew you’d come around."
     t "What?"
@@ -113,7 +112,7 @@ label temp_corridor:
     t " What i’m trying to say is, don’t use this hour to figure out some non-existant escape. "
     t "Use it to find your peace. Most of the guys i used to work with would kill to know it’s their final hour on earth, rather than have it sneak up on them."
     t "You’ve got one last opportunity here. Use it wisely."
-    p "… Understood. Got it."
+    p "... Understood. Got it."
     t "Good. See you about in about an hour."
     p "Oh you’ll see me, alright."
     t "What was that?"
@@ -174,19 +173,18 @@ label check_reception_2: #filing cabinet
         p "That i might happen to find."
         p "Certainly not a crowbar or anything."
         $ interacting_with = "check_reception_2"
-        $ req = ["crowbar,grenade"]
+        $ req = ["crowbar","grenade"]
         jump stuff_prompt
         label .req1:  
             p "Huh, whaddya know."
             p "This locker was-"
             p "This locker-"
             p "Hold on."
-            $ filingCabinetOpen = true
-            #!!Add broken loker as 2b
+            $ filingCabinetOpen = True
             p "This filing cabinet was open the entire time."
             p "And what's this?"
             p "Tickets?"
-            P "For some kind of personal event."
+            p "For some kind of personal event."
             p "Oh, Adrian."
             p "You should not be using the company printer for this kind of thing."
             p "Methinks this could work against you in a court of your peers."
@@ -200,11 +198,10 @@ label check_reception_2: #filing cabinet
     else:
         p "The Cabinet has been searched and returned back to its original state."
         jump investistart
-        #!!need broken cabinet image
 
 label check_reception_3:
     if receptionDoorsCheck == 0:
-        p "A beautiful garden… erm… front entryway thing."
+        p "A beautiful garden... erm... front entryway thing."
         p "You know, the things that they have in front of businessey buildings"
         p "With grass and seats and fountains."
         p "To make the corporate world seem more in tune with nature."
@@ -245,11 +242,11 @@ label check_reception_3:
         jump investistart
 
         $ interacting_with = "check_reception_2"
-        $ req = ["ak47, grenade"]
+        $ req = ["ak47", "grenade"]
         jump stuff_prompt
         label .req1:  
             p "Wait."
-            p "Thinking about it…"
+            p "Thinking about it..."
             p "Rationally and logically of course."
             p "RatioLogically, you could say."
             p "What if i were touse this gun"
@@ -275,16 +272,16 @@ label check_reception_3:
             p "Ha ha ha."
             p "Next. Make sure the clips in."
             p "Yep. That’s definitely a clip containing bullets."
-            p "Then… i think i need to cock the gun."
+            p "Then... i think i need to cock the gun."
             p "Movies do that all the time right?"
             p "But sometimes they don’t."
             p "Does a gun always need cocking."
             p "Well, i’ll guess i’ll just cock it anyway."
             p "Then it;ll be doubly loaded."
             p "Then next i guess i just point and shoot"
-            #!!BANGBANGBANGBANG"
+            n "BANGBANGBANGBANG"
             #!!(scene o raptor looking from outside the force field, completely unhardmed, from a position that makes it clearly Paul is on the floor. Dying.)"
-            p "So… something went wrong."
+            p "So... something went wrong."
             p "Painfully wrong in fact."
             p "Oh this hurts so much."
             p "Not sure what it cold have been."
@@ -293,7 +290,7 @@ label check_reception_3:
             p "No. It got be video games fault i have a gun. That’s just passing the blame."
             p "Well, with nay luck someone wold have heard the gunshot and be coming to help me out."
             p "I’m sure tat’s a thing that’s about to happen."
-            p "You just waitthere, mister Raptor. You’ll get your commupance soon."
+            p "You just wait there, mister Raptor. You’ll get your commupance soon."
             # !!AK death scene.
         label .req2:
             jump play_with_grenade
@@ -331,7 +328,8 @@ label check_corridor_2:
     p "Oh well, nothing to do but take this with me."
     p "I'm sure i'll get back to the oily rags room at some point."
     p "Just as soon as i figure out where that is."
-    $ have_fuelcan = true
+    show screen sc_stuff_pane
+    $ have_fuelcan = True
     jump investistart
 
 
@@ -349,7 +347,7 @@ label check_ceo_1:
 label check_ceo_1: #CEO Desk
     p "Now this is a desk like what i want to have."
     p "It’s shiny, and it’s wood."
-    p "… and it’s shiny."
+    p "... and it’s shiny."
     p "That proper kind of shine. Not the type that gets scratched off after a month of use."
     p "And there's a drawer."
     p "A sort of Dead Man's drawer."
@@ -402,7 +400,7 @@ label check_ceo_3:
         p "I think i'm owed some retribution."
         p "But what item to use..."
         $ interacting_with = "check_ceo_3"
-        $ req = ["hammer,grenade"]
+        $ req = ["hammer","grenade"]
         jump stuff_prompt
         label .req1:
             p "Well, i suppose the best way to solve the iceberg crisis is to smash up the icebergs so they can't threaten anyone."
@@ -479,7 +477,7 @@ label check_bunks_2:
         p "I’m just saying i’m not willing enough to take that risk."
         p "Now, if i had a way to break open the box from a distance, with no risk to the inside contents, then i might be willing to take a gander inside."
         $ interacting_with = "check_bunks_2"
-        $ req = ["fuelcan,grenade"]
+        $ req = ["fuelcan","grenade", "crowbar"]
         jump stuff_prompt
         label .req1: 
             p "Maybe i can use the fuel in this can to lubricate the lock."
@@ -492,11 +490,16 @@ label check_bunks_2:
             jump investistart
         label .req2:
             jump play_with_grenade
+        label .req3:
+            p "That really doesn't solve the range issue."
+            p "It's a really bad smell."
+            p "I can smell it with my very real nose."
+            jump investistart
     if fuelApplied and not matchApplied:
         p "Well, that didn't help loosen the lock."
         p "But maybe adding something more to this fuel will help."
         $ interacting_with = "check_bunks_2"
-        $ req = ["match,grenade"]
+        $ req = ["match","grenade"]
         jump stuff_prompt
         label .req1: 
             p "Wait a second."
@@ -505,14 +508,14 @@ label check_bunks_2:
             p "But i'm pretty sure i can lockpick using any straight object."
             p "It is at least worth a reasonable try."
             $ matchApplied = True
-            p "…"
+            p "..."
             p "Mmmm’yep"
             p "That sure was a lot fire for about a second."
             p "It kind of smells."
-            p "…"
+            p "..."
             p "I don’t think the source of the smell was in here."
             p "I mean, the fire would have burnt it out long ago if that was the case."
-            p "…"
+            p "..."
             p "Maybe Jenny herself is the source of the smell."
             p "What's in here?"
             jump investistart
@@ -538,11 +541,11 @@ label check_bunks_4:
         p "It appears to have some kind of arcane spell placed upon it, preventing me access."
         p "If it were to cfind a counter spell, i could probably remove it"
         $ interacting_with = "check_reception_2"
-        $ req = ["crowbar","grenade"]# !!check how choices work again...
+        $ req = ["crowbar","grenade"]
         jump stuff_prompt
         label .req1:  
             p "Using my honed magic skills, which i have always had, i cast crowbar on Tony’s bunk box, revealing the contents of his chest."
-            p "But what do i find here?!!"
+            p "But what do i find here?"
             #show bloody cash!!
             p "A wad of cash with bloodstains on it."
             p "..."
@@ -649,7 +652,7 @@ label check_staffroom_1:
         p "Irregardless! It must contain evidence of wrong doing by Helen."
         p "But i need some manner of getting into it."
         $ interacting_with = "check_reception_2"
-        $ req = ["crowbar,idcard, grenade"]
+        $ req = ["crowbar","idcard", "grenade"]
         jump stuff_prompt
         label .req1:
             p "Hhhmmm, a valiant effort."
@@ -705,22 +708,19 @@ label check_staffroom_4:
         p "..."
         p "There's probably a reason i'm doing this."
         show screen sc_stuff_pane
-        $ have_blankPaper = true
+        $ have_blankPaper = True
         jump investistart
 
 ## securityroom ##
-label check_security_room_1:
-
-    if monitorCheck = 0:
+label check_securityroom_1:
+    if not monitorCheckStop:
         p "The Security Office."
         p "This is Jenny’s workplace, hence the smell."
         p "I’d rather spend as little time here as possible, but there might be something i can use here to get people to stop liking her."
         p "Hey, it’s the security monitor for the office area."
         p "Those four looks like ants from in here."
         p "Hey, i can listen into them if i press this."
-        $ monitorCheck = 1
-    #switch to monitor
-    if monitorCheck = 1:
+        $ monitorCheck = True
         a "Oh god. We’re all going to die here, aren’t we? We’re all going to die here."
         j "Calm down, Adrian. We can do this."
         a "What? No we can’t. We’re just deluding ourselves."
@@ -731,22 +731,24 @@ label check_security_room_1:
         j "Calm it, boy. Where will panicking get you."
         a "Oh. Where’s does being stoic get me? Maimed. Devoured. It’ll be better for me to just jump off the balcony now."
         h "Knock yourself out."
-        a "I… What?"
+        a "I... What?"
         h "Throw yourself off the balcony. It’ll distract the raptors for us. They’ll go round to feast on your body, and we can all get out."
-        a "Well… i mean."
+        a "Well... i mean."
         h "Paul as well."
-        a "Right. Okay. I’m sorry. I’m just terrified, and my wife has no idea and… I just needed to vent."
+        a "Right. Okay. I’m sorry. I’m just terrified, and my wife has no idea and... I just needed to vent."
         h "I know."
         a "..."
         h "Success is never a guarantee in general. But failure is the default result of inaction."
         h "Do nothing, and you’ll just die, no matter how long it takes."
         a "Right. You’re right. I’ve just got to have hope."
         h "No. You’ve just got to run fast."
-        #switch back
+        $ monitorCheck = False
+        $ monitorCheckStop = True
         p "..."
         p "Ha. Adrian is such a loser."
-        $ monitorCheck = 2
-    if monitorCheck = 2:
+        jump investistart
+
+    if monitorCheckStop:
         p "They're just milling around now."
         p "So unproductive."
         jump investistart
@@ -759,7 +761,7 @@ label check_securityroom_2:
         p "Or any kind of clear asset that will allow me to open it."
         p "Hhhhmmmmmmmmmmmm."
         $ interacting_with = "check_reception_2"
-        $ req = ["crowbar"]
+        $ req = ["crowbar", "grenade"]
         jump stuff_prompt
         label .req1: 
             $ securityCabinetClosed = False
@@ -768,6 +770,8 @@ label check_securityroom_2:
             p "Or something like that."
             p "Now, let's have a look."
             jump investistart
+        label .req2:
+            jump play_with_grenade
     if not securityCabinetClosed and not have_ak47:
         p "Oh!"
         p "Oh ho ho."
@@ -778,8 +782,8 @@ label check_securityroom_2:
         p "It would be perfect for my collection of motorcycle magazines."
         p "I just need to get these other things out of here first."
         show screen sc_stuff_pane
-        $ have_ak47 = true
-        $ have_grenade = true
+        $ have_ak47 = True
+        $ have_grenade = True
         p "Thinking about it."
         p "Why would Jenny have a grenade."
         p "Oh, for nefarious purposes of course."
@@ -927,7 +931,7 @@ label play_with_grenade:
         $ playWithGrenade = 3
         jump investistart
     if playWithGrenade = 3:
-        p "Though saying all that…"
+        p "Though saying all that..."
         p "It is entirely possible that this grenade simply does not work."
         p "It is not out of the question that Jenny would have a dud grenade."
         p "She is know for her crazy irrational ways."
@@ -954,13 +958,14 @@ label play_with_grenade:
         p "Would Louis Pastuer have not created pasta in his kitchen sink, if he spent so long worrying about the theoretical possibilities of bacteria?"
         p "Wold von Nueman have ever created the computer, if he had not stopped dating Turing first?"
         p "Clearly there is a time for action."
-        p "But is that time now? (picture of Paul holding grenade pin!!)"
+        p "But is that time now?"
+        #" (picture of Paul holding grenade pin!!)"
         $ playWithGrenade = 6
         jump investistart
     if playWithGrenade = 6:
         p "Ulp. Never mind. The pin just fell out."
-        p "Barely touched it and it slipped right through its…"
-        p "its…"
+        p "Barely touched it and it slipped right through its..."
+        p "its..."
         p "Ah, what’s the latch thing called. The thing that just popped off."
         p "I know it’s got a name."
         p "Is it just latch?"

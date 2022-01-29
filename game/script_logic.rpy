@@ -108,7 +108,7 @@ label finale:
     #    $ route = _("3/16: The Gutter of Depravity")
     #    jump route01
     if "photo" in evidence_selected and "printout" in evidence_selected:
-        $ route = _("3/16: Definitely Adrian's fault") #!! maybe rephrase for the adrian forgery ending
+        $ route = _("3/16: Definitely Adrian's fault")
         jump route01
     elif "grenade" in evidence_selected and "dictaphone" in evidence_selected:
         $ route = _("4/16: J'accuse La Jenny")

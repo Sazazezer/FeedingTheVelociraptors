@@ -44,7 +44,7 @@ init:
                     sensitive False
             imagebutton:
                 style "interacter"
-                if filingCabinetOpen:
+                if not filingCabinetOpen:
                     auto "interactives/reception/%s/2a.png"
                 else:
                     auto "interactives/reception/%s/2b.png"
@@ -260,7 +260,7 @@ init:
                 elif not securityCabinetClosed and not have_AK47:
                     auto "interactives/securityroom/%s/2b.png"
                 else:
-                    auto "interactives/securityroom/%s/2a.png"
+                    auto "interactives/securityroom/%s/2.png"
                 if interact_mode:
                     action [SetVariable("interact_mode",False),Jump('check_securityroom_2')]
                 else:
@@ -272,6 +272,14 @@ init:
                     action [SetVariable("interact_mode",False),Jump('check_securityroom_3')]
                 else:
                     sensitive False
+            if monitorCheck:
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/securityroom/%s/4.png"
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_securityroom_4')]
+                    else:
+                        sensitive False                
             if securityPuzzleOpen:
                 imagebutton:
                     style "interacter"
@@ -351,7 +359,7 @@ init:
             if not kickedOut:
                 imagebutton:
                     style "interacter"
-                    auto "interactives/corridor/%s/temp.png" #!!fix!
+                    auto "interactives/corridor/%s/temp.png"
                     if interact_mode:
                         action [SetVariable("interact_mode",False),Jump('raptorroom')]
                     else:

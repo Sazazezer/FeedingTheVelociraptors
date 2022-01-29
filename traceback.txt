@@ -1,77 +1,90 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/script_logic.rpy", line 7, in script
-    $ refresh_location()
-  File "game/script_logic.rpy", line 7, in <module>
-    $ refresh_location()
-  File "game/script.rpy", line 35, in refresh_location
-    renpy.show_screen("sc_room_"+str(location))
-  File "game/script_room_screens.rpy", line 33, in execute
-    screen sc_room_2():
-  File "game/script_room_screens.rpy", line 33, in execute
-    screen sc_room_2():
-  File "game/script_room_screens.rpy", line 36, in execute
-    use sc_room_frame():
-  File "game/script_room_screens.rpy", line 2, in execute
-    screen sc_room_frame():
-  File "game/script_room_screens.rpy", line 2, in execute
-    screen sc_room_frame():
-  File "game/script_room_screens.rpy", line 5, in execute
-    viewport:
-  File "game/script_room_screens.rpy", line 8, in execute
-    transclude
-  File "game/script_room_screens.rpy", line 36, in execute
-    use sc_room_frame():
-  File "game/script_room_screens.rpy", line 38, in execute
-    if lookOutsideReception:
-NameError: name 'lookOutsideReception' is not defined
+While loading <'Image' u'stuff/match.png'>:
+  File "game/script_logic.rpy", line 11, in script
+    ">>> Investigate the room with \[MOUSE\].\n>>> Change rooms with \[MAP\].{fast}"(advance=False)
+IOError: Couldn't find file 'stuff/match.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script_logic.rpy", line 7, in script
-    $ refresh_location()
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ast.py", line 912, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\python.py", line 2004, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/script_logic.rpy", line 7, in <module>
-    $ refresh_location()
-  File "game/script.rpy", line 35, in refresh_location
-    renpy.show_screen("sc_room_"+str(location))
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\screen.py", line 1125, in show_screen
-    sls.add(_layer, d, _tag, zorder=_zorder, transient=_transient, keep_st=True, name=name)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 1087, in add
-    self.hide_or_replace(layer, remove_index, "replaced")
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 1108, in hide_or_replace
-    if not oldsle.displayable._handles_event(prefix):
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\screen.py", line 473, in _handles_event
-    self.update()
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\screen.py", line 625, in update
-    self.screen.function(**self.scope)
-  File "game/script_room_screens.rpy", line 33, in execute
-    screen sc_room_2():
-  File "game/script_room_screens.rpy", line 33, in execute
-    screen sc_room_2():
-  File "game/script_room_screens.rpy", line 36, in execute
-    use sc_room_frame():
-  File "game/script_room_screens.rpy", line 2, in execute
-    screen sc_room_frame():
-  File "game/script_room_screens.rpy", line 2, in execute
-    screen sc_room_frame():
-  File "game/script_room_screens.rpy", line 5, in execute
-    viewport:
-  File "game/script_room_screens.rpy", line 8, in execute
-    transclude
-  File "game/script_room_screens.rpy", line 36, in execute
-    use sc_room_frame():
-  File "game/script_room_screens.rpy", line 38, in execute
-    if lookOutsideReception:
-  File "<screen language>", line 38, in <module>
-NameError: name 'lookOutsideReception' is not defined
+  File "game/script_logic.rpy", line 11, in script
+    ">>> Investigate the room with \[MOUSE\].\n>>> Change rooms with \[MAP\].{fast}"(advance=False)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ast.py", line 706, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\exports.py", line 1336, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\character.py", line 1049, in __call__
+    return Character(kind=self, **kwargs)(what, interact=interact, _call_done=_call_done, multiple=multiple, _mode=_mode, _with_none=_with_none)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\character.py", line 1139, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\character.py", line 842, in do_display
+    **display_args)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\character.py", line 591, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ui.py", line 295, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 2699, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 3191, in interact_core
+    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 2091, in draw_screen
+    renpy.config.screen_height,
+  File "render.pyx", line 546, in renpy.display.render.render_screen
+  File "render.pyx", line 247, in renpy.display.render.render
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\layout.py", line 722, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 154, in renpy.display.render.render
+  File "render.pyx", line 247, in renpy.display.render.render
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\layout.py", line 722, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 154, in renpy.display.render.render
+  File "render.pyx", line 247, in renpy.display.render.render
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\layout.py", line 722, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 154, in renpy.display.render.render
+  File "render.pyx", line 247, in renpy.display.render.render
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\screen.py", line 675, in render
+    child = renpy.display.render.render(self.child, w, h, st, at)
+  File "render.pyx", line 154, in renpy.display.render.render
+  File "render.pyx", line 247, in renpy.display.render.render
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\layout.py", line 722, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 154, in renpy.display.render.render
+  File "render.pyx", line 247, in renpy.display.render.render
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\viewport.py", line 264, in render
+    surf = renpy.display.render.render(self.child, child_width, child_height, st, at)
+  File "render.pyx", line 154, in renpy.display.render.render
+  File "render.pyx", line 247, in renpy.display.render.render
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\layout.py", line 722, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 154, in renpy.display.render.render
+  File "render.pyx", line 247, in renpy.display.render.render
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\layout.py", line 925, in render
+    surf = render(d, width - x, rh, cst, cat)
+  File "render.pyx", line 154, in renpy.display.render.render
+  File "render.pyx", line 247, in renpy.display.render.render
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\viewport.py", line 552, in render
+    rend = renpy.display.render.render(self.children[0], child_width, child_height, st, at)
+  File "render.pyx", line 154, in renpy.display.render.render
+  File "render.pyx", line 247, in renpy.display.render.render
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\behavior.py", line 763, in render
+    rv = super(Button, self).render(width, height, st, at)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\layout.py", line 1127, in render
+    st, at)
+  File "render.pyx", line 154, in renpy.display.render.render
+  File "render.pyx", line 247, in renpy.display.render.render
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\im.py", line 584, in render
+    return cache.get(self, render=True)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\im.py", line 266, in get
+    surf = image.load()
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\im.py", line 629, in load
+    surf = renpy.display.pgrender.load_image(renpy.loader.load(self.filename), self.filename)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\loader.py", line 576, in load
+    raise IOError("Couldn't find file '%s'." % name)
+IOError: Couldn't find file 'stuff/match.png'.
 
 Windows-8-6.2.9200
 Ren'Py 7.3.2.320
 Jam and the Mystery of the Mysteriously Spooky Mansion 1.2
-Fri Jan 21 16:55:31 2022
+Sat Jan 29 19:35:37 2022
