@@ -28,20 +28,20 @@ init:
                 else:
                     sensitive False
 
-
 ## 2: Reception was Parlor/parlor
     screen sc_room_2():
         tag room_screen
         layer "under_master"
         use sc_room_frame():
             add "site/reception.png"
-            imagebutton:
-                style "interacter"
-                auto "interactives/reception/%s/1.png"
-                if interact_mode:
-                    action [SetVariable("interact_mode",False),Jump('check_reception_1')]
-                else:
-                    sensitive False
+            if not have_photo:
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/reception/%s/1.png"
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_reception_1')]
+                    else:
+                        sensitive False
             imagebutton:
                 style "interacter"
                 if not filingCabinetOpen:
@@ -59,14 +59,12 @@ init:
                     action [SetVariable("interact_mode",False),Jump('check_reception_3')]
                 else:
                     sensitive False
-            if siggy:
-                add "interactives/reception/2c.png"
             if lookOutsideReception:
                 imagebutton:
                     style "interacter"
                     auto "interactives/reception/%s/4.png"
                     if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_reception_1')]
+                        action [SetVariable("interact_mode",False),Jump('check_reception_4')]
                     else:
                         sensitive False
 
@@ -76,6 +74,13 @@ init:
         layer "under_master"
         use sc_room_frame():
             add "site/corridor.png"
+            imagebutton:
+                style "interacter"
+                auto "interactives/corridor/%s/1.png"
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_corridor_1')]
+                else:
+                    sensitive False
             if not have_fuelcan:
                 imagebutton:
                     style "interacter"
@@ -84,24 +89,52 @@ init:
                         action [SetVariable("interact_mode",False),Jump('check_corridor_2')]
                     else:
                         sensitive False
-
+            
 ## 4: Ceo was Bathroom \ bathroom
     screen sc_room_4():
         tag room_screen
         layer "under_master"
         use sc_room_frame():
             add "site/ceo.png"
-            imagebutton:
+            imagebutton: #1 globe
                 style "interacter"
                 if not globeSmashed:
                     auto "interactives/ceo/%s/1.png"
                 else:
                     auto "interactives/ceo/%s/1a.png"
                 if interact_mode:
-                    action [SetVariable("interact_mode",False),Jump('check_ceo_6')]
+                    action [SetVariable("interact_mode",False),Jump('check_ceo_1')]
                 else:
                     sensitive False
-            if not have_match:
+            imagebutton: #2 certificate?
+                style "interacter"
+                auto "interactives/ceo/%s/2.png"
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_ceo_2')]
+                else:
+                    sensitive False
+            imagebutton:
+                style "interacter"
+                auto "interactives/ceo/%s/3.png"
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_ceo_3')]
+                else:
+                    sensitive False #3 desk
+            imagebutton:
+                style "interacter"
+                auto "interactives/ceo/%s/4.png"
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_ceo_4')]
+                else:
+                    sensitive False #4 cupboard
+            imagebutton: #5raptor outside
+                    style "interacter"
+                    auto "interactives/ceo/%s/5.png"
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_ceo_5')]
+                    else:
+                        sensitive False
+            if not have_matchbox: #6 matches
                 imagebutton:
                     style "interacter"
                     auto "interactives/ceo/%s/6.png"
@@ -109,31 +142,22 @@ init:
                         action [SetVariable("interact_mode",False),Jump('check_ceo_6')]
                     else:
                         sensitive False
-            if showIDCard:
+            if showIDCard: #7show todd id
                 imagebutton:
                     style "interacter"
                     auto "interactives/ceo/%s/7.png"
                     if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_ceo_1')]
+                        action [SetVariable("interact_mode",False),Jump('check_ceo_7')]
                     else:
                         sensitive False                
-            imagebutton:
-                style "interacter"
-                auto "interactives/ceo/%s/1.png"
-                if interact_mode:
-                    action [SetVariable("interact_mode",False),Jump('check_ceo_1')]
-                else:
-                    sensitive False
-            if showAdrianID:
+            if showAdrianID: #8 cupbiard with adrian id
                 imagebutton:
                     style "interacter"
                     auto "interactives/ceo/%s/8.png"
                     if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_ceo_1')]
+                        action [SetVariable("interact_mode",False),Jump('check_ceo_8')]
                     else:
                         sensitive False
-
-
 
 ## 5: Bunks was Bedroom
     screen sc_room_5():
@@ -143,11 +167,21 @@ init:
             add "site/bunks.png"
             imagebutton:
                 style "interacter"
-                auto "interactives/bunks/%s/1.png"
+                if tonyChestOpen:
+                    auto "interactives/bunks/%s/1b.png"
+                else:
+                    auto "interactives/bunks/%s/1.png"
                 if interact_mode:
                     action [SetVariable("interact_mode",False),Jump('check_bunks_1')]
                 else:
                     sensitive False
+            imagebutton:
+                    style "interacter"
+                    auto "interactives/bunks/%s/3.png"
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_bunks_3')]
+                    else:
+                        sensitive False
             imagebutton:
                 style "interacter"
                 if fuelApplied and matchApplied:
@@ -160,13 +194,7 @@ init:
                     action [SetVariable("interact_mode",False),Jump('check_bunks_2')]
                 else:
                     sensitive False
-            imagebutton:
-                    style "interacter"
-                    auto "interactives/bunks/%s/3.png"
-                    if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_bunks_3')]
-                    else:
-                        sensitive False
+
             imagebutton:
                     style "interacter"
                     auto "interactives/bunks/%s/4.png"
@@ -174,12 +202,20 @@ init:
                         action [SetVariable("interact_mode",False),Jump('check_bunks_4')]
                     else:
                         sensitive False
+
 ## 6: Toilet Was Kitchen
     screen sc_room_6():
         tag room_screen
         layer "under_master"
         use sc_room_frame():
             add "site/toilet.png"
+            imagebutton:
+                style "interacter"
+                auto "interactives/toilet/%s/1.png"
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_toilet_1')]
+                else:
+                    sensitive False
             imagebutton:
                 style "interacter"
                 auto "interactives/toilet/%s/2.png"
@@ -189,27 +225,14 @@ init:
                     sensitive False
             imagebutton:
                 style "interacter"
-                auto "interactives/toilet/%s/1.png"
+                if have_crowbar:
+                    auto "interactives/toilet/%s/3b.png"
+                else:
+                    auto "interactives/toilet/%s/3a.png"
                 if interact_mode:
-                    action [SetVariable("interact_mode",False),Jump('check_toilet_1')]
+                    action [SetVariable("interact_mode",False),Jump('check_toilet_3')]
                 else:
                     sensitive False
-            if not have_crowbar:
-                imagebutton:
-                    style "interacter"
-                    auto "interactives/toilet/%s/3a.png"
-                    if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_toilet_3')]
-                    else:
-                        sensitive False
-            else:
-                imagebutton:
-                    style "interacter"
-                    auto "interactives/toilet/%s/3b.png"
-                    if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_toilet_3')]
-                    else:
-                        sensitive False
 
 ## 7: Staff Room
     screen sc_room_7():
@@ -219,27 +242,28 @@ init:
             add "site/staffroom.png"
             imagebutton:
                 style "interacter"
-                auto "interactives/securityroom/%s/1.png"
+                auto "interactives/staffroom/%s/1.png"
                 if interact_mode:
-                    action [SetVariable("interact_mode",False),Jump('check_securityroom_1')]
+                    action [SetVariable("interact_mode",False),Jump('check_staffroom_1')]
                 else:
                     sensitive False
             if not have_research:
                 imagebutton:
                     style "interacter"
-                    auto "interactives/securityroom/%s/2.png"
+                    auto "interactives/staffroom/%s/2.png"
                     if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_securityroom_2')]
+                        action [SetVariable("interact_mode",False),Jump('check_staffroom_2')]
                     else:
                         sensitive False
             if not have_blankPaper:
                 imagebutton:
                     style "interacter"
-                    auto "interactives/securityroom/%s/4.png"
+                    auto "interactives/staffroom/%s/3.png"
                     if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('check_securityroom_4')]
+                        action [SetVariable("interact_mode",False),Jump('check_staffroom_3')]
                     else:
                         sensitive False
+
 ## 8: Security Room
     screen sc_room_8():
         tag room_screen
@@ -255,9 +279,9 @@ init:
                     sensitive False
             imagebutton:
                 style "interacter"
-                if not securityCabinetClosed and have_AK47:
+                if not securityCabinetClosed and have_ak47:
                     auto "interactives/securityroom/%s/2c.png"
-                elif not securityCabinetClosed and not have_AK47:
+                elif not securityCabinetClosed and not have_ak47:
                     auto "interactives/securityroom/%s/2b.png"
                 else:
                     auto "interactives/securityroom/%s/2.png"
@@ -334,7 +358,6 @@ init:
                     else:
                         sensitive False
 
-
 ## 9: Temporary version of the corridor for early scene
     screen sc_room_9():
         tag room_screen
@@ -349,6 +372,7 @@ init:
                         action [SetVariable("interact_mode",False),Jump('temp_corridor')]
                     else:
                         sensitive False
+
 ## 10: Raptor room
     screen sc_room_10():
         tag room_screen
@@ -359,7 +383,7 @@ init:
             if not kickedOut:
                 imagebutton:
                     style "interacter"
-                    auto "interactives/corridor/%s/temp.png"
+                    auto "interactives/raptorroom/%s/temp.png"
                     if interact_mode:
                         action [SetVariable("interact_mode",False),Jump('raptorroom')]
                     else:

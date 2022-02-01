@@ -138,157 +138,7 @@ init:
                 cols 2
                 spacing 0
                 side_xalign 0.0
-                if have_knife:
-                    imagebutton:
-                        hover_sound "button_hover.wav"
-                        focus_mask True
-                        hovered NullAction()
-
-                        alt _("Bloodstained knife")
-                        tooltip _("Bloodstained knife")
-
-                        if "knife" in evidence_selected:
-                            idle "evidence/knife_select.png"
-                            if evidence_cue:
-                                action Function(evidence_selected.remove,"knife")
-                            else:
-                                action NullAction()
-                        else:
-                            idle "evidence/knife.png"
-                            if evidence_cue:
-                                activate_sound "button_select.wav"
-                                if len(evidence_selected) == 0:
-                                    action Function(evidence_selected.append,"knife")
-                                else:
-                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"knife"),Jump("finale")]
-                            else:
-                                action NullAction()
-                if have_gnome:
-                    imagebutton:
-                        hover_sound "button_hover.wav"
-                        focus_mask True
-                        hovered NullAction()
-
-                        alt _("Garden gnome")
-                        tooltip _("Garden gnome")
-
-                        if "gnome" in evidence_selected:
-                            idle "evidence/gnome_select.png"
-                            if evidence_cue:
-                                action Function(evidence_selected.remove,"gnome")
-                            else:
-                                action NullAction()
-                        else:
-                            idle "evidence/gnome.png"
-                            if evidence_cue:
-                                activate_sound "button_select.wav"
-                                if len(evidence_selected) == 0:
-                                    action Function(evidence_selected.append,"gnome")
-                                else:
-                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"gnome"),Jump("finale")]
-                            else:
-                                action NullAction()
-                if have_wadofcash:
-                    imagebutton:
-                        hover_sound "button_hover.wav"
-                        focus_mask True
-                        hovered NullAction()
-
-                        tooltip _("Stack of twenties")
-                        alt _("Stack of twenty-dollar bills")
-
-                        if "cash" in evidence_selected:
-                            idle "evidence/cash_select.png"
-                            if evidence_cue:
-                                action Function(evidence_selected.remove,"cash")
-                            else:
-                                action NullAction()
-                        else:
-                            idle "evidence/cash.png"
-                            if evidence_cue:
-                                activate_sound "button_select.wav"
-                                if len(evidence_selected) == 0:
-                                    action Function(evidence_selected.append,"cash")
-                                else:
-                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"cash"),Jump("finale")]
-                            else:
-                                action NullAction()
-                if have_fish:
-                    imagebutton:
-                        hover_sound "button_hover.wav"
-                        focus_mask True
-                        hovered NullAction()
-
-                        tooltip _("Crimson clupeid")
-                        alt _("Crimson fish of the genus clupea")
-
-                        if "fish" in evidence_selected:
-                            idle "evidence/fish_select.png"
-                            if evidence_cue:
-                                action Function(evidence_selected.remove,"fish")
-                            else:
-                                action NullAction()
-                        else:
-                            idle "evidence/fish.png"
-                            if evidence_cue:
-                                activate_sound "button_select.wav"
-                                if len(evidence_selected) == 0:
-                                    action Function(evidence_selected.append,"fish")
-                                else:
-                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"fish"),Jump("finale")]
-                            else:
-                                action NullAction()
-                if have_note:
-                    imagebutton:
-                        hover_sound "button_hover.wav"
-                        focus_mask True
-                        hovered NullAction()
-
-                        tooltip _("Cryptic note")
-                        alt _("Cryptic note reading Iron Snail Authorization")
-
-                        if "note" in evidence_selected:
-                            idle "evidence/note_select.png"
-                            if evidence_cue:
-                                action Function(evidence_selected.remove,"note")
-                            else:
-                                action NullAction()
-                        else:
-                            idle "evidence/note.png"
-                            if evidence_cue:
-                                activate_sound "button_select.wav"
-                                if len(evidence_selected) == 0:
-                                    action Function(evidence_selected.append,"note")
-                                else:
-                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"note"),Jump("finale")]
-                            else:
-                                action NullAction()
-                if have_jaw:
-                    imagebutton:
-                        hover_sound "button_hover.wav"
-                        focus_mask True
-                        hovered NullAction()
-
-                        alt _("Human jawbone")
-                        tooltip _("Human jawbone")
-
-                        if "jaw" in evidence_selected:
-                            idle "evidence/jaw_select.png"
-                            if evidence_cue:
-                                action Function(evidence_selected.remove,"jaw")
-                            else:
-                                action NullAction()
-                        else:
-                            idle "evidence/jaw.png"
-                            if evidence_cue:
-                                activate_sound "button_select.wav"
-                                if len(evidence_selected) == 0:
-                                    action Function(evidence_selected.append,"jaw")
-                                else:
-                                    action [SetVariable("evidence_cue",False),Function(evidence_selected.append,"jaw"),Jump("finale")]
-                            else:
-                                action NullAction()
-
+#matt evidence
                 if have_photo:
                     imagebutton:
                         hover_sound "button_hover.wav"
@@ -473,7 +323,7 @@ init:
                         alt _("Assassin Contract?")
                         tooltip _("Assassin Contract?")
 
-                        if "wadofcash" in evidence_selected:
+                        if "contract" in evidence_selected:
                             idle "evidence/contract_select.png"
                             if evidence_cue:
                                 action Function(evidence_selected.remove,"contract")
@@ -549,82 +399,8 @@ init:
                 cols 2
                 spacing 0
                 side_xalign 0.0
-                if have_candle:
-                    imagebutton:
-                        hover_sound "button_hover.wav"
-                        focus_mask True
-                        idle "stuff/candle.png"
-                        tooltip _("Candle")
-                        alt _("Lit candle")
-                        if stuff_cue:
-                            activate_sound "button_select.wav"
-                            action [SetVariable("stuff_selected","candle"),SetVariable("stuff_cue",False),Jump("stuff_check")]
-                        else:
-                            action NullAction()
-                if have_gun:
-                    imagebutton:
-                        hover_sound "button_hover.wav"
-                        focus_mask True
-                        idle "stuff/gun.png"
-                        tooltip _("Loaded gun")
-                        alt _("Loaded gun")
-                        if stuff_cue:
-                            activate_sound "button_select.wav"
-                            action [SetVariable("stuff_selected","gun"),SetVariable("stuff_cue",False),Jump("stuff_check")]
-                        else:
-                            action NullAction()
-                if have_book:
-                    imagebutton:
-                        hover_sound "button_hover.wav"
-                        focus_mask True
-                        if _preferences.language == "spanish":
-                            idle "stuff/book_spanish.png"
-                        else:
-                            idle "stuff/book.png"
-                        tooltip _("How 2 Metric")
-                        alt _("Book titled How 2 Metric")
-                        if stuff_cue:
-                            activate_sound "button_select.wav"
-                            action [SetVariable("stuff_selected","book"),SetVariable("stuff_cue",False),Jump("stuff_check")]
-                        else:
-                            action NullAction()
-                if have_ruler:
-                    imagebutton:
-                        hover_sound "button_hover.wav"
-                        focus_mask True
-                        idle "stuff/ruler.png"
-                        tooltip _("Meterstick")
-                        alt _("Meterstick")
-                        if stuff_cue:
-                            activate_sound "button_select.wav"
-                            action [SetVariable("stuff_selected","ruler"),SetVariable("stuff_cue",False),Jump("stuff_check")]
-                        else:
-                            action NullAction()
-                if have_printout:
-                    imagebutton:
-                        hover_sound "button_hover.wav"
-                        focus_mask True
-                        idle "stuff/printout.png"
-                        tooltip _("Adrian's PrintOut")
-                        alt _("Adrian's Photo")
-                        if stuff_cue:
-                            activate_sound "button_select.wav"
-                            action [SetVariable("stuff_selected","key"),SetVariable("stuff_cue",False),Jump("stuff_check")]
-                        else:
-                            action NullAction()                
-                if have_mask:
-                    imagebutton:
-                        hover_sound "button_hover.wav"
-                        focus_mask True
-                        idle "stuff/mask.png"
-                        tooltip _("Upsettingly detailed horse mask")
-                        alt _("Upsettingly detailed horse mask")
-                        if stuff_cue:
-                            activate_sound "button_select.wav"
-                            action [SetVariable("stuff_selected","mask"),SetVariable("stuff_cue",False),Jump("stuff_check")]
-                        else:
-                            action NullAction()
 
+#matt stuff
                 if have_crowbar:
                     imagebutton:
                         hover_sound "button_hover.wav"
@@ -659,18 +435,6 @@ init:
                                         if stuff_cue:
                                             activate_sound "button_select.wav"
                                             action [SetVariable("stuff_selected","ak47"),SetVariable("stuff_cue",False),Jump("stuff_check")]
-                                        else:
-                                            action NullAction()
-                if have_match:
-                                    imagebutton:
-                                        hover_sound "button_hover.wav"
-                                        focus_mask True
-                                        idle "stuff/matchbox.png"
-                                        tooltip _("match")
-                                        alt _("match")
-                                        if stuff_cue:
-                                            activate_sound "button_select.wav"
-                                            action [SetVariable("stuff_selected","match"),SetVariable("stuff_cue",False),Jump("stuff_check")]
                                         else:
                                             action NullAction()
                 if have_fuelcan:
@@ -731,6 +495,18 @@ init:
                         if stuff_cue:
                             activate_sound "button_select.wav"
                             action [SetVariable("stuff_selected","adrianid"),SetVariable("stuff_cue",False),Jump("stuff_check")]
+                        else:
+                            action NullAction()
+                if have_matchbox:
+                    imagebutton:
+                        hover_sound "button_hover.wav"
+                        focus_mask True
+                        idle "stuff/matchbox.png"
+                        tooltip _("Adrian ID")
+                        alt _("Adrian ID")
+                        if stuff_cue:
+                            activate_sound "button_select.wav"
+                            action [SetVariable("stuff_selected","matchbox"),SetVariable("stuff_cue",False),Jump("stuff_check")]
                         else:
                             action NullAction()
     screen sc_buttons():
@@ -1002,7 +778,7 @@ init:
                 activate_sound "button_select.wav"
                 xalign 0.5
                 ypos 500
-                action [Function(renpy.hide_screen,"sc_end"),Jump("investistart")]
+                action [Function(renpy.hide_screen,"sc_end"),SetVariable("location", 1),Jump("forceroomrefresh")]
                 text_style "closer"
                 alt _("Try a different set of evidence")
         textbutton _("> Exit to title screen <"):
@@ -1100,7 +876,7 @@ label start:
     $ have_grenade = False
     $ have_poop = False
     $ have_crowbar = False
-    $ have_match = False
+    #$ have_match = False
     $ have_fuelcan = False
     $ have_dictaphone = False
     $ have_idcard = False
@@ -1113,6 +889,7 @@ label start:
     $ have_adrianID = False
     $ have_fakePaper1 = False
     $ have_fakePaper2 = False
+    $ have_matchbox = False
 
 ## Other stuff
     $ evi_count = 0
@@ -1146,6 +923,8 @@ label start:
     $ ak47Scare = False
     $ monitorCheck = False
     $ monitorCheckStop = False
+    $ corridorCheck1 = 0
+    $ checkCEO2 = 0
     # security room puzzle
     $ securityPuzzleOpen = False
     $ adrianAccused = False

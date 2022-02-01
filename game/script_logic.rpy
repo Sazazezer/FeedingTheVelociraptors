@@ -18,11 +18,13 @@ label evi_tally:
         p "I'm no fool though."
         p "I know i need at least two pieces of watertight evidence in order to pin this on someone."
         p "And one piece is all leaky and stuff."
+        jump investistart
     elif evi_count == 2:
         p "Excellent. Two pieces of evidence."
         p "That's more than enough to make some kind of accusation."
         p "I could always look for more though."
         p "Maybe make the accusation valid."
+        jump investistart
     elif evi_count == 8:
         p "I can safetly say with absolute certainly..."
         p "Almost s if the god of this world was speaking through me..."
@@ -31,13 +33,14 @@ label evi_tally:
         p "There's more than one way to obtain evidence beyond merely 'finding' it."
         p "Heh heh heh."
         p "I wonder why i don't have any friends."
+        jump investistart
     elif evi_count == 10:
         p "And with that-"
         p "I must definitely have all the evidence i would ever need."
         p "There definitely can't be anymore."
         p "For one, the box to the right of me is all filled up."
         p "Guess i better go finish this."
-    jump investistart
+        jump investistart
 
 label fire_tally:
     if fire_count == 4:
@@ -113,10 +116,10 @@ label finale:
     elif "grenade" in evidence_selected and "dictaphone" in evidence_selected:
         $ route = _("4/16: J'accuse La Jenny")
         jump route02
-    elif "raptorclaw" in evidence_selected and "researchjournal" in evidence_selected:
+    elif "raptorclaw" in evidence_selected and "research" in evidence_selected:
         $ route = _("5/16: Oh... Helen actually did do something bad.")
         jump route03
-    elif "assassin" in evidence_selected and "wadofcash" in evidence_selected:
+    elif "contract" in evidence_selected and "wadofcash" in evidence_selected:
         $ route = _("6/16: Tony the Ass Asser")
         jump route04
     elif "fakepaper" in evidence_selected and "fakeid" in evidence_selected:
