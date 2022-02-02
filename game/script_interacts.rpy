@@ -307,7 +307,9 @@ label check_reception_3:
             p "Well, with nay luck someone wold have heard the gunshot and be coming to help me out."
             p "I’m sure tat’s a thing that’s about to happen."
             p "You just wait there, mister Raptor. You’ll get your commupance soon."
-            # !!AK death scene.
+            $ route = _("2/16: My brain has bullets in it.")
+            $ persistent.end_02 = True
+            jump endcard
         label .req2:
             jump play_with_grenade
         label .req3:
@@ -569,66 +571,7 @@ label check_bunks_1:
         p "So i have no interest."
         jump investistart#tony's chest
 
-label check_bunks_2:
-    if not fuelApplied:
-        p "This is Jenny’s bunk box."
-        p "I don’t dare look."
-        p "It’s not that i’m assuming the contents of her bunk box is the source of the smell she carries around with her at all times."
-        p "I’m just saying i’m not willing enough to take that risk."
-        p "Now, if i had a way to break open the box from a distance, with no risk to the inside contents, then i might be willing to take a gander inside."
-        $ interacting_with = "check_bunks_2"
-        $ req = ["fuelcan","grenade", "matchbox"]
-        jump stuff_prompt
-        label .req1: 
-            if fuelApplied:
-                p "Well, that didn't help loosen the lock."
-                p "But maybe adding something more to this fuel will help."
-                p "It needs a spark."
-                p "A flash, a strike."
-                p "An ignition..."
-                p "It needs a match okay?"
-                p "Just use the match."
-                p "Geez."
-                jump investistart
-            if not fuelApplied:
-                p "Maybe i can use the fuel in this can to lubricate the lock."
-                p "Which will almost certainly help in prying it open."
-                p "Yep. That is how locks works."
-                p "I'll just- Whoops-"
-                $ fuelApplied = True
-                p "Well... more is less."
-                p "As they say."
-                jump investistart
-        label .req2:
-            jump play_with_grenade
-        label .req3:
-            if not fuelApplied:
-                p "Ah yes."
-                p "I could use the match to pick the lock."
-                p "Yay. Oh..."
-                p "But it's not lubricated enough to fit in."
-                p "Not even worth trying."
-                p "I need something to lubricate it."
-                jump investistart
-            if fuelApplied:
-                p "Wait a second."
-                p "Is this reasonable?"
-                p "Well i probably won't find a lock pick around here."
-                p "But i'm pretty sure i can lockpick using any straight object."
-                p "It is at least worth a reasonable try."
-                $ matchApplied = True
-                p "..."
-                p "Mmmm’yep"
-                p "That sure was a lot fire for about a second."
-                p "It kind of smells."
-                p "..."
-                p "I don’t think the source of the smell was in here."
-                p "I mean, the fire would have burnt it out long ago if that was the case."
-                p "..."
-                p "Maybe Jenny herself is the source of the smell."
-                p "What's in here?"
-                jump investistart
-
+label check_bunks_5:
     if fuelApplied and matchApplied:
         p "Huh, a dictaphone"
         p "i Believe this is what people used to record their thoughts before we invented mind reading technology and mp3."
@@ -641,6 +584,69 @@ label check_bunks_2:
         $ have_dictaphone = True
         $ evi_count += 1
         jump evi_tally#jenny's chest
+    if not fuelApplied:    
+        p "This is Jenny’s bunk box."
+        p "I don’t dare look."
+        p "It’s not that i’m assuming the contents of her bunk box is the source of the smell she carries around with her at all times."
+        p "I’m just saying i’m not willing enough to take that risk."
+        p "Now, if i had a way to break open the box from a distance, with no risk to the inside contents, then i might be willing to take a gander inside."
+    if fuelApplied:
+        p "Well, that's the lock all lubed up."
+        p "It needs something else though..."
+    $ interacting_with = "check_bunks_5"
+    $ req = ["fuelcan","grenade", "matchbox"]
+    jump stuff_prompt
+    label .req1: 
+        if fuelApplied:
+            p "Well, that didn't help loosen the lock."
+            p "But maybe adding something more to this fuel will help."
+            p "It needs a spark."
+            p "A flash, a strike."
+            p "An ignition..."
+            p "It needs a match okay?"
+            p "Just use the match."
+            p "Geez."
+            jump investistart
+        if not fuelApplied:
+            p "Maybe i can use the fuel in this can to lubricate the lock."
+            p "Which will almost certainly help in prying it open."
+            p "Yep. That is how locks works."
+            p "I'll just- Whoops-"
+            $ fuelApplied = True
+            p "Well... more is less."
+            p "As they say."
+            jump investistart
+    label .req2:
+        jump play_with_grenade
+    label .req3:
+        if not fuelApplied:
+            p "Ah yes."
+            p "I could use the match to pick the lock."
+            p "Yay. Oh..."
+            p "But it's not lubricated enough to fit in."
+            p "Not even worth trying."
+            p "I need something to lubricate it."
+            jump investistart
+        if fuelApplied:
+            p "Wait a second."
+            p "Is this reasonable?"
+            p "Well i probably won't find a lock pick around here."
+            p "But i'm pretty sure i can lockpick using any straight object."
+            p "It is at least worth a reasonable try."
+            $ matchApplied = True
+            p "..."
+            p "Mmmm’yep"
+            p "That sure was a lot fire for about a second."
+            p "It kind of smells."
+            p "..."
+            p "I don’t think the source of the smell was in here."
+            p "I mean, the fire would have burnt it out long ago if that was the case."
+            p "..."
+            p "Maybe Jenny herself is the source of the smell."
+            p "What's in here?"
+            jump investistart
+
+
 
 label check_bunks_3:
     if not have_hammer:
@@ -667,25 +673,27 @@ label check_bunks_3:
         jump investistart#todd's teddy
 
 label check_bunks_4:
-    p "Adrian has left his Bunk box open like a pitiful loser with no notion of mystery."
-    p "In it is a towel, several pairs of socks, some stationary and a book of fraudulent tax claims he has made against the state."
-    p "All useless to me."
-    p "So useless they do not even get an art asset drawn for their close up."
-    p "So it's just me talking again."
-    jump investistart#adrian's chest
-
-label check_bunks_5:
-    p "This is where we all sleep together as one big happy family."
-    p "Well, i say that."
-    p "The boss got me my own private room over in the west tower."
-    p "It was nice of my dad to arrange that with him."
-    p "My bunk is technically the one at the back."
-    p "I come him occasionally for an afternoon nap."
-    p "Though i took yesterday’s afternoon nap on Adrian’s bunk."
-    p "It was hot so i was sweaty. Didn’t want to ruin my mattress."
-    p "The day before that i slept on Todd’s bunk."
-    p "I feel less guilty about that now, but only by comparison,"
-    jump investistart # room talker#room talker!!
+    if checkBunks4 == 0:
+        p "This is where we all sleep together as one big happy family."
+        p "Well, i say that."
+        p "The boss got me my own private room over in the west tower."
+        p "It was nice of my dad to arrange that with him."
+        p "Everyone gets a chest containing their stuff."
+        p "My bunk is technically the one at the back."
+        p "I come him occasionally for an afternoon nap."
+        p "Though i took yesterday’s afternoon nap on Adrian’s bunk."
+        p "It was hot so i was sweaty. Didn’t want to ruin my mattress."
+        p "The day before that i slept on Todd’s bunk."
+        p "I feel less guilty about that now, but only by comparison,"
+        $ checkBunks4 = 1
+        jump investistart
+    if checkBunks4 == 1:
+        p "Adrian has left his Bunk box open like a pitiful loser with no notion of mystery."
+        p "In it is a towel, several pairs of socks, some stationary and a book of fraudulent tax claims he has made against the state."
+        p "All useless to me."
+        p "So useless they do not even get an art asset drawn for their close up."
+        p "So it's just me talking again."
+        jump investistart#adrian's chest
 
 ## toilet ##
 label check_toilet_1:
@@ -888,12 +896,15 @@ label check_securityroom_2:
         $ ev_bo = False
         $ have_ak47 = True
         $ have_grenade = True
+        $ evi_count += 1
         p "Thinking about it."
         p "Why would Jenny have a grenade."
         p "Oh, for nefarious purposes of course."
         p "No doubt that this was intended for nothing less than absolute villany."
-        p "Oh i am onto you Jenny."
-        jump investistart
+        p "Oh i am onto you, Jenny."
+        show screen sc_evidence_pane
+        $ ev_bo = True
+        jump evi_tally
     if not securityCabinetClosed and have_ak47:
         p "Excellent. All that remains is to collect my motorstyle magazines from the West Tower."
         p "..."
@@ -941,8 +952,8 @@ label check_securityroom_5:
     # need a way to escape the puzzle
     jump investistart
 
-label check_secruityroom_6:
-    if currentPuzzleState = 1:
+label check_securityroom_6:
+    if currentPuzzleState == 1:
         p "Okay then..."
         $ currentPuzzleState = 2
         jump investistart
@@ -952,8 +963,8 @@ label check_secruityroom_6:
         $ securityPuzzleOpen = True
         jump investistart
 
-label check_secruityroom_7:
-    if currentPuzzleState = 0:
+label check_securityroom_7:
+    if currentPuzzleState == 0:
         p "Mmmm hmmm..."
         $ currentPuzzleState = 1
         jump investistart
@@ -963,8 +974,8 @@ label check_secruityroom_7:
         $ securityPuzzleOpen = True
         jump investistart
 
-label check_secruityroom_8:
-    if currentPuzzleState = 3:
+label check_securityroom_8:
+    if currentPuzzleState == 3:
         p "Right... Ok..."
         $ currentPuzzleState = 4
         jump investistart
@@ -974,8 +985,8 @@ label check_secruityroom_8:
         $ securityPuzzleOpen = True
         jump investistart
 
-label check_secruityroom_9:
-    if currentPuzzleState = 2:
+label check_securityroom_9:
+    if currentPuzzleState == 2:
         p "Yeah... i think that's it."
         $ currentPuzzleState = 3
         jump investistart
@@ -985,10 +996,11 @@ label check_secruityroom_9:
         $ securityPuzzleOpen = True
         jump investistart
 
-label check_secruityroom_10:
-    if currentPuzzleState = 4:
+label check_securityroom_10:
+    if currentPuzzleState == 4:
         p "So i should just need to push this..."
         $ currentPuzzleState = 5
+        $ adrianAccused = True
         p "Oh, it worked."
         p "Excellent. I knew i'd get it right."
         p "Oh, and what's this?"
@@ -1014,14 +1026,14 @@ label check_secruityroom_10:
 
 
 label play_with_grenade:
-    if playWithGrenade = 0:
+    if playWithGrenade == 0:
         p "This is a grenade i found in Jenny’s Security Room"
         p "I do not know why she has a grenade."
         p "I only know that her having a grenade will be used in exchange for me having a seat on the helicopter."
         p "As such, it is vital that i ensure this grenade is kept in one piece and not be used for anything."
         $ playWithGrenade = 1
         jump investistart
-    if playWithGrenade = 0:
+    if playWithGrenade == 1:
         p "I know itis tempting."
         p "To have a grenade is to want to use a grenade."
         p "Grenades have long been the chocolate bar of the armed forces."
@@ -1030,7 +1042,7 @@ label play_with_grenade:
         p "But i must hold back."
         $ playWithGrenade = 2
         jump investistart
-    if playWithGrenade = 2:
+    if playWithGrenade == 2:
         p "I must be rational about this."
         p "Ther are uses for this grenade. IT could even save the day."
         p "To use grenade on raptor could result in the deaths of many raptors"
@@ -1040,7 +1052,7 @@ label play_with_grenade:
         p "On the Raptor killing grounds."
         $ playWithGrenade = 3
         jump investistart
-    if playWithGrenade = 3:
+    if playWithGrenade == 3:
         p "Though saying all that..."
         p "It is entirely possible that this grenade simply does not work."
         p "It is not out of the question that Jenny would have a dud grenade."
@@ -1050,7 +1062,7 @@ label play_with_grenade:
         p "Perhaps testing is in order."
         $ playWithGrenade = 4
         jump investistart
-    if playWithGrenade = 4:
+    if playWithGrenade == 4:
         p "But a test alone wuld be difficult to do."
         p "For one, there is only one grenade."
         p "I would need some kind of second control grenade in order to compare it to."
@@ -1059,7 +1071,7 @@ label play_with_grenade:
         p "Which would be difficult if it is in pieces."
         $ playWithGrenade = 5
         jump investistart
-    if playWithGrenade = 5:
+    if playWithGrenade == 5:
         p "Perhaps the key here would be to stick to the hypothesis, rather than wade into the complexities of the practical."
         p "Being a man of science, which i now am, for i am doing experiments, i am smart enough to know that i can only test the grenade once. "
         p "And to attempt to test the grenade a second time would be impractical."
@@ -1072,7 +1084,7 @@ label play_with_grenade:
         #" (picture of Paul holding grenade pin!!)"
         $ playWithGrenade = 6
         jump investistart
-    if playWithGrenade = 6:
+    if playWithGrenade == 6:
         p "Ulp. Never mind. The pin just fell out."
         p "Barely touched it and it slipped right through its..."
         p "its..."
@@ -1081,4 +1093,6 @@ label play_with_grenade:
         p "Is it just latch?"
         p "People probably do just call it a latch."
         p "Perhaps i should go ask someone."
+        $ route = _("1/16: Boom boom boom boom")
+        $ persistent.end_01 = True
         jump grenadeend

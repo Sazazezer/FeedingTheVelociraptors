@@ -185,13 +185,13 @@ init:
             imagebutton:
                 style "interacter"
                 if fuelApplied and matchApplied:
-                    auto "interactives/bunks/%s/2c.png"
+                    auto "interactives/bunks/%s/5c.png"
                 elif fuelApplied and not matchApplied:
-                    auto "interactives/bunks/%s/2b.png"
+                    auto "interactives/bunks/%s/5b.png"
                 else:
-                    auto "interactives/bunks/%s/2a.png"
+                    auto "interactives/bunks/%s/5a.png"
                 if interact_mode:
-                    action [SetVariable("interact_mode",False),Jump('check_bunks_2')]
+                    action [SetVariable("interact_mode",False),Jump('check_bunks_5')]
                 else:
                     sensitive False
 
@@ -415,7 +415,7 @@ init:
             if raptorRoomWadOfCash:
                 imagebutton:
                     style "interacter"
-                    auto "interactives/raptorroom/wadofcash.png"
+                    auto "interactives/raptorroom/%s/wadofcash.png"
                     if interact_mode:
                         action [SetVariable("interact_mode",False),Jump('temp_corridor')]
                     else:

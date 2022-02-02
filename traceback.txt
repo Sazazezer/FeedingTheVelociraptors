@@ -1,96 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/end_scripts.rpy", line 42, in script
-    p ". . ."
-  File "game/script_room_screens.rpy", line 377, in execute
-    screen sc_room_10():
-  File "game/script_room_screens.rpy", line 377, in execute
-    screen sc_room_10():
-  File "game/script_room_screens.rpy", line 380, in execute
-    use sc_room_frame():
-  File "game/script_room_screens.rpy", line 2, in execute
-    screen sc_room_frame():
-  File "game/script_room_screens.rpy", line 2, in execute
-    screen sc_room_frame():
-  File "game/script_room_screens.rpy", line 5, in execute
-    viewport:
-  File "game/script_room_screens.rpy", line 8, in execute
-    transclude
-  File "game/script_room_screens.rpy", line 380, in execute
-    use sc_room_frame():
-  File "game/script_room_screens.rpy", line 415, in execute
-    if raptorRoomWadOfCash:
-  File "game/script_room_screens.rpy", line 416, in execute
-    imagebutton:
-  File "renpy/common/00defaults.rpy", line 139, in _imagemap_auto_function
-    rv = auto_param % variant
-TypeError: not all arguments converted during string formatting
+  File "game/script_interacts.rpy", line 961, in script
+    if currentPuzzleState = 0:
+SyntaxError: invalid syntax (game/script_interacts.rpy, line 961)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/end_scripts.rpy", line 42, in script
-    p ". . ."
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ast.py", line 706, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\exports.py", line 1336, in say
-    who(what, *args, **kwargs)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\character.py", line 1139, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, **display_args)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\character.py", line 842, in do_display
-    **display_args)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\character.py", line 591, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ui.py", line 295, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 2699, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 3091, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 541, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 541, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 541, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\screen.py", line 430, in visit_all
-    callback(self)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 3091, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\screen.py", line 440, in per_interact
-    self.update()
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\screen.py", line 625, in update
-    self.screen.function(**self.scope)
-  File "game/script_room_screens.rpy", line 377, in execute
-    screen sc_room_10():
-  File "game/script_room_screens.rpy", line 377, in execute
-    screen sc_room_10():
-  File "game/script_room_screens.rpy", line 380, in execute
-    use sc_room_frame():
-  File "game/script_room_screens.rpy", line 2, in execute
-    screen sc_room_frame():
-  File "game/script_room_screens.rpy", line 2, in execute
-    screen sc_room_frame():
-  File "game/script_room_screens.rpy", line 5, in execute
-    viewport:
-  File "game/script_room_screens.rpy", line 8, in execute
-    transclude
-  File "game/script_room_screens.rpy", line 380, in execute
-    use sc_room_frame():
-  File "game/script_room_screens.rpy", line 415, in execute
-    if raptorRoomWadOfCash:
-  File "game/script_room_screens.rpy", line 416, in execute
-    imagebutton:
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ui.py", line 943, in _imagebutton
-    idle = choice(idle, idle_image, "idle", required=True)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ui.py", line 931, in choice
-    rv = renpy.config.imagemap_auto_function(auto, name)
-  File "renpy/common/00defaults.rpy", line 139, in _imagemap_auto_function
-    rv = auto_param % variant
-TypeError: not all arguments converted during string formatting
+  File "game/script_interacts.rpy", line 961, in script
+    if currentPuzzleState = 0:
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ast.py", line 1830, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\python.py", line 2033, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\python.py", line 690, in py_compile
+    raise e
+SyntaxError: invalid syntax (game/script_interacts.rpy, line 961)
 
 Windows-8-6.2.9200
 Ren'Py 7.3.2.320
 Jam and the Mystery of the Mysteriously Spooky Mansion 1.2
-Tue Feb 01 14:39:49 2022
+Wed Feb 02 16:32:59 2022

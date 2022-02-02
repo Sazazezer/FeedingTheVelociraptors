@@ -502,8 +502,8 @@ init:
                         hover_sound "button_hover.wav"
                         focus_mask True
                         idle "stuff/matchbox.png"
-                        tooltip _("Adrian ID")
-                        alt _("Adrian ID")
+                        tooltip _("Matchbox")
+                        alt _("Matchbox")
                         if stuff_cue:
                             activate_sound "button_select.wav"
                             action [SetVariable("stuff_selected","matchbox"),SetVariable("stuff_cue",False),Jump("stuff_check")]
@@ -769,7 +769,7 @@ init:
                 activate_sound "button_select.wav"
                 xalign 0.5
                 ypos 500
-                action [SetVariable("location",1),Function(renpy.hide_screen,"sc_end"),Jump("investistart")]
+                action [SetVariable("location",1),SetVariable("kickedOut",False),SetVariable("raptorRoomAK",False),SetVariable("raptorRoomGrenade",False),SetVariable("raptorRoomGrenadeNoPin",False),SetVariable("raptorRoomWadOfCash",False),Function(renpy.hide_screen,"sc_end"),Jump("investistart")]
                 text_style "closer"
                 alt _("Try a different ending")
         else:
@@ -778,7 +778,7 @@ init:
                 activate_sound "button_select.wav"
                 xalign 0.5
                 ypos 500
-                action [Function(renpy.hide_screen,"sc_end"),SetVariable("location", 1),Jump("forceroomrefresh")]
+                action [SetVariable("location",3),SetVariable("kickedOut",False),SetVariable("raptorRoomAK",False),SetVariable("raptorRoomGrenade",False),SetVariable("raptorRoomGrenadeNoPin",False),SetVariable("raptorRoomWadOfCash",False),Function(renpy.hide_screen,"sc_end"),Jump("forceroomrefresh")]
                 text_style "closer"
                 alt _("Try a different set of evidence")
         textbutton _("> Exit to title screen <"):

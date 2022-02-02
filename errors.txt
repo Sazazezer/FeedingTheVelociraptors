@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script_interacts.rpy", line 768: expected statement.
-    else:
-        ^
+File "game/script_room_screens.rpy", line 192: Line is indented, but the preceding style statement does not expect a block. Please check this line's indentation.
+    auto "interactives/bunks/%s/2a.png"
+    ^
 
 Ren'Py Version: Ren'Py 7.3.2.320
-Tue Feb 01 13:12:06 2022
+Wed Feb 02 15:25:30 2022

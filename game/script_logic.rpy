@@ -10,11 +10,15 @@ label investistart:
     $ interact_mode = True
     ">>> Investigate the room with \[MOUSE\].\n>>> Change rooms with \[MAP\].{fast}"(advance=False)
 
-label forceroomrefresh:
+label forceroomrefresh: #beginning to think this is irrelevant...
     $ refresh_location()
+    show mono empty
+    $ interacting_with = ""
+    $ interact_mode = True
 
 label evi_tally:
     if evi_count == 1:
+        p "Welp. That's one piece of evidence."
         p "I'm no fool though."
         p "I know i need at least two pieces of watertight evidence in order to pin this on someone."
         p "And one piece is all leaky and stuff."
@@ -27,7 +31,7 @@ label evi_tally:
         jump investistart
     elif evi_count == 8:
         p "I can safetly say with absolute certainly..."
-        p "Almost s if the god of this world was speaking through me..."
+        p "Almost as if the god of this world was speaking through me..."
         p "That all the evidence has definitely been found."
         p "That being said..."
         p "There's more than one way to obtain evidence beyond merely 'finding' it."
@@ -122,7 +126,7 @@ label finale:
     elif "contract" in evidence_selected and "wadofcash" in evidence_selected:
         $ route = _("6/16: Tony the Ass Asser")
         jump route04
-    elif "fakepaper" in evidence_selected and "fakeid" in evidence_selected:
+    elif "fakepaper1" in evidence_selected and "fakepaper2" in evidence_selected:
         $ route = _("7/16: Definitely defiitely Adrian's fault")
         jump route05
     elif "jaw" in evidence_selected and "cash" in evidence_selected:

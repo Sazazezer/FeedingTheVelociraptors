@@ -1143,12 +1143,12 @@ screen checklist():
             spacing 12
 
             if persistent.end_01:
-                text _("[[x] Ending #01: O Canada") size 18
+                text _("[[x] Ending #01: Boom boom boom boom") size 18
             else:
                 text _("[[ ] Ending #01: ???") size 18 color "#888"
 
             if persistent.end_02:
-                text _("[[x] Ending #02: Lucky Benny’s House of Gnomes") size 18
+                text _("[[x] Ending #02: My brain has bullets in it.") size 18
             else:
                 text _("[[ ] Ending #02: ???") size 18 color "#888"
 
@@ -1158,69 +1158,69 @@ screen checklist():
                 text _("[[ ] Ending #03: ???") size 18 color "#888"
 
             if persistent.end_04:
-                text _("[[x] Ending #04: Not Illegal; Still Kinda Weird") size 18
+                text _("[[x] Ending #04: J'accuse La Jenny") size 18
             else:
                 text _("[[ ] Ending #04: ???") size 18 color "#888"
 
             if persistent.end_05:
-                text _("[[x] Ending #05: Red Herring") size 18
+                text _("[[x] Ending #05: Oh... Helen actually did do something bad.") size 18
             else:
                 text _("[[ ] Ending #05: ???") size 18 color "#888"
 
             if persistent.end_06:
-                text _("[[x] Ending #06: Palexandre") size 18
+                text _("[[x] Ending #06: Tony the Ass Asser") size 18
             else:
                 text _("[[ ] Ending #06: ???") size 18 color "#888"
 
             if persistent.end_07:
-                text _("[[x] Ending #07: Gnome Crime Doesn’t Pay") size 18
+                text _("[[x] Ending #07: Definitely definitely Adrian's fault") size 18
             else:
                 text _("[[ ] Ending #07: ???") size 18 color "#888"
 
             if persistent.end_08:
                 text _("[[x] Ending #08: A Raw Deal") size 18
             else:
-                text _("[[ ] Ending #08: ???") size 18 color "#888"
+                text _("[[ ] Ending #08: Coming in full version.") size 18 color "#888"
 
             if persistent.end_09:
                 text _("[[x] Ending #09: The Escargot Debacle") size 18
             else:
-                text _("[[ ] Ending #09: ???") size 18 color "#888"
+                text _("[[ ] Ending #09: Coming in full version.") size 18 color "#888"
 
             if persistent.end_10:
                 text _("[[x] Ending #10: La Fin") size 18
             else:
-                text _("[[ ] Ending #10: ???") size 18 color "#888"
+                text _("[[ ] Ending #10: Coming in full version.") size 18 color "#888"
 
             if persistent.end_11:
                 text _("[[x] Ending #11: Westside of Linn County Story") size 18
             else:
-                text _("[[ ] Ending #11: ???") size 18 color "#888"
+                text _("[[ ] Ending #11: Coming in full version.") size 18 color "#888"
 
             if persistent.end_12:
                 text _("[[x] Ending #12: Schrodinger’s KFC/Taco Bell") size 18
             else:
-                text _("[[ ] Ending #12: ???") size 18 color "#888"
+                text _("[[ ] Ending #12: Coming in full version.") size 18 color "#888"
 
             if persistent.end_13:
                 text _("[[x] Ending #13: The Necrognomicon") size 18
             else:
-                text _("[[ ] Ending #13: ???") size 18 color "#888"
+                text _("[[ ] Ending #13: Coming in full version.") size 18 color "#888"
 
             if persistent.end_14:
                 text _("[[x] Ending #14: Inspector Valjert") size 18
             else:
-                text _("[[ ] Ending #14: ???") size 18 color "#888"
+                text _("[[ ] Ending #14: Coming in full version.") size 18 color "#888"
 
             if persistent.end_15:
                 text _("[[x] Ending #15: The Perfect Crime") size 18
             else:
-                text _("[[ ] Ending #15: ???") size 18 color "#888"
+                text _("[[ ] Ending #15: Coming in full version.") size 18 color "#888"
 
             if persistent.end_16:
                 text _("[[x] Secret Ending #16: Housewarming Party") size 18
             else:
-                text _("[[ ] Secret Ending #16: ???") size 18 color "#888"
+                text _("[[ ] Secret Ending #16: Coming in full version.") size 18 color "#888"
 
             textbutton _("Erase Ending Data") action Confirm(_("Erase ending data? This action cannot be undone."), yes=Function(reset_persistent)) xpos 500
 
