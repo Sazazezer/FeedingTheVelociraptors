@@ -10,11 +10,12 @@ label investistart:
     $ interact_mode = True
     ">>> Investigate the room with \[MOUSE\].\n>>> Change rooms with \[MAP\].{fast}"(advance=False)
 
-label forceroomrefresh: #beginning to think this is irrelevant...
+label forceroomrefresh:
     $ refresh_location()
     show mono empty
     $ interacting_with = ""
     $ interact_mode = True
+    ">>> Investigate the room with \[MOUSE\].\n>>> Change rooms with \[MAP\].{fast}"(advance=False)
 
 label evi_tally:
     if evi_count == 1:
@@ -105,7 +106,7 @@ label accusation:
     $ evidence_selected = []
 
     p "Ah, i don't think i'm quite ready yet."
-    p "So… i guess i should sneak back out of the room before anyone asks what i’m dong back here again?"
+    p "So... i guess i should sneak back out of the room before anyone asks what i’m dong back here again?"
     t "You do realise we can all hear you right?"
     p "NO YOU CAN’T!"
     jump investistart
@@ -129,36 +130,9 @@ label finale:
     elif "fakepaper1" in evidence_selected and "fakepaper2" in evidence_selected:
         $ route = _("7/16: Definitely defiitely Adrian's fault")
         jump route05
-    elif "jaw" in evidence_selected and "cash" in evidence_selected:
-        $ route = _("14/16: Inspector Valjert")
+    elif "*" in evidence_selected and "*" in evidence_selected:
+        $ route = _("8/16: The evidence isn't random!?")
         jump route06
-    elif "jaw" in evidence_selected and "fish" in evidence_selected:
-        $ route = _("5/16: Red Herring")
-        jump route07
-    elif "jaw" in evidence_selected and "note" in evidence_selected:
-        $ route = _("6/16: Palexandre")
-        jump route08
-    elif "jaw" in evidence_selected and "knife" in evidence_selected:
-        $ route = _("15/16: The Perfect Crime")
-        jump route09
-    elif "fish" in evidence_selected and "note" in evidence_selected:
-        $ route = _("1/16: O Canada")
-        jump route10
-    elif "fish" in evidence_selected and "cash" in evidence_selected:
-        $ route = _("10/16: La Fin")
-        jump route11
-    elif "fish" in evidence_selected and "knife" in evidence_selected:
-        $ route = _("8/16: A Raw Deal")
-        jump route12
-    elif "knife" in evidence_selected and "cash" in evidence_selected:
-        $ route = _("4/16: Not Illegal; Still Kinda Weird")
-        jump route13
-    elif "knife" in evidence_selected and "note" in evidence_selected:
-        $ route = _("11/16: Westside of Linn County Story")
-        jump route14
-    elif "cash" in evidence_selected and "note" in evidence_selected:
-        $ route = _("9/16: The Escargot Debacle")
-        jump route15
     else:
         j jdoubt "Hey, you. Yeah, you, at the computer."
         j janger "I think you broke the game."
@@ -179,26 +153,8 @@ label endcard:
         $ persistent.end_06 = True
     elif "fakepaper1" in evidence_selected and "fakepaper2" in evidence_selected:
         $ persistent.end_07 = True
-    elif "jaw" in evidence_selected and "cash" in evidence_selected:
-        $ persistent.end_14 = True
-    elif "jaw" in evidence_selected and "fish" in evidence_selected:
-        $ persistent.end_05 = True
-    elif "jaw" in evidence_selected and "note" in evidence_selected:
-        $ persistent.end_06 = True
-    elif "jaw" in evidence_selected and "knife" in evidence_selected:
-        $ persistent.end_15 = True
-    elif "fish" in evidence_selected and "note" in evidence_selected:
-        $ persistent.end_01 = True
-    elif "fish" in evidence_selected and "cash" in evidence_selected:
-        $ persistent.end_10 = True
-    elif "fish" in evidence_selected and "knife" in evidence_selected:
+    elif "*" in evidence_selected and "*" in evidence_selected:
         $ persistent.end_08 = True
-    elif "knife" in evidence_selected and "cash" in evidence_selected:
-        $ persistent.end_04 = True
-    elif "knife" in evidence_selected and "note" in evidence_selected:
-        $ persistent.end_11 = True
-    elif "cash" in evidence_selected and "note" in evidence_selected:
-        $ persistent.end_09 = True
     else:
         $ persistent.end_16 = True
 

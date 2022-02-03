@@ -36,11 +36,13 @@ label raptorroom:
         #!!(throws grenade)"
         p "Not a catch player. Ok i get it. Not much of one myself."
         p "Well then... howzaabout:"
+        $ raptorRoomGrenadeNoPin = False
     if have_wadofcash:
         p "this?"
         $ raptorRoomWadOfCash = True
         p ". . ."
         p "Yeah, i don't know what i was expectign either."
+        $ raptorRoomWadOfCash = False
     p "Crud. Well, i got nothing."
     p "Kind of a docile fellow, aren’t you."
     p "Howzabout, i just back... away slowly... and... maybe... get to the choppa."
@@ -54,7 +56,7 @@ label route01: #accussing adrian - Evidence -  print out and personal photo / St
     p "My fellow employees."
     #!!toskip for testing
     $ location = 10
-    jump forceroomrefresh
+    jump investistart
     t " Oh. You’re back."
     p "But of course. I have something most pressing-"
     t " I honestly wold have thought we would have to come get you."
@@ -141,15 +143,14 @@ label route01: #accussing adrian - Evidence -  print out and personal photo / St
     h "Hahaha"
     j "Hahaha"
     p "Hahaha"
-    alt "A short, jolly figure appears in the open doorway, carrying a knife."
     $ location = 10
-    jump forceroomrefresh
+    jump investistart
 
 label route02: # Accussing Jenny - Evidence - Grenade - Dictaphone/Transcript / Stuff - Match/ some other firestarter - Grenade found in Security Room - Dictaphone found in JEnny's Bunk box, accessible by start a fire in the bunks, with match and fuel can. Match found in CEO Office, Fuel can found in Corridor.
     p "My fellow employees"
     t "Oh. You’re back."
     $ location = 10
-    jump forceroomrefresh
+    jump investistart
     #!!removeaftertesting
     p "Yes, i have indeed returned. With justice."
     t "I don’t think that will help in the current man eating dinosaurs situation, "
@@ -242,12 +243,12 @@ label route02: # Accussing Jenny - Evidence - Grenade - Dictaphone/Transcript / 
     t "Have you been going through our stuff?"
     p "..."
     $ location = 10
-    jump forceroomrefresh
+    jump investistart
 
 label route03: # Accussing Helen - Evidence - Research Journal/Raptor Claw / Stuff - Research Journal found under chair in Lab (staff room) - Raptor Claw found by using security card on containment lock. Card found in CEO office
     p "My fellow Americans"
     $ location = 10
-    jump forceroomrefresh
+    jump investistart
     #!!removeaftertesting
     h "Actually, i’m Canadian"
     t "Me too."
@@ -340,14 +341,14 @@ label route03: # Accussing Helen - Evidence - Research Journal/Raptor Claw / Stu
     a "Let’s go out there, and get to that helicopter."
     p "Is anyone listening..."
     $ location = 10
-    jump forceroomrefresh
+    jump investistart
     #!!removeaftertesting
 
 
 label route04: # Accussing Tony - Evidence - Assassin Contract/Wad of Cash / Stuff - Hammer Wad of cash found in Tony's bunk. Contract found in CEO office globe by smashing globe with hammer. HAmmer found under teddy bear in bunks
     j "Oh good. You’re here."
     $ location = 10
-    jump forceroomrefresh
+    jump investistart
     #!!removeaftertesting
     p "Ok. Everyone. You have to listen to me."
     h "Ah, the desperate bargaining."
@@ -441,12 +442,12 @@ label route04: # Accussing Tony - Evidence - Assassin Contract/Wad of Cash / Stu
     p "..."
     p " Hey wait-"
     $ location = 10
-    jump forceroomrefresh
+    jump investistart
 
 label route05: # faking evidence to accuse Adrian - Evidence - Fake Transcript/ Fake ID card / Stuff - Plain paper/ Plain ID card - Plain paper found in reception, ID found in Lab, security puzzle completed in security room
     a "And that’s why i’m thinking we should be nicer to the guy. IF he is going to die today, then the least we could do is not be dicks about it and-"
     $ location = 10
-    jump forceroomrefresh
+    jump investistart
     #!!removeaftertesting
     p "Yoohoo. I have here evidence to present to all of you."
     a "Ah Paul. IT is good to see you. Tank you for coming back-"
@@ -538,13 +539,13 @@ label route05: # faking evidence to accuse Adrian - Evidence - Fake Transcript/ 
     p "Yep. Sure is a good day."
     #!!fixforspecialending
     $ location = 10
-    jump forceroomrefresh
+    jump investistart
     #!!removeaftertesting
 
 label route06: # any combination of incorrect evidence
     p "Greetings all. I have returned."
     $ location = 10
-    jump forceroomrefresh
+    jump investistart
     #!!removeaftertesting
     j "‘bout damn time. We were just about to come fish you out of whatever cupboard you had hidden yourself in."
     p "I- wait, was that an option."
@@ -606,7 +607,7 @@ label route06: # any combination of incorrect evidence
     j "Hey..."
     j "Do you suppose we could take this evidence with us?"
     $ location = 10
-    jump forceroomrefresh
+    jump investistart
     #!!removeaftertesting
 
 label route07: # brain broken due to puzzle

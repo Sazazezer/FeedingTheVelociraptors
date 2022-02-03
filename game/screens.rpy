@@ -1178,47 +1178,47 @@ screen checklist():
                 text _("[[ ] Ending #07: ???") size 18 color "#888"
 
             if persistent.end_08:
-                text _("[[x] Ending #08: A Raw Deal") size 18
+                text _("[[x] Ending #08: ???") size 18
             else:
-                text _("[[ ] Ending #08: Coming in full version.") size 18 color "#888"
+                text _("[[ ] Ending #08: The evidence isn't random!?") size 18 color "#888"
 
             if persistent.end_09:
-                text _("[[x] Ending #09: The Escargot Debacle") size 18
+                text _("[[x] Ending #09: ???") size 18
             else:
                 text _("[[ ] Ending #09: Coming in full version.") size 18 color "#888"
 
             if persistent.end_10:
-                text _("[[x] Ending #10: La Fin") size 18
+                text _("[[x] Ending #10: ???") size 18
             else:
                 text _("[[ ] Ending #10: Coming in full version.") size 18 color "#888"
 
             if persistent.end_11:
-                text _("[[x] Ending #11: Westside of Linn County Story") size 18
+                text _("[[x] Ending #11: ???") size 18
             else:
                 text _("[[ ] Ending #11: Coming in full version.") size 18 color "#888"
 
             if persistent.end_12:
-                text _("[[x] Ending #12: Schrodinger’s KFC/Taco Bell") size 18
+                text _("[[x] Ending #12: ???") size 18
             else:
                 text _("[[ ] Ending #12: Coming in full version.") size 18 color "#888"
 
             if persistent.end_13:
-                text _("[[x] Ending #13: The Necrognomicon") size 18
+                text _("[[x] Ending #13: ???") size 18
             else:
                 text _("[[ ] Ending #13: Coming in full version.") size 18 color "#888"
 
             if persistent.end_14:
-                text _("[[x] Ending #14: Inspector Valjert") size 18
+                text _("[[x] Ending #14: ???") size 18
             else:
                 text _("[[ ] Ending #14: Coming in full version.") size 18 color "#888"
 
             if persistent.end_15:
-                text _("[[x] Ending #15: The Perfect Crime") size 18
+                text _("[[x] Ending #15: ???") size 18
             else:
                 text _("[[ ] Ending #15: Coming in full version.") size 18 color "#888"
 
             if persistent.end_16:
-                text _("[[x] Secret Ending #16: Housewarming Party") size 18
+                text _("[[x] Secret Ending #16: Coming in full version.") size 18
             else:
                 text _("[[ ] Secret Ending #16: Coming in full version.") size 18 color "#888"
 

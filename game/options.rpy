@@ -80,7 +80,7 @@ define config.equal_mono = False
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("Jam and the Mystery of the Mysteriously Spooky Mansion")
+define config.name = _("Feeding the Velociraptors")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set

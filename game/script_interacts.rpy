@@ -1,136 +1,136 @@
 ## Offices
 label check_offices_1:
     if prog == 0:
-        t "So, it’s decided. Paul has to die."
-        $ location = 9
-        jump forceroomrefresh
+        t tempty"So, it’s decided. Paul has to die."
+        #$ location = 9
+        #jump investistart
         a "This is horrible. I can’t believe it’s come down to this."
         $ prog = 1
-        h "It is the only remaining response. The raptors have swarmed the compound. The lockdown system will only be active for a few more hours." 
-        t "Communications are out. We have no defensive capabilities."
+        h hstern "It is the only remaining response. The raptors have swarmed the compound. The lockdown system will only be active for a few more hours." 
+        t tannoyed"Communications are out. We have no defensive capabilities."
         a "Yeah but, what you’re suggesting is-"
-        j "Oh, can it. It’s his fault we’re in this mess in the first place. Who tries to deliver data reports by disabling the security fields and wandering over to the boss."
+        j jstern "Oh, can it. It’s his fault we’re in this mess in the first place. Who tries to deliver data reports by disabling the security fields and wandering over to the boss."
         p phappy "Well no one now, considering how much blood isn’t in his body."
-        j "If the raptors hadn’t eaten Todd, we might have been abe to get communications back online."
-        p "And if Todd hadn’t been so delicious, then the Raptors probably wouldn’t have eaten him. Really, it’s his fault we’re in this mess."
-        h "Anyway! The plan is clear. Once our route has been secured, Paul will be thrown out through the back entrance of the building and left to fend for themselves." 
-        h "With the ensuring distraction, we will make our way to the helicopter in the parking lot."
-        t "Heh, and you said me trying to validate my parking was ridiculous."
-        h "People are still dead, Tony."
-        t "Right... Sorry."
-        h "Now, i’m sure there may be a desperate desire to be selfish and do what we can to ensure that we stay alive. At the very least, recognise that Tony must stay alive."
-        h "He is the only one here that can pilot a helicopter. None of us live without him."
-        p "Pretty sure i don’t get to live at all."
-        h "Nonsense. If the four of us successfully escape and you remain uneaten and manage to find a way into a part of the building that cannot be accessed by velociraptors,"
-        h " then you are free to stay alive until the cleanup crew arrives to take care of this mess."
-        p "Oh, well that actually sounds pretty reasonabl-"
-        h "in about six to eight weeks."
-        p "Ah."
-        h "Yeah, there’s going to be a lot of political stuff going on when we get back. Too many people have been stating that this place is a death trap waiting to happen."
-        h "And well, you proved them right."
-        h "I won’t lie. We will be listing you among the dead. If you make it, you can be a nice surprise for the clean crew to find."
-        h "It is the least you deserve."
-        p "Come on guys. There’s got to be a better plan than this."
-        h "There is not. This has been discussed, and you had plenty of time to interject beforehand."
-        p "I was in the bathroom."
-        j "For three hours."
-        p "I’ve seen you hog the cubicle, Jenny. Don’t act cocky on me now."
-        h "None of this matters. We are talking to a dead person. Let us prepare."
-        p "Wait, you can’t do this. At the very least give me some kind of chance."
-        t "Donald didn’t get a chance."
-        p "Donald was slower than me, and more susceptible to getting dirt thrown in his eyes. It was survival of the fittest out there."
-        t "He was the only one of us armed and trained to fight those things and you shoved him into that tree first chance you got."
-        p "Oh please. If he was really trained and not just lying on his CV, shouldn’t he have been able to take out three turkey dinosaurs before they overwhelmed him?"
-        j "Not with the dirt in his eyes."
+        j jangry "If the raptors hadn’t eaten Todd, we might have been abe to get communications back online."
+        p phappy "And if Todd hadn’t been so delicious, then the Raptors probably wouldn’t have eaten him. Really, it’s his fault we’re in this mess."
+        h hstern "Anyway! The plan is clear. Once our route has been secured, Paul will be thrown out through the back entrance of the building and left to fend for themselves." 
+        h hstern "With the ensuring distraction, we will make our way to the helicopter in the parking lot."
+        t tsmile "Heh, and you said me trying to validate my parking was ridiculous."
+        j jstern "People are still dead, Tony."
+        t tupset "Right... Sorry."
+        h hstern "Now, i’m sure there may be a desperate desire to be selfish and do what we can to ensure that we stay alive. At the very least, recognise that Tony must stay alive."
+        h hstern "He is the only one here that can pilot a helicopter. None of us live without him."
+        p pstoic "Pretty sure i don’t get to live at all."
+        h hstern "Nonsense. If the four of us successfully escape and you remain uneaten and manage to find a way into a part of the building that cannot be accessed by velociraptors,"
+        h hstern " then you are free to stay alive until the cleanup crew arrives to take care of this mess."
+        p phappy "Oh, well that actually sounds pretty reasonabl-"
+        h hcool "in about six to eight weeks."
+        p pstoic "Ah."
+        h hstern "Yeah, there’s going to be a lot of political stuff going on when we get back. Too many people have been stating that this place is a death trap waiting to happen."
+        h hstern "And well, you proved them right."
+        h hstern "I won’t lie. We will be listing you among the dead. If you make it, you can be a nice surprise for the clean crew to find."
+        h hangry "It is the least you deserve."
+        p phappy "Come on guys. There’s got to be a better plan than this."
+        h hstern "There is not. This has been discussed, and you had plenty of time to interject beforehand."
+        p phappy "I was in the bathroom."
+        j jstern "For three hours."
+        p pshocked "I’ve seen you hog the cubicle, Jenny. Don’t act cocky on me now."
+        h hstern "None of this matters. We are talking to a dead person. Let us prepare."
+        p pshocked "Wait, you can’t do this. At the very least give me some kind of chance."
+        t tangry "Donald didn’t get a chance."
+        p pstoic "Donald was slower than me, and more susceptible to getting dirt thrown in his eyes. It was survival of the fittest out there."
+        t tangry "He was the only one of us armed and trained to fight those things and you shoved him into that tree first chance you got."
+        p phappy "Oh please. If he was really trained and not just lying on his CV, shouldn’t he have been able to take out three turkey dinosaurs before they overwhelmed him?"
+        j jangry "Not with the dirt in his eyes."
         a "Jenny. I really don’t think-"
-        h "Oh. Fine. You have one hour. We need to prepare anyway."
-        h "Don’t leave the building. Don’t turn lockdown off. If you come up with a better plan that lets all five of us survive, then we’ll hear it."
-        t "You can’t be serious."
-        h "He's no threat to us anyway, and we need the time. This is an administrative building. There’s nothing here of any use anyway. "
-        h "And if they do find something, it’s not like i’m against them coming with us."
-        p "You sure there’s no way for me to leave the building."
-        h "Jesus, no. And don’t even try. The lockdown field is the only thing keeping us alive."
-        j "Go. You have one hour."
+        h hstern "Oh. Fine. You have one hour. We need to prepare anyway."
+        h hstern "Don’t leave the building. Don’t turn lockdown off. If you come up with a better plan that lets all five of us survive, then we’ll hear it."
+        t tannoyedn"You can’t be serious."
+        h hstern "He's no threat to us anyway, and we need the time. This is an administrative building. There’s nothing here of any use anyway. "
+        h hstern "And if they do find something, it’s not like i’m against them coming with us."
+        p phappy "You sure there’s no way for me to leave the building."
+        j jangry "Jesus, no. And don’t even try. The lockdown field is the only thing keeping us alive."
+        h hstern "Go. You have one hour."
         $ location = 9
-        jump forceroomrefresh
+        jump investistart
     else:
         if have_ak47 and not ak47Scare:
-            alt "Jam appears holding the gun." #!! test to see if this shows in game
-            p "Hey everyone."
-            j "Oh good lord."
-            p "Just checking in. How's everyone doing?"
-            j "Paul... where- where did you get that?"
-            p "Oh this? I found it."
-            j "And... what are you going to do with it?"
-            p "Oh. i guess we'll all see."
-            j "..."
+            p pgun "Hey everyone."
+            j jshocked "Oh good lord."
+            p pgun "Just checking in. How's everyone doing?"
+            j jshocked "Paul... where- where did you get that?"
+            p pgun "Oh this? I found it."
+            j jshocked "And... what are you going to do with it?"
+            p pgun "Oh. i guess we'll all see."
+            j jshocked "..."
             a "..."
-            t "..."
-            h "..."
-            p "..."
-            p "Well. Nothing much going on here. I'll catch you all later."
-            p "Or not. Who knows."
+            t tangry "..."
+            h hstern "..."
+            p pgun "..."
+            p pgun "Well. Nothing much going on here. I'll catch you all later."
+            p pgun "Or not. Who knows."
             show mono empty
-            j ". . . What the hell?"
+            j jshocked ". . . What the hell?"
             $ ak47Scare = True
             $ location = 3
-            jump forceroomrefresh
+            jump investistart
         else:
             if evi_count > 1:
                 p "Well. I think i’m good to go."
                 p "The crowd has gathered. Is it time for me to present the evidence that i have so painstakingly uncovered?"
                 jump accusation
             else:
-                t "Oh. You're back."
-                t "It's not been an hour yet. Or are you ready to begin."
-                p "No no. Just having a bit of a wander."
-                p "Still haven't had my lunch yet."
-                p "Be back soon."
-                t "..."
+                t tsurprised "Oh. You're back."
+                t tsmile "It's not been an hour yet. Or are you ready to begin."
+                p phappy "No no. Just having a bit of a wander."
+                p phappy "Still haven't had my lunch yet."
+                p pevasive "...Be back soon."
+                t tempty "..."
                 $ location = 3
-                jump forceroomrefresh
+                jump investistart
 
 ## Special Temp Corridor for initial scene
 label temp_corridor:
     p "Well, this is a sticky little pickle i’ve gotten us into. How will i escape today?"
     #!!remvoe test skip
-    $ location = 3
-    play music "FTV-A.wav"
-    $ prog = 2
-    jump forceroomrefresh
-    t "Oi."
-    p "Ah, helicopter man. Excellent. I knew you’d come around."
-    t "What?"
-    p "Why, we are the only true smart ones here. Come, let us escape together."
-    t "No. God no. What the hell is wrong with-"
-    t "Look, i just came out here to say. To be clear with you."
-    t "you’re going to be dead after this hour is up."
-    t "I’ve seen people in their final moments before. Unexpected. Not wanting to be there. It’s rarely the clean and noble death people want."
-    p "Sooo, you wanna swap?"
-    t "..."
-    t " What i’m trying to say is, don’t use this hour to figure out some non-existant escape. "
-    t "Use it to find your peace. Most of the guys i used to work with would kill to know it’s their final hour on earth, rather than have it sneak up on them."
-    t "You’ve got one last opportunity here. Use it wisely."
-    p "... Understood. Got it."
-    t "Good. See you about in about an hour."
-    p "Oh you’ll see me, alright."
-    t "What was that?"
-    p "Nothing, commander. See you in an hour."
-    p ". . ."
-    p ". . ."
-    p "Welp, let’s get out of here. No way i’m dying today."
-    p "My horoscope mentioned nothing about it"
-    p "So, i basically have two options."
-    p "I need to either find an escape route for myself, or barring that, find a way to convince those wonderful people in there that i should go in the copter instead."
-    p "Possibly in place of Adrian."
-    p "Stupid receptionist. Expects me to laugh at his jokes every morning."
-    p "So, let's find me some incriminating evidence to pass the role of bait onto someone else. Shouldn’t be too difficult."
+    #$ location = 3
+    #play music "FTV-A.wav"
+    #$ prog = 2
+    #jump investistart
+    t tupset "Oi."
+    p phappy "Ah, helicopter man. Excellent. I knew you’d come around."
+    t tannoyed "What?"
+    p phappy "Why, we are the only true smart ones here. Come, let us escape together."
+    t tangry "No. God no. What the hell is wrong with-"
+    t tempty "Look, i just came out here to say. To be clear with you."
+    t tempty"you’re going to be dead after this hour is up."
+    t tempty "I’ve seen people in their final moments before. Unexpected. Not wanting to be there. It’s rarely the clean and noble death people want."
+    p pshocked "Sooo, you wanna swap?"
+    t tangry "..."
+    t tannoyed " What i’m trying to say is, don’t use this hour to figure out some non-existant escape. "
+    t tempty "Use it to find your peace. Most of the guys i used to work with would kill to know it’s their final hour on earth, rather than have it sneak up on them."
+    t tempty "You’ve got one last opportunity here. Use it wisely."
+    p phappy "... Understood. Got it."
+    t tsmile "Good. See you about in about an hour."
+    p pevasive "Oh you’ll see me, alright."
+    t tempty "What was that?"
+    p phappy "Nothing, commander. See you in an hour."
+    p phappy ". . ."
+    p tempty ". . ."
+    show mono empty
+    p phappy "Welp, let’s get out of here. No way i’m dying today."
+    p phappy "My horoscope mentioned nothing about it"
+    p phappy "So, i basically have two options."
+    p phappy "I need to either find an escape route for myself, or barring that, find a way to convince those wonderful people in there that i should go in the copter instead."
+    p phappy "Possibly in place of Adrian."
+    p pstoic "Stupid receptionist. Expects me to laugh at his jokes every morning."
+    p phappy "So, let's find me some incriminating evidence to pass the role of bait onto someone else. Shouldn’t be too difficult."
     show mono empty
     ">>> Explore the Administration building to find \[EVIDENCE\] to switch with another passenger.\n>>> Gather \[STUFF\] to solve problems that you may encounter.{fast}"
     play music "FTV-A.wav"
     $ prog = 2
     $ location = 3
-    jump forceroomrefresh
+    jump investistart
     jump investistart
 
 
@@ -220,7 +220,6 @@ label check_reception_3:
         p "But yeah, basically one of those."
         $ lookOutsideReception = True
         p "Oh, and there are four velociraptors on the lawn parts."
-        #!!Fix colouring issue
         $ lookOutsideReception = False
         $ receptionDoorsCheck = 1
         jump investistart
@@ -278,33 +277,35 @@ label check_reception_3:
             p "Yeah."
             p "YEAH!"
             p "Let’s do this."
-            p "Now. I’ve never used a gun before."
-            p "But i have played plenty of videogames."
-            p "But i’m not stupid enough to think that gameplay transitions perfectly into reality."
-            p "It will only mostly transition."
-            p "So, there should be a safety on the gun."
-            p "Make sure that’s turned off."
-            p "Don’t wantthe raptors to be safe now. Do we?"
-            p "Ha ha ha."
-            p "Next. Make sure the clips in."
-            p "Yep. That’s definitely a clip containing bullets."
-            p "Then... i think i need to cock the gun."
-            p "Movies do that all the time right?"
-            p "But sometimes they don’t."
-            p "Does a gun always need cocking."
-            p "Well, i’ll guess i’ll just cock it anyway."
-            p "Then it;ll be doubly loaded."
-            p "Then next i guess i just point and shoot"
-            n "BANGBANGBANGBANG"
-            #!!(scene o raptor looking from outside the force field, completely unhardmed, from a position that makes it clearly Paul is on the floor. Dying.)"
-            p "So... something went wrong."
-            p "Painfully wrong in fact."
-            p "Oh this hurts so much."
-            p "Not sure what it cold have been."
-            p "Unless bullets can’t travel thrugh the force field."
-            p "Video games may have failed me this time."
-            p "No. It got be video games fault i have a gun. That’s just passing the blame."
-            p "Well, with nay luck someone wold have heard the gunshot and be coming to help me out."
+            p pgun "Now. I’ve never used a gun before."
+            p pgun "But i have played plenty of videogames."
+            p pgun "But i’m not stupid enough to think that gameplay transitions perfectly into reality."
+            p pgun "It will only mostly transition."
+            p pgun "So, there should be a safety on the gun."
+            p pgun "Make sure that’s turned off."
+            p pgun "Don’t wantthe raptors to be safe now. Do we?"
+            p pgun "Ha ha ha."
+            p pgun "Next. Make sure the clips in."
+            p pgun "Yep. That’s definitely a clip pgun containing bullets."
+            p pgun "Then... i think i need to cock the gun."
+            p pgun "Movies do that all the time right?"
+            p pgun "But sometimes they don’t."
+            p pgun "Does a gun always need cocking."
+            p pgun "Well, i’ll guess i’ll just cock it anyway."
+            p pgun "Then it;ll be doubly loaded."
+            p pgun "Then next i guess i just point and shoot"
+            play sound "ak47sound.mp3"
+            n pdead "BANGBANGBANGBANG"
+            p pdead "So... something went wrong."
+            p pdead "Painfully wrong in fact."
+            p pdead "Oh this hurts so much."
+            p pdead "Not sure what it cold have been."
+            p pdead "Unless bullets can’t travel thrugh the force field."
+            p pdead "Video games may have failed me this time."
+            p pdead "No. It got be video games fault i have a gun. That’s just passing the blame."
+            p pdead "Well, with nay luck someone wold have heard the gunshot and be coming to help pdead me out."
+            show mono empty
+            play sound "bodysound.mp3"
             p "I’m sure tat’s a thing that’s about to happen."
             p "You just wait there, mister Raptor. You’ll get your commupance soon."
             $ route = _("2/16: My brain has bullets in it.")
@@ -319,9 +320,9 @@ label check_reception_3:
             p "This is the exact combination of events that lead to your demise."
             p "Take this!"
             n "THE HAMMER USELESSLY BOUNCES OFF THE FORCEFIELD."
-            P "aH."
-            P "rIGHT."
-            P "lET'S TRY SOMETHING ELSE, sHALL WE?"
+            p "aH."
+            p "rIGHT."
+            p "lET'S TRY SOMETHING ELSE, sHALL WE?"
             jump investistart
 
 ## corridor ##
@@ -438,7 +439,7 @@ label check_ceo_2:
         p "Leaving me trapped here with a bunch of predators who are intent in seeing my flesh flayed from my bones."
         p "Not to mention the whole raptor problem."
         $ checkCEO2 = 1
-        jump investistart #certificate rewrite!!
+        jump investistart
     if checkCEO2 == 1:
         p "Todd's diploma."
         p "His father owned the University, so he had to work twice as hard to get it."
@@ -501,7 +502,7 @@ label check_ceo_4:
         p "Here's hoping."
         jump investistart
 
-label check_ceo_5: #raptor outside needs something!!
+label check_ceo_5:
     p "Oh."
     p "Hello there."
     p "I'm just going to leave you alone."
@@ -784,7 +785,6 @@ label check_staffroom_1:
 label check_staffroom_2:
     if not have_research:
         p "What's this on the floor?"
-        #!!show journal in top right
         p "Oh, it appears to be a Research Journal from Helen, the scientist."
         p "With a qick cursory glance, i can see that it definitely contains evidence of Helen's wrong-doing."
         p "This is definitely a good start."
@@ -1093,6 +1093,7 @@ label play_with_grenade:
         p "Is it just latch?"
         p "People probably do just call it a latch."
         p "Perhaps i should go ask someone."
+        play sound "grenadesound.mp3"
         $ route = _("1/16: Boom boom boom boom")
         $ persistent.end_01 = True
         jump grenadeend

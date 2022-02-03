@@ -1,24 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script_interacts.rpy", line 961, in script
-    if currentPuzzleState = 0:
-SyntaxError: invalid syntax (game/script_interacts.rpy, line 961)
+  File "game/script_logic.rpy", line 162, in script
+    ""(advance=False)
+ScriptError: could not find label 'forceroomrefresh'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script_interacts.rpy", line 961, in script
-    if currentPuzzleState = 0:
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ast.py", line 1830, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\python.py", line 2033, in py_eval
-    code = py_compile(code, 'eval')
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\python.py", line 690, in py_compile
-    raise e
-SyntaxError: invalid syntax (game/script_interacts.rpy, line 961)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\bootstrap.py", line 314, in bootstrap
+    renpy.main.main()
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\main.py", line 529, in main
+    run(restart)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\main.py", line 139, in run
+    renpy.execution.run_context(True)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\execution.py", line 892, in run_context
+    context.run()
+  File "game/script_logic.rpy", line 162, in script
+    ""(advance=False)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\script.py", line 894, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'forceroomrefresh'.
 
 Windows-8-6.2.9200
 Ren'Py 7.3.2.320
-Jam and the Mystery of the Mysteriously Spooky Mansion 1.2
-Wed Feb 02 16:32:59 2022
+Feeding the Velociraptors 1.2
+Thu Feb 03 14:07:23 2022

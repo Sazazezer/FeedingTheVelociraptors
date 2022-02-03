@@ -117,7 +117,7 @@ init:
     screen sc_right_pane():
         zorder 3
         viewport:
-            xysize (400,550)
+            xysize (400,850)#(400,550)
             xalign 1.0
             ypos 100
             draggable False
@@ -571,7 +571,7 @@ init:
         imagebutton:
             style "interacter"
             xpos 800
-            ypos 650
+            ypos 900#650
             if interact_mode and prog == 2:
                 auto "buttons/general_button_%s.png"
                 action Function(renpy.show_screen,"sc_map")
@@ -581,21 +581,21 @@ init:
         imagebutton:
             style "interacter"
             xpos 900
-            ypos 650
+            ypos 900#650
             auto "buttons/general_button_%s.png"
             action ShowMenu('preferences')
             alt _("Options menu")
         imagebutton:
             style "interacter"
             xpos 1000
-            ypos 650
+            ypos 900#650
             auto "buttons/general_button_%s.png"
             action ShowMenu('save')
             alt _("Save game")
         imagebutton:
             style "interacter"
             xpos 1100
-            ypos 650
+            ypos 900#650
             auto "buttons/general_button_%s.png"
             action ShowMenu('help')
             alt _("Open help")
@@ -605,7 +605,7 @@ init:
             cols 4
             spacing 0
             xpos 800
-            ypos 650
+            ypos 900#650
             hbox:
                 xysize (100,100)
                 if interact_mode and prog == 2:
@@ -778,7 +778,7 @@ init:
                 activate_sound "button_select.wav"
                 xalign 0.5
                 ypos 500
-                action [SetVariable("location",3),SetVariable("kickedOut",False),SetVariable("raptorRoomAK",False),SetVariable("raptorRoomGrenade",False),SetVariable("raptorRoomGrenadeNoPin",False),SetVariable("raptorRoomWadOfCash",False),Function(renpy.hide_screen,"sc_end"),Jump("forceroomrefresh")]
+                action [SetVariable("location",3),SetVariable("kickedOut",False),SetVariable("raptorRoomAK",False),SetVariable("raptorRoomGrenade",False),SetVariable("raptorRoomGrenadeNoPin",False),SetVariable("raptorRoomWadOfCash",False),Function(renpy.hide_screen,"sc_end"),Jump("investistart")]
                 text_style "closer"
                 alt _("Try a different set of evidence")
         textbutton _("> Exit to title screen <"):
