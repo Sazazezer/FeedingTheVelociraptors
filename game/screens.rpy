@@ -1185,7 +1185,7 @@ screen checklist():
             if persistent.end_09:
                 text _("[[x] Ending #09: ???") size 18
             else:
-                text _("[[ ] Ending #09: Coming in full version.") size 18 color "#888"
+                text _("[[ ] Ending #09: It wasn't that hard...") size 18 color "#888"
 
             if persistent.end_10:
                 text _("[[x] Ending #10: ???") size 18

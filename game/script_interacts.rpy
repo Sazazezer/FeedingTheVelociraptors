@@ -961,6 +961,10 @@ label check_securityroom_6:
         p "I don't think that's right."
         $ currentPuzzleState = 0
         $ securityPuzzleOpen = True
+        $ puzzleFailedAttempts += 1
+        if puzzleFailedAttempts == 20:
+            $ securityPuzzleOpen = False
+            jump route07
         jump investistart
 
 label check_securityroom_7:
@@ -972,6 +976,10 @@ label check_securityroom_7:
         p "I don't think that's right."
         $ currentPuzzleState = 0
         $ securityPuzzleOpen = True
+        $ puzzleFailedAttempts += 1
+        if puzzleFailedAttempts == 20:
+            $ securityPuzzleOpen = False
+            jump route07
         jump investistart
 
 label check_securityroom_8:
@@ -983,6 +991,10 @@ label check_securityroom_8:
         p "I don't think that's right."
         $ currentPuzzleState = 0
         $ securityPuzzleOpen = True
+        $ puzzleFailedAttempts += 1
+        if puzzleFailedAttempts == 20:
+            $ securityPuzzleOpen = False
+            jump route07
         jump investistart
 
 label check_securityroom_9:
@@ -994,6 +1006,10 @@ label check_securityroom_9:
         p "I don't think that's right."
         $ currentPuzzleState = 0
         $ securityPuzzleOpen = True
+        $ puzzleFailedAttempts += 1
+        if puzzleFailedAttempts == 20:
+            $ securityPuzzleOpen = False
+            jump route07
         jump investistart
 
 label check_securityroom_10:
@@ -1022,6 +1038,11 @@ label check_securityroom_10:
     else:
         p "I don't think that's right."
         $ currentPuzzleState = 0
+        $ securityPuzzleOpen = False
+        $ puzzleFailedAttempts += 1
+        if puzzleFailedAttempts == 20:
+            $ securityPuzzleOpen = False
+            jump route07
         jump investistart
 
 

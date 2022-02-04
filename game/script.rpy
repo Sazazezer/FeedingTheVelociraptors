@@ -929,6 +929,7 @@ label start:
     $ securityPuzzleOpen = False
     $ adrianAccused = False
     $ currentPuzzleState = 0
+    $ puzzleFailedAttempts = 0
 
     # Pertaining to this and that
     $ used_mask = False
