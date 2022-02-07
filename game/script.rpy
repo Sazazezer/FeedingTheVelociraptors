@@ -925,6 +925,8 @@ label start:
     $ monitorCheckStop = False
     $ corridorCheck1 = 0
     $ checkCEO2 = 0
+    $ hideTempTony = False
+    $ checkBunks4 = 0
     # security room puzzle
     $ securityPuzzleOpen = False
     $ adrianAccused = False

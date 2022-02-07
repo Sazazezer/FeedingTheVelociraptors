@@ -1178,14 +1178,14 @@ screen checklist():
                 text _("[[ ] Ending #07: ???") size 18 color "#888"
 
             if persistent.end_08:
-                text _("[[x] Ending #08: ???") size 18
+                text _("[[x] Ending #08: The evidence isn't random!?") size 18
             else:
-                text _("[[ ] Ending #08: The evidence isn't random!?") size 18 color "#888"
+                text _("[[ ] Ending #08: ???") size 18 color "#888"
 
             if persistent.end_09:
-                text _("[[x] Ending #09: ???") size 18
+                text _("[[x] Ending #09: It wasn't that hard...") size 18
             else:
-                text _("[[ ] Ending #09: It wasn't that hard...") size 18 color "#888"
+                text _("[[ ] Ending #09:???") size 18 color "#888"
 
             if persistent.end_10:
                 text _("[[x] Ending #10: ???") size 18
