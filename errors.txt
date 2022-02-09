@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script_room_screens.rpy", line 192: Line is indented, but the preceding style statement does not expect a block. Please check this line's indentation.
-    auto "interactives/bunks/%s/2a.png"
-    ^
+File "game/script_logic.rpy", line 133: expected ':' not found.
+    else
+        ^
 
 Ren'Py Version: Ren'Py 7.3.2.320
-Wed Feb 02 15:25:30 2022
+Tue Feb 08 16:46:57 2022

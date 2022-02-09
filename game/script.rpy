@@ -170,8 +170,8 @@ init:
                         focus_mask True
                         hovered NullAction()
 
-                        alt _("Printout?")
-                        tooltip _("Printout?")
+                        alt _("Printout")
+                        tooltip _("Printout")
 
                         if "printout" in evidence_selected:
                             idle "evidence/printout_select.png"
@@ -195,8 +195,8 @@ init:
                         focus_mask True
                         hovered NullAction()
 
-                        alt _("Grenade?")
-                        tooltip _("Grenade?")
+                        alt _("Grenade")
+                        tooltip _("Grenade")
 
                         if "grenade" in evidence_selected:
                             idle "evidence/grenade_select.png"
@@ -220,8 +220,8 @@ init:
                         focus_mask True
                         hovered NullAction()
 
-                        alt _("Dictaphone?")
-                        tooltip _("Dictaphone?")
+                        alt _("Dictaphone")
+                        tooltip _("Dictaphone")
 
                         if "dictaphone" in evidence_selected:
                             idle "evidence/dictaphone_select.png"
@@ -245,8 +245,8 @@ init:
                         focus_mask True
                         hovered NullAction()
 
-                        alt _("Raptor Claw?")
-                        tooltip _("Raptor Claw?")
+                        alt _("Raptor Claw")
+                        tooltip _("Raptor Claw")
 
                         if "raptorclaw" in evidence_selected:
                             idle "evidence/raptorclaw_select.png"
@@ -295,8 +295,8 @@ init:
                                         focus_mask True
                                         hovered NullAction()
 
-                                        alt _("Wad of Cash?")
-                                        tooltip _("Wad of Cash?")
+                                        alt _("Wad of Cash")
+                                        tooltip _("Wad of Cash")
 
                                         if "wadofcash" in evidence_selected:
                                             idle "evidence/wadofcash_select.png"
@@ -320,8 +320,8 @@ init:
                         focus_mask True
                         hovered NullAction()
 
-                        alt _("Assassin Contract?")
-                        tooltip _("Assassin Contract?")
+                        alt _("Assassin Contract")
+                        tooltip _("Assassin Contract")
 
                         if "contract" in evidence_selected:
                             idle "evidence/contract_select.png"
@@ -345,8 +345,8 @@ init:
                         focus_mask True
                         hovered NullAction()
 
-                        alt _("Manufactured Evidence 1 of 2?")
-                        tooltip _("Manufactured Evidence 1 of 2?")
+                        alt _("Manufactured Evidence 1 of 2")
+                        tooltip _("Manufactured Evidence 1 of 2")
 
                         if "fakepaper1" in evidence_selected:
                             idle "evidence/fakepaper_select.png"
@@ -370,8 +370,8 @@ init:
                         focus_mask True
                         hovered NullAction()
 
-                        alt _("Manufactured Evidence 2 of 2?")
-                        tooltip _("Manufactured Evidence 2 of 2?")
+                        alt _("Manufactured Evidence 2 of 2")
+                        tooltip _("Manufactured Evidence 2 of 2")
 
                         if "fakepaper2" in evidence_selected:
                             idle "evidence/fakepaper_select.png"
@@ -736,15 +736,15 @@ init:
 
         add "mappy/map_ov.png" xpos 0 ypos 0
 
-        text _("Offices") xpos 450 ypos 600 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
-        text _("Security Room") xpos 255 ypos 425 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
-        text _("Reception") xpos 240 ypos 600 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
-        text _("Toilet") xpos 580 ypos 650 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
+        text _("") xpos 450 ypos 600 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
+        text _("") xpos 255 ypos 425 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
+        text _("") xpos 240 ypos 600 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
+        text _("") xpos 580 ypos 650 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
 
-        text _("Staff Room") xpos 460 ypos 425 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
-        text _("Bunks") xpos 480 ypos 250 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
-        text _("Corridor") xpos 650 ypos 525 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
-        text _("Ceo") xpos 550 ypos 90 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
+        text _("") xpos 460 ypos 425 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
+        text _("") xpos 480 ypos 250 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
+        text _("") xpos 650 ypos 525 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
+        text _("") xpos 550 ypos 90 size 28 xanchor 0.5 outlines [(3,'#413a3a',0,0)] alt ""
 
     screen sc_tips():
         modal False

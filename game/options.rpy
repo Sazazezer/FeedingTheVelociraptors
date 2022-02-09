@@ -91,16 +91,20 @@ define gui.show_name = False
 
 ## The version of the game.
 
-define config.version = "1.2"
+define config.version = "0.1"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
-                      Story, art, music, and code by Res (Ray Clark).
+                      Excuse for a story, sloppy art and general code by Sazazezer (Matt Staples) - 2022.
 
-                      Spanish translation by Gambas.
+                      Heavily modified from the base game 'Jam and the mystery of the mysteriously spooky mansion' by Res (Ray Clark) - (Go play it it's awesome)
+
+                      https://arc-res.itch.io/jam-and-the-mystery-of-the-mysteriously-spooky-mansion
+
+                      Music by Leon Spencer.
 
                       All fonts licensed under the SIL Open Font License, Version 1.1. The full text of the license is included as a .txt document in the game files.
 
@@ -116,7 +120,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "JatMotMSM"
+define build.name = "FTV"
 
 
 ## Sounds and music ############################################################
@@ -221,7 +225,7 @@ default preferences.afm_time = 15
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = "mysterygame-1567964321"
+define config.save_directory = "ftv-1567964321"
 
 
 ## Icon ########################################################################

@@ -14,15 +14,15 @@ label check_offices_1:
         p phappy "And if Todd hadn’t been so delicious, then the Raptors probably wouldn’t have eaten him. Really, it’s his fault we’re in this mess."
         h hstern "Anyway! The plan is clear."
         h hstern "Once our route has been secured, Paul will be thrown out through the back entrance of the building and left to fend for himself." 
-        h hstern "With the ensuring distraction, we will make our way to the Tony's helicopter in the parking lot."
+        h hstern "With the ensuring distraction, we will make our way to Tony's helicopter in the parking lot."
         t tsmile "Heh, and you said me trying to validate my parking was ridiculous."
         j jstern "People are still dead, Tony."
         t tupset "Right... Sorry."
-        h hstern "Now, i’m sure there may be a desperate desire to be selfish and do what we can to ensure that we stay alive."
+        h hstern "Now, I'm sure there may be a desperate desire to be selfish and do what we can to ensure that we stay alive."
         h hstern "At the very least, recognise that Tony must stay alive."
         h hstern "He is the only one here that can pilot a helicopter. None of us live without him."
         p pstoic "Pretty sure I don’t get to live at all."
-        h hstern "Nonsense. If the four of us successfully escape and you remain uneaten and manage to find a way into a part of the building that cannot be accessed by velociraptors..."
+        h hstern "Nonsense. If the four of us successfully escape, and you remain uneaten and manage to find a way into a part of the building that cannot be accessed by velociraptors..."
         h hstern "Then you are free to stay alive until the cleanup crew arrives to take care of this mess."
         p phappy "Oh, well that actually sounds pretty reasonabl-"
         h hcool "In about six to eight weeks."
@@ -46,11 +46,11 @@ label check_offices_1:
         p phappy "Shouldn’t he have been able to take out three turkey dinosaurs before they overwhelmed him?"
         j jangry "Not with the dirt in his eyes."
         a asad "Jenny. I really don’t think-"
-        h hstern "Oh. Fine. You have one hour. We need to prepare anyway."
+        h hstern "Oh fine. You have one hour. We need to prepare anyway."
         h hstern "Don’t leave the building. Don’t turn lockdown off. If you come up with a better plan that let's all five of us survive, then we’ll hear it."
         t tannoyed "You can’t be serious."
         h hstern "He's no threat to us anyway, and we need the time. This is an administrative building. There’s nothing here of any use anyway."
-        h hstern "And if he does find something, it’s not like i’m entirely against him coming with us."
+        h hstern "And if he does find something, it’s not like I'm entirely against him coming with us."
         p phappy "You sure there’s no way for me to leave the building?"
         j jangry "Jesus, no. And don’t even try. The lockdown field is the only thing keeping us alive."
         h hstern "Go. You have one hour."
@@ -67,7 +67,7 @@ label check_offices_1:
             j jshocked "And... what are you going to do with it?"
             p pgun "Oh. I guess we'll all see."
             j jshocked "..."
-            a ahorried "..."
+            a ahorrified "..."
             t tangry "..."
             h hstern "..."
             p pgun "..."
@@ -80,7 +80,7 @@ label check_offices_1:
             jump investistart
         else:
             if evi_count > 1:
-                p "Well. I think i’m good to go."
+                p "Well. I think I'm good to go."
                 p "The crowd has gathered. Is it time for me to present the evidence that I have so painstakingly uncovered?"
                 jump accusation
             else:
@@ -103,11 +103,12 @@ label temp_corridor:
     p phappy "Why, we are the only true smart ones here. Come, let us escape together."
     t tangry "No. God no. What the hell is wrong with-"
     t tempty "Look, I just came out here to say something. To be clear with you."
+    p phappy "..."
     t tempty "You’re going to be dead after this hour is up."
     t tempty "I’ve seen people in their final moments before. Unexpected. Not wanting to be there. It’s rarely the clean and noble death people want."
     p pshocked "Sooo, you wanna swap?"
     t tangry "..."
-    t tannoyed " What i’m trying to say is, don’t use this hour to figure out some non-existant escape."
+    t tannoyed "What I'm trying to say is, don’t use this hour to figure out some non-existant escape."
     t tempty "Use it to find your peace." 
     t tempty "Most of the guys I used to work with would kill to know it’s their final hour on earth, rather than have it sneak up on them."
     t tempty "You’ve got one last opportunity here. Use it wisely."
@@ -115,12 +116,12 @@ label temp_corridor:
     t tsmile "Good. See you about in about an hour."
     p pevasive "Oh you’ll see me, alright."
     t tempty "What was that?"
-    p phappy "Nothing, commander. See you in an hour."
+    p phappy "Nothing, Commander. See you in an hour."
     p phappy ". . ."
     p tempty ". . ."
     show mono empty
-    p phappy "Welp, let’s get out of here. No way i’m dying today."
-    p phappy "My horoscope mentioned nothing about it"
+    p phappy "Welp, let’s get out of here. No way I'm dying today."
+    p phappy "My horoscope mentioned nothing about it."
     p phappy "So, I basically have two options."
     p phappy "I need to either find an escape route for myself."
     p phappy "Or barring that, find a way to convince those wonderful people in there that I should go in the helicopter instead."
@@ -140,7 +141,7 @@ label check_reception_1: #photo
     if desk_check == 0:
         p "Adrian’s desk is here. God he ticks me off."
         p "It’s not so much his stupid face as it is the eyes, nose, mouth and ears that belong on it."
-        p "Also is he supposed to be a ghost. No idea."
+        p "Also is he supposed to be a ghost? No idea."
         p "His voice also gets to me."
         p "It’s kind of peppy. Full of the joy of every morning we have to go to work."
         p "Doesn’t he know that people are supposed to hate work?"
@@ -151,7 +152,7 @@ label check_reception_1: #photo
         jump investistart
     if desk_check == 1:
         p "Maybe I can find some incriminating evidence."
-        p "If I make the others hate adrian more than they hate me, they’ll be more willing to swap us around on the helicopter."
+        p "If I make the others hate Adrian more than they hate me, they’ll be more willing to swap us around on the helicopter."
         p "I see no moral quanries with this plan. Onwards."
         $ desk_check = 2
         jump investistart
@@ -160,7 +161,7 @@ label check_reception_1: #photo
         p "He must have them stored away in his secret evil vault or something."
         p "I probably won’t have time to locate that."
         p "But what’s this?"
-        p "A photo of his wife and kids."
+        p "A photo of his wife and kid."
         p "A personal item? Just out of sight of anyone coming by, as if to hide his crimes against the company?"
         p "I think I might have to take this."
         show screen sc_evidence_pane
@@ -182,7 +183,7 @@ label check_reception_2: #filing cabinet
         label .req1:  
             p "Huh, whaddya know."
             p "This locker was-"
-            p "This locker-"
+            p "This locker- HURRRGH"
             p "Hold on."
             $ filingCabinetOpen = True
             p "This filing cabinet was open the entire time."
@@ -204,7 +205,7 @@ label check_reception_2: #filing cabinet
             p "Metal is known for being a flammable lubricant after all."
             p "It's practically famous for it."
             p "My concern would be for all the paper inside."
-            p "If I used the fuelcan now..."
+            p "If I used the fuel can now..."
             p "There wouldn't be enough to use on any of the paper inside."
             p "Something else..."
             jump investistart
@@ -232,7 +233,7 @@ label check_reception_3:
         p "They’ve probably realised that bone nails aren’t going to do a thing against magical electrical barriers."
         p "Though luckily for them they won’t have to worry about that for much longer."
         p "God they look stupid."
-        p "We’ll have historically accurate dinosaurs. Our park will be ‘more correct’."
+        p "'We’ll have historically accurate dinosaurs. Our park will be ‘more correct’.'"
         p "Who wants feathers on a velociraptor?"
         p "Ruins the brutal mystique."
         p "I’m certain that’s what Todd was thinking as they were eating him."
@@ -245,6 +246,7 @@ label check_reception_3:
         p "Yep, that’s the name of the park"
         p "I get the feeling Triassic Tark would have just been too obvious."
         p "John  Hammond would have definitely come swooping down on his Pteradactyl if we had done that."
+        p "But only in the third movie."
         p "This is just enough off the mark though."
         p "It uses trademark theft juuuuust right."
         $ receptionDoorsCheck = 3
@@ -288,7 +290,7 @@ label check_reception_3:
             p "Let’s do this."
             p pgun "Now. I’ve never used a gun before."
             p pgun "But I have played plenty of videogames."
-            p pgun "But i’m not stupid enough to think that gameplay transitions perfectly into reality."
+            p pgun "But I'm not stupid enough to think that gameplay transitions perfectly into reality."
             p pgun "It will only mostly transition."
             p pgun "So, there should be a safety on the gun."
             p pgun "Make sure that’s turned off."
@@ -309,7 +311,7 @@ label check_reception_3:
             p pdead "So... something went wrong."
             p pdead "Painfully wrong in fact."
             p pdead "Oh this hurts so much."
-            p pdead "Not sure what it cold have been."
+            p pdead "Not sure what it could have been."
             p pdead "Unless bullets can’t travel thrugh the force field."
             p pdead "Video games may have failed me this time."
             p pdead "No. It's not video games fault I have a gun. That’s just passing the blame."
@@ -328,7 +330,7 @@ label check_reception_3:
             jump play_with_grenade
         label .req3:
             p "Ah ha."
-            p "Now scientifically accurate raptor, the shoe is on the other foot."
+            p "Now, scientifically accurate raptor, the shoe is on the other foot."
             p "And the hammer is in my hands."
             p "This is the exact combination of events that lead to your demise."
             p "Take this!"
@@ -343,11 +345,11 @@ label check_corridor_1:
     if corridorCheck1 == 0:
         p "Nothing special here. Just the corridor to the upstairs."
         p "I mean, I still say it’s the perfect place for a little indoor baseball or bowling."
-        p "But the othrs disagree."
+        p "But the others disagree."
         p "Something about projectiles in a small corridor and the frajility of the human skull."
         p "It’s not my fault they hire cleaning ladies."
         p "And of course the top of stairs is where you should place the pins. "
-        p "The balls meant to roll down into the gutter after it’s done its job."
+        p "The ball's meant to roll down into the gutter after it’s done its job."
         p "This corridor’s kind of slopey anyway. It’s like it was made for this."
         $ corridorCheck1 = 1
         jump investistart
@@ -402,7 +404,7 @@ label check_ceo_1:
         jump stuff_prompt
         label .req1:
             p "Well, I suppose the best way to solve the iceberg crisis is to smash up the icebergs so they can't threaten anyone."
-            p "Maybe if I die, people will see what i've done here and be inspired."
+            p "Maybe if I die, people will see what I've done here and be inspired."
             p "YAAAAAHHH. YAAAAAHHHHHHHH"
             p "SMaSHY SMAsHy!"
             $ globeSmashed = True
@@ -483,7 +485,7 @@ label check_ceo_3: #CEO Desk
         p "It looks kind of odd."
         p "Oh wait. It's just upside down."
         p "Yup. There's ol' Todd."
-        p "Looking completely normaly and boring as ever."
+        p "Looking completely normal and boring as ever."
         $ showIDCard = False
         p "Well I guess I should keep this."
         p "I'll probably need to hand it to his father at some point."
@@ -564,10 +566,10 @@ label check_bunks_1:
             p "Using my honed magic skills, which I have always had, I cast crowbar on Tony’s bunk box, revealing the contents of his chest."
             p "But what do I find here?"
             #show bloody cash!!
-            p "A wad of cash with bloodstains on it."
+            p "A wad of cash with some stains on it."
             p "..."
             p "That's certainly interesting."
-            p "I wonder what this blood covered money is all about."
+            p "I wonder what this red liquid covered money is all about."
             p "Probably something dastardly."
             p "I should keep it."
             p "You know... for Evidence."
@@ -606,8 +608,8 @@ label check_bunks_5:
     if not fuelApplied:    
         p "This is Jenny’s bunk box."
         p "I don’t dare look."
-        p "It’s not that i’m assuming the contents of her bunk box is the source of the smell she carries around with her at all times."
-        p "I’m just saying i’m not willing enough to take that risk."
+        p "It’s not that I'm assuming the contents of her bunk box is the source of the smell she carries around with her at all times."
+        p "I’m just saying I'm not willing enough to take that risk."
         p "Now, if I had a way to break open the box from a distance, with no risk to the inside contents, then I might be willing to take a gander inside."
     if fuelApplied:
         p "Well, that's the lock all lubed up."
@@ -699,7 +701,7 @@ label check_bunks_4:
         p "It was nice of my dad to arrange that with him."
         p "Everyone gets a chest containing their stuff."
         p "My bunk is technically the one at the back."
-        p "I come him occasionally for an afternoon nap."
+        p "I come here occasionally for an afternoon nap."
         p "Though I took yesterday’s afternoon nap on Adrian’s bunk."
         p "It was hot so I was sweaty. Didn’t want to ruin my mattress."
         p "The day before that I slept on Todd’s bunk."
@@ -731,7 +733,7 @@ label check_toilet_2:
     p "Jenny has done unspeakable things here."
     p "But we are all aware of this transgression."
     p "So there’s nothing I could find here that could be used against her."
-    p "Also, what would I be bringing from here to use against her."
+    p "Also, what would I be bringing from here to use against her?"
     p "Maybe we could fling our poop at the raptors."
     p "Primates against large turkeys?"
     p "Yeah. That could work."
@@ -820,8 +822,8 @@ label check_staffroom_3:
     if not have_blankPaper:
         p "Hey, some spare paper."
         p "This is always good for me to collect."
-        p "For a vairety of reasons."
-        p "For one, to add to the pile of paper that i've been collecting in my office."
+        p "For a variety of reasons."
+        p "For one, to add to the pile of paper that I've been collecting in my office."
         p "For two,"
         p "..."
         p "There's probably a reason I'm doing this."
@@ -846,7 +848,7 @@ label check_securityroom_1:
         a "Getting to the helicopter? You realise if even one of those things opts not to chase Paul we’re done for."
         a "All it’ll needs is to get Tony once. Even if he survives he won’t be flying us out of here."
         t "Hey. I’m not going to let that happen."
-        a "Is your skin made out of dinosaur-proof armour, or are you just as edible as the rest of us."
+        a "Is your skin made out of dinosaur-proof armour, or are you just as edible as the rest of us?"
         j "Calm it, boy. Where will panicking get you?"
         a "Oh. Where’s does being stoic get me? Maimed? Devoured? It’ll be better for me to just jump off the balcony now."
         h "Knock yourself out."
@@ -927,6 +929,7 @@ label check_securityroom_2:
         p "Excellent. All that remains is to collect my Motorstyle magazines from the West Tower."
         p "..."
         p "I suppose that will have to wait."
+        jump investistart
 
 label check_securityroom_3:
     if have_adrianID and have_blankPaper and have_idcard:
@@ -1114,7 +1117,7 @@ label play_with_grenade:
         p "Being a man of science, which I now am, for I am doing experiments, I am smart enough to know that I can only test the grenade once. "
         p "And to attempt to test the grenade a second time would be impractical."
         p "And so, I should not do it."
-        p "But what is science, is not a traversal from the realm of the hypothetical, to a realm of practical."
+        p "But what is science, if not a traversal from the realm of the hypothetical, to a realm of practical."
         p "Would Louis Pastuer have not created pasta in his kitchen sink, if he spent so long worrying about the theoretical possibilities of bacteria?"
         p "Would von Nueman have ever created the computer, if he had not stopped dating Turing first?"
         p "Clearly there is a time for action."

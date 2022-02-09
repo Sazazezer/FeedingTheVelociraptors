@@ -130,13 +130,13 @@ label finale:
     elif "fakepaper1" in evidence_selected and "fakepaper2" in evidence_selected:
         $ route = _("7/16: Definitely defiitely Adrian's fault")
         jump route05
-    elif "*" in evidence_selected and "*" in evidence_selected:
+    else:
         $ route = _("8/16: The evidence isn't random!?")
         jump route06
-    else:
-        j jdoubt "Hey, you. Yeah, you, at the computer."
-        j janger "I think you broke the game."
-        jump investistart
+    #else:
+     #   j jdoubt "Hey, you. Yeah, you, at the computer."
+      #  j janger "I think you broke the game."
+       # jump investistart
 
 label endcard:
     $ interact_mode = False
@@ -149,14 +149,12 @@ label endcard:
         $ persistent.end_04 = True
     elif "raptorclaw" in evidence_selected and "research" in evidence_selected:
         $ persistent.end_05 = True
-    elif "assassin" in evidence_selected and "wadofcash" in evidence_selected:
+    elif "contract" in evidence_selected and "wadofcash" in evidence_selected:
         $ persistent.end_06 = True
     elif "fakepaper1" in evidence_selected and "fakepaper2" in evidence_selected:
         $ persistent.end_07 = True
-    elif "*" in evidence_selected and "*" in evidence_selected:
-        $ persistent.end_08 = True
     else:
-        $ persistent.end_16 = True
+        $ persistent.end_08 = True
 
     if persistent.end_01 == True and persistent.end_02 == True and persistent.end_03 == True and persistent.end_04 == True and persistent.end_05 == True and persistent.end_06 == True and persistent.end_07 == True and persistent.end_08 == True and persistent.end_09 == True and persistent.end_10 == True and persistent.end_11 == True and persistent.end_12 == True and persistent.end_13 == True and persistent.end_14 == True and persistent.end_15 == True and persistent.end_16 == True:
         $ persistent.completionist = True
