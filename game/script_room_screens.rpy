@@ -233,6 +233,10 @@ init:
                     action [SetVariable("interact_mode",False),Jump('check_toilet_3')]
                 else:
                     sensitive False
+            if raptorInToilet:
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/toilet/%s/raptor.png"                
 
 ## 7: Staff Room
     screen sc_room_7():
@@ -359,19 +363,20 @@ init:
                         sensitive False
 
 ## 9: Temporary version of the corridor for early scene
+##rendered unecesary now that i've figured out auto scenes
     screen sc_room_9():
         tag room_screen
         layer "under_master"
         use sc_room_frame():
             add "site/corridor.png"
-            if tonyincorridor:
-                imagebutton:
-                    style "interacter"
-                    auto "interactives/corridor/%s/temp.png"
-                    if interact_mode:
-                        action [SetVariable("interact_mode",False),Jump('temp_corridor')]
-                    else:
-                        sensitive False
+            # if tonyincorridor:
+            #     imagebutton:
+            #         style "interacter"
+            #         auto "interactives/corridor/%s/temp.png"
+            #         if interact_mode:
+            #             action [SetVariable("interact_mode",False),Jump('temp_corridor')]
+            #         else:
+            #             sensitive False
 
 ## 10: Raptor room
     screen sc_room_10():

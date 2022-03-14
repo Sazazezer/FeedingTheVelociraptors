@@ -34,6 +34,9 @@ init:
             global location
             renpy.show_screen("sc_room_"+str(location))
 
+        def forceBackToMap():
+            renpy.show_screen("sc_map")
+
 ## Reset persistent data
         def reset_persistent():
             persistent.end_01 = False
@@ -673,7 +676,7 @@ init:
             xpos 0
             ypos 0
             auto "mappy/%s/m_toilet.png"
-            action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",6),Function(refresh_location),Jump("investistart")]
+            action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",6),Function(refresh_location),Jump("toiletStart")]
             alt _("Toilet")
         imagebutton:
             style "interacter"
@@ -839,7 +842,7 @@ image billy:
 label start:
 ## Location variables
     $ location = 1
-    $ location_index = [_("Outside"),_("Offices"),_("Reception"),_("Corridor"),_("Ceo"),_("Bunks"),_("Toilet"),_("Staff Room"),_("Security Room"),_("Temp Corridor"),("Outside")]
+    $ location_index = [_("Outside"),_("Offices"),_("Reception"),_("Corridor"),_("Ceo"),_("Bunks"),_("Toilet"),_("Staff Room"),_("Security Room"),_("Outside Corridor"),("Outside")]
 
 ## Bool for whether the right pane is Evidence or Stuff
     $ ev_bo = True
@@ -855,20 +858,20 @@ label start:
     $ stuff_selected = ""
     $ evidence_selected = []
 
-## Inventory variables
-    $ have_knife = False
-    $ have_gnome = False
-    $ have_jaw = False
-    $ have_wadofcash = False
-    $ have_fish = False
-    $ have_note = False
+# ## Inventory variables
+#     $ have_knife = False
+#     $ have_gnome = False
+#     $ have_jaw = False
+#     $ have_wadofcash = False
+#     $ have_fish = False
+#     $ have_note = False
 
-    $ have_gun = False
-    $ have_mask = False
-    $ have_book = False
-    $ have_candle = False
-    $ have_ruler = False
-    $ have_key = False
+#     $ have_gun = False
+#     $ have_mask = False
+#     $ have_book = False
+#     $ have_candle = False
+#     $ have_ruler = False
+#     $ have_key = False
 
     $ have_photo = False
     $ have_printout = False
@@ -932,25 +935,30 @@ label start:
     $ adrianAccused = False
     $ currentPuzzleState = 0
     $ puzzleFailedAttempts = 0
+    # raptors
+    $ raptorInCEO = False
+    $ raptorInReception = False
+    $ raptorInBunks = False
+    $ raptorInToilet = True
 
     # Pertaining to this and that
-    $ used_mask = False
-    $ paint_talk = False
-    $ siggy = False
-    # Pertaining to the secret ending
-    $ summoning = 0
-    $ trash_fire = False
-    $ cake_prep = False
-    $ cake_bake = False
-    $ still_life = False
-    $ fire_count = 0
-    $ inferno = False
-    # Pertaining to the stupid clown puzzle
-    $ clowning_around = 0
-    $ hint_get = False
-    $ big_hint = 0
-    $ clown_down = False
-    $ clown_code = [0,0,0]
+    # $ used_mask = False
+    # $ paint_talk = False
+    # $ siggy = False
+    # # Pertaining to the secret ending
+    # $ summoning = 0
+    # $ trash_fire = False
+    # $ cake_prep = False
+    # $ cake_bake = False
+    # $ still_life = False
+    # $ fire_count = 0
+    # $ inferno = False
+    # # Pertaining to the stupid clown puzzle
+    # $ clowning_around = 0
+    # $ hint_get = False
+    # $ big_hint = 0
+    # $ clown_down = False
+    # $ clown_code = [0,0,0]
 
 ###########
 ## Start ##

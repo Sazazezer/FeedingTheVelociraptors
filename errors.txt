@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script_logic.rpy", line 133: expected ':' not found.
-    else
-        ^
+File "game/script_interacts.rpy", line 58: expected statement.
+    refresh_location
+                    ^
 
 Ren'Py Version: Ren'Py 7.3.2.320
-Tue Feb 08 16:46:57 2022
+Mon Mar 14 15:44:29 2022

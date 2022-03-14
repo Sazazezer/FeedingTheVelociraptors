@@ -5,57 +5,59 @@ label check_offices_1:
         a asad "This is horrible. I can’t believe it’s come down to this."
         $ prog = 1
         h hstern "It is the only remaining response. The raptors have swarmed the compound. The lockdown system will only be active for a few more hours." 
-        t tannoyed"Communications are out. We have no defensive capabilities."
-        a ashocked "Yeah but, what you’re suggesting is-"
-        j jstern "Oh, can it. It’s his fault we’re in this mess in the first place."
-        j jstern "Who tries to deliver data reports by disabling the security fields and wandering over to the boss."
-        p phappy "Well no one now, considering how much blood isn’t in his body."
-        j jangry "If the raptors hadn’t eaten Todd, we might have been able to get communications back online."
-        p phappy "And if Todd hadn’t been so delicious, then the Raptors probably wouldn’t have eaten him. Really, it’s his fault we’re in this mess."
-        h hstern "Anyway! The plan is clear."
-        h hstern "Once our route has been secured, Paul will be thrown out through the back entrance of the building and left to fend for himself." 
-        h hstern "With the ensuring distraction, we will make our way to Tony's helicopter in the parking lot."
-        t tsmile "Heh, and you said me trying to validate my parking was ridiculous."
-        j jstern "People are still dead, Tony."
-        t tupset "Right... Sorry."
-        h hstern "Now, I'm sure there may be a desperate desire to be selfish and do what we can to ensure that we stay alive."
-        h hstern "At the very least, recognise that Tony must stay alive."
-        h hstern "He is the only one here that can pilot a helicopter. None of us live without him."
-        p pstoic "Pretty sure I don’t get to live at all."
-        h hstern "Nonsense. If the four of us successfully escape, and you remain uneaten and manage to find a way into a part of the building that cannot be accessed by velociraptors..."
-        h hstern "Then you are free to stay alive until the cleanup crew arrives to take care of this mess."
-        p phappy "Oh, well that actually sounds pretty reasonabl-"
-        h hcool "In about six to eight weeks."
-        p pstoic "Ah."
-        h hstern "Yeah, there’s going to be a lot of political stuff going on when we get back."
-        h hstern "Too many people have been stating that this place is a death trap waiting to happen."
-        h hstern "And well, you proved them right."
-        h hstern "I won’t lie. We will be listing you among the dead. If you make it, you can be a nice surprise for the clean crew to find."
-        h hcool "It is the least you deserve."
-        p phappy "Come on guys. There’s got to be a better plan than this."
-        h hstern "There is not. This has been discussed, and you had plenty of time to interject beforehand."
-        p phappy "I was in the bathroom."
-        j jstern "For three hours."
-        p pshocked "I’ve seen you hog the cubicle, Jenny. Don’t act cocky on me now."
-        h hstern "None of this matters. We are talking to a dead person. Let us prepare."
-        p pshocked "Wait, you can’t do this. At the very least give me some kind of chance."
-        t tangry "Donald didn’t get a chance."
-        p pstoic "Donald was slower than me, and more susceptible to getting dirt thrown in his eyes. It was survival of the fittest out there."
-        t tangry "He was the only one of us armed and trained to fight those things and you shoved him into that tree first chance you got."
-        p phappy "Oh please. If he was really trained and not just lying on his CV..."
-        p phappy "Shouldn’t he have been able to take out three turkey dinosaurs before they overwhelmed him?"
-        j jangry "Not with the dirt in his eyes."
-        a asad "Jenny. I really don’t think-"
-        h hstern "Oh fine. You have one hour. We need to prepare anyway."
-        h hstern "Don’t leave the building. Don’t turn lockdown off. If you come up with a better plan that let's all five of us survive, then we’ll hear it."
-        t tannoyed "You can’t be serious."
-        h hstern "He's no threat to us anyway, and we need the time. This is an administrative building. There’s nothing here of any use anyway."
-        h hstern "And if he does find something, it’s not like I'm entirely against him coming with us."
-        p phappy "You sure there’s no way for me to leave the building?"
-        j jangry "Jesus, no. And don’t even try. The lockdown field is the only thing keeping us alive."
+        # t tannoyed"Communications are out. We have no defensive capabilities."
+        # a ashocked "Yeah but, what you’re suggesting is-"
+        # j jstern "Oh, can it. It’s his fault we’re in this mess in the first place."
+        # j jstern "Who tries to deliver data reports by disabling the security fields and wandering over to the boss."
+        # p phappy "Well no one now, considering how much blood isn’t in his body."
+        # j jangry "If the raptors hadn’t eaten Todd, we might have been able to get communications back online."
+        # p phappy "And if Todd hadn’t been so delicious, then the Raptors probably wouldn’t have eaten him. Really, it’s his fault we’re in this mess."
+        # h hstern "Anyway! The plan is clear."
+        # h hstern "Once our route has been secured, Paul will be thrown out through the back entrance of the building and left to fend for himself." 
+        # h hstern "With the ensuring distraction, we will make our way to Tony's helicopter in the parking lot."
+        # t tsmile "Heh, and you said me trying to validate my parking was ridiculous."
+        # j jstern "People are still dead, Tony."
+        # t tupset "Right... Sorry."
+        # h hstern "Now, I'm sure there may be a desperate desire to be selfish and do what we can to ensure that we stay alive."
+        # h hstern "At the very least, recognise that Tony must stay alive."
+        # h hstern "He is the only one here that can pilot a helicopter. None of us live without him."
+        # p pstoic "Pretty sure I don’t get to live at all."
+        # h hstern "Nonsense. If the four of us successfully escape, and you remain uneaten and manage to find a way into a part of the building that cannot be accessed by velociraptors..."
+        # h hstern "Then you are free to stay alive until the cleanup crew arrives to take care of this mess."
+        # p phappy "Oh, well that actually sounds pretty reasonabl-"
+        # h hcool "In about six to eight weeks."
+        # p pstoic "Ah."
+        # h hstern "Yeah, there’s going to be a lot of political stuff going on when we get back."
+        # h hstern "Too many people have been stating that this place is a death trap waiting to happen."
+        # h hstern "And well, you proved them right."
+        # h hstern "I won’t lie. We will be listing you among the dead. If you make it, you can be a nice surprise for the clean crew to find."
+        # h hcool "It is the least you deserve."
+        # p phappy "Come on guys. There’s got to be a better plan than this."
+        # h hstern "There is not. This has been discussed, and you had plenty of time to interject beforehand."
+        # p phappy "I was in the bathroom."
+        # j jstern "For three hours."
+        # p pshocked "I’ve seen you hog the cubicle, Jenny. Don’t act cocky on me now."
+        # h hstern "None of this matters. We are talking to a dead person. Let us prepare."
+        # p pshocked "Wait, you can’t do this. At the very least give me some kind of chance."
+        # t tangry "Donald didn’t get a chance."
+        # p pstoic "Donald was slower than me, and more susceptible to getting dirt thrown in his eyes. It was survival of the fittest out there."
+        # t tangry "He was the only one of us armed and trained to fight those things and you shoved him into that tree first chance you got."
+        # p phappy "Oh please. If he was really trained and not just lying on his CV..."
+        # p phappy "Shouldn’t he have been able to take out three turkey dinosaurs before they overwhelmed him?"
+        # j jangry "Not with the dirt in his eyes."
+        # a asad "Jenny. I really don’t think-"
+        # h hstern "Oh fine. You have one hour. We need to prepare anyway."
+        # h hstern "Don’t leave the building. Don’t turn lockdown off. If you come up with a better plan that let's all five of us survive, then we’ll hear it."
+        # t tannoyed "You can’t be serious."
+        # h hstern "He's no threat to us anyway, and we need the time. This is an administrative building. There’s nothing here of any use anyway."
+        # h hstern "And if he does find something, it’s not like I'm entirely against him coming with us."
+        # p phappy "You sure there’s no way for me to leave the building?"
+        # j jangry "Jesus, no. And don’t even try. The lockdown field is the only thing keeping us alive."
         h hstern "Go. You have one hour."
-        $ location = 9
-        jump investistart
+        $ location = 3
+        $ refresh_location()
+        show mono empty
+        jump temp_corridor
     else:
         if have_ak47 and not ak47Scare:
             p pgun "Hey everyone."
@@ -98,41 +100,41 @@ label temp_corridor:
     p phappy "Well, this is a sticky little pickle i’ve gotten us into. How will I escape today?"
     t tupset "Oi."
     $ hideTempTony = True
-    p phappy "Ah, helicopter man. Excellent. I knew you’d come around."
-    t tannoyed "What?"
-    p phappy "Why, we are the only true smart ones here. Come, let us escape together."
-    t tangry "No. God no. What the hell is wrong with-"
-    t tempty "Look, I just came out here to say something. To be clear with you."
-    p phappy "..."
-    t tempty "You’re going to be dead after this hour is up."
-    t tempty "I’ve seen people in their final moments before. Unexpected. Not wanting to be there. It’s rarely the clean and noble death people want."
-    p pshocked "Sooo, you wanna swap?"
-    t tangry "..."
-    t tannoyed "What I'm trying to say is, don’t use this hour to figure out some non-existant escape."
-    t tempty "Use it to find your peace." 
-    t tempty "Most of the guys I used to work with would kill to know it’s their final hour on earth, rather than have it sneak up on them."
-    t tempty "You’ve got one last opportunity here. Use it wisely."
-    p phappy "... Understood. Got it."
-    t tsmile "Good. See you about in about an hour."
-    p pevasive "Oh you’ll see me, alright."
-    t tempty "What was that?"
-    p phappy "Nothing, Commander. See you in an hour."
-    p phappy ". . ."
-    p tempty ". . ."
-    show mono empty
-    p phappy "Welp, let’s get out of here. No way I'm dying today."
-    p phappy "My horoscope mentioned nothing about it."
-    p phappy "So, I basically have two options."
-    p phappy "I need to either find an escape route for myself."
-    p phappy "Or barring that, find a way to convince those wonderful people in there that I should go in the helicopter instead."
-    p phappy "Possibly in place of Adrian."
-    p pstoic "Stupid receptionist. Expects me to laugh at his jokes every single morning."
+    # p phappy "Ah, helicopter man. Excellent. I knew you’d come around."
+    # t tannoyed "What?"
+    # p phappy "Why, we are the only true smart ones here. Come, let us escape together."
+    # t tangry "No. God no. What the hell is wrong with-"
+    # t tempty "Look, I just came out here to say something. To be clear with you."
+    # p phappy "..."
+    # t tempty "You’re going to be dead after this hour is up."
+    # t tempty "I’ve seen people in their final moments before. Unexpected. Not wanting to be there. It’s rarely the clean and noble death people want."
+    # p pshocked "Sooo, you wanna swap?"
+    # t tangry "..."
+    # t tannoyed "What I'm trying to say is, don’t use this hour to figure out some non-existant escape."
+    # t tempty "Use it to find your peace." 
+    # t tempty "Most of the guys I used to work with would kill to know it’s their final hour on earth, rather than have it sneak up on them."
+    # t tempty "You’ve got one last opportunity here. Use it wisely."
+    # p phappy "... Understood. Got it."
+    # t tsmile "Good. See you about in about an hour."
+    # p pevasive "Oh you’ll see me, alright."
+    # t tempty "What was that?"
+    # p phappy "Nothing, Commander. See you in an hour."
+    # p phappy ". . ."
+    # p tempty ". . ."
+    # show mono empty
+    # p phappy "Welp, let’s get out of here. No way I'm dying today."
+    # p phappy "My horoscope mentioned nothing about it."
+    # p phappy "So, I basically have two options."
+    # p phappy "I need to either find an escape route for myself."
+    # p phappy "Or barring that, find a way to convince those wonderful people in there that I should go in the helicopter instead."
+    # p phappy "Possibly in place of Adrian."
+    # p pstoic "Stupid receptionist. Expects me to laugh at his jokes every single morning."
     p phappy "So, let's find me some incriminating evidence to pass the role of bait onto someone else. Shouldn’t be too difficult."
     show mono empty
     ">>> Explore the Administration building to find \[EVIDENCE\] to switch with another passenger.\n>>> Gather \[STUFF\] to solve problems that you may encounter.{fast}"
     play music "FTV-A.wav"
     $ prog = 2
-    $ location = 3
+    #$ location = 3
     jump investistart
 
 
@@ -717,6 +719,18 @@ label check_bunks_4:
         jump investistart#adrian's chest
 
 ## toilet ##
+
+label toiletStart:
+    p "Welp. I'm in the toilet."
+    p "All downhill from here."
+    if raptorInToilet:
+        p "All further attempts at being in the toilets are disuaded by the presence of the magical toilet raptor."
+        p "so many new sentences to say..."
+        $ location = 3
+        $ refresh_location()
+        $ forceBackToMap()
+    jump investistart
+
 label check_toilet_1:
     #mirror and sink I guess
     p "It’s my home away from home."
@@ -932,7 +946,7 @@ label check_securityroom_2:
         jump investistart
 
 label check_securityroom_3:
-    if have_adrianID and have_blankPaper and have_idcard:
+    if have_adrianID and have_blankPaper and have_idcard and evi_count == 8:
         p "Hey, thinking about it."
         p "Not that I have some paper and these ID cards."
         p "Maybe I could go beyond simply finding evidence."
@@ -942,6 +956,7 @@ label check_securityroom_3:
         p "But that's why Uncle Ernie got that job as a Judge."
         p "Let's see what I can do."
         $ securityPuzzleOpen = True
+        $ viewSecurityPanel = True
         jump investistart
     elif not viewSecurityPanel:
         p "Oh, I know this one."
@@ -955,7 +970,7 @@ label check_securityroom_3:
         p "Weird."
         p "Anyway, useless to me I suppose."
         p "Though with the right tools this could make some interesting things happen."
-        $ viewSecurityPanel = True
+        p "Though i should probably focus on collecting evidence first."
         jump investistart
     else:
         p "Still useless to me."
@@ -980,7 +995,8 @@ label check_securityroom_6:
     else:
         p "I don't think that's right."
         $ currentPuzzleState = 0
-        $ securityPuzzleOpen = True
+        $ securityPuzzleOpen = False
+        $ viewSecurityPanel = False
         $ puzzleFailedAttempts += 1
         if puzzleFailedAttempts == 20:
             $ securityPuzzleOpen = False
@@ -995,7 +1011,8 @@ label check_securityroom_7:
     else:
         p "I don't think that's right."
         $ currentPuzzleState = 0
-        $ securityPuzzleOpen = True
+        $ securityPuzzleOpen = False
+        $ viewSecurityPanel = False
         $ puzzleFailedAttempts += 1
         if puzzleFailedAttempts == 20:
             $ securityPuzzleOpen = False
@@ -1010,7 +1027,8 @@ label check_securityroom_8:
     else:
         p "I don't think that's right."
         $ currentPuzzleState = 0
-        $ securityPuzzleOpen = True
+        $ securityPuzzleOpen = False
+        $ viewSecurityPanel = False
         $ puzzleFailedAttempts += 1
         if puzzleFailedAttempts == 20:
             $ securityPuzzleOpen = False
@@ -1025,7 +1043,8 @@ label check_securityroom_9:
     else:
         p "I don't think that's right."
         $ currentPuzzleState = 0
-        $ securityPuzzleOpen = True
+        $ securityPuzzleOpen = False
+        $ viewSecurityPanel = False
         $ puzzleFailedAttempts += 1
         if puzzleFailedAttempts == 20:
             $ securityPuzzleOpen = False
@@ -1059,6 +1078,7 @@ label check_securityroom_10:
         p "I don't think that's right."
         $ currentPuzzleState = 0
         $ securityPuzzleOpen = False
+        $ viewSecurityPanel = False
         $ puzzleFailedAttempts += 1
         if puzzleFailedAttempts == 20:
             $ securityPuzzleOpen = False

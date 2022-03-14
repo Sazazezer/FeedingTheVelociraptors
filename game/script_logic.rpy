@@ -13,38 +13,38 @@ label investistart:
 label forceroomrefresh:
     $ refresh_location()
     show mono empty
-    $ interacting_with = ""
-    $ interact_mode = True
-    ">>> Investigate the room with \[MOUSE\].\n>>> Change rooms with \[MAP\].{fast}"(advance=False)
+    #$ interacting_with = ""
+    #$ interact_mode = True
+    #">>> Investigate the room with \[MOUSE\].\n>>> Change rooms with \[MAP\].{fast}"(advance=False)
 
 label evi_tally:
     if evi_count == 1:
-        p "Welp. That's one piece of evidence."
-        p "I'm no fool though."
-        p "I know i need at least two pieces of watertight evidence in order to pin this on someone."
-        p "And one piece is all leaky and stuff."
+        p phappy "Welp. That's one piece of evidence."
+        p phappy "I'm no fool though."
+        p phappy "I know i need at least two pieces of watertight evidence in order to pin this on someone."
+        p phappy "And one piece is all leaky and stuff."
         jump investistart
     elif evi_count == 2:
-        p "Excellent. Two pieces of evidence."
-        p "That's more than enough to make some kind of accusation."
-        p "I could always look for more though."
-        p "Maybe make the accusation valid."
+        p phappy "Excellent. Two pieces of evidence."
+        p phappy "That's more than enough to make some kind of accusation."
+        p phappy "I could always look for more though."
+        p phappy "Maybe make the accusation valid."
         jump investistart
     elif evi_count == 8:
-        p "I can safetly say with absolute certainly..."
-        p "Almost as if the god of this world was speaking through me..."
-        p "That all the evidence has definitely been found."
-        p "That being said..."
-        p "There's more than one way to obtain evidence beyond merely 'finding' it."
-        p "Heh heh heh."
-        p "I wonder why i don't have any friends."
+        p phappy "I can safetly say with absolute certainly..."
+        p phappy "Almost as if the god of this world was speaking through me..."
+        p phappy "That all the evidence has definitely been found."
+        p phappy "That being said..."
+        p phappy "There's more than one way to obtain evidence beyond merely 'finding' it."
+        p phappy "Heh heh heh."
+        p pstoic "I wonder why i don't have any friends."
         jump investistart
     elif evi_count == 10:
-        p "And with that-"
-        p "I must definitely have all the evidence i would ever need."
-        p "There definitely can't be anymore."
-        p "For one, the box to the right of me is all filled up."
-        p "Guess i better go finish this."
+        p phappy "And with that-"
+        p phappy "I must definitely have all the evidence i would ever need."
+        p phappy "There definitely can't be anymore."
+        p phappy "For one, the box to the right of me is all filled up."
+        p phappy "Guess i better go finish this."
         jump investistart
 
 label fire_tally:

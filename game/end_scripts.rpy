@@ -146,9 +146,11 @@ label route01: #accussing adrian - Evidence -  print out and personal photo / St
     j jstern "Hahaha."
     p phappy "Hahaha..."
     p pstoic "..."
-    show mono empty
     $ location = 10
-    jump investistart
+    $ refresh_location()
+    show mono empty with fade
+    show mono empty with fade
+    jump raptorroom
 
 label route02: # Accussing Jenny - Evidence - Grenade - Dictaphone/Transcript / Stuff - Match/ some other firestarter - Grenade found in Security Room - Dictaphone found in JEnny's Bunk box, accessible by start a fire in the bunks, with match and fuel can. Match found in CEO Office, Fuel can found in Corridor.
     p phappy "My fellow employees."
@@ -249,7 +251,10 @@ label route02: # Accussing Jenny - Evidence - Grenade - Dictaphone/Transcript / 
     t tangry "Have you been going through our stuff?"
     p pevasive "..."
     $ location = 10
-    jump investistart
+    $ refresh_location()
+    show mono empty with fade
+    show mono empty with fade
+    jump raptorroom
 
 label route03: # Accussing Helen - Evidence - Research Journal/Raptor Claw / Stuff - Research Journal found under chair in Lab (staff room) - Raptor Claw found by using security card on containment lock. Card found in CEO office
     p phappy "My fellow Americans."
@@ -267,7 +272,7 @@ label route03: # Accussing Helen - Evidence - Research Journal/Raptor Claw / Stu
     p phappy "It was more just about finding reasons why someone should be thrown out to be eaten by Velociraptors."
     p pstoic "And why that someone shouldn’t be me."
     p pevasive "That was the whole premise of this entire game."
-    p evasive "I mean escapade."
+    p pevasive "I mean escapade."
     h hstern "I think you’re getting off track."
     p phappy "Or perhaps it is the only track I should be on."
     p phappy "Maybe this is my life now. Endlessly finding ways to stay on track, the track of accusing other people of crimes that they may or may not have committed. "
@@ -349,7 +354,10 @@ label route03: # Accussing Helen - Evidence - Research Journal/Raptor Claw / Stu
     a ahappy"Let’s go out there, and get to that helicopter."
     p pstoic "Is anyone listening..."
     $ location = 10
-    jump investistart
+    $ refresh_location()
+    show mono empty with fade
+    show mono empty with fade
+    jump raptorroom
 
 label route04: # Accussing Tony - Evidence - Assassin Contract/Wad of Cash / Stuff - Hammer Wad of cash found in Tony's bunk. Contract found in CEO office globe by smashing globe with hammer. HAmmer found under teddy bear in bunks
     j jstern "Oh good. You’re here."
@@ -451,7 +459,10 @@ label route04: # Accussing Tony - Evidence - Assassin Contract/Wad of Cash / Stu
     p phappy "..."
     p pshocked "Hey wait-"
     $ location = 10
-    jump investistart
+    $ refresh_location()
+    show mono empty with fade
+    show mono empty with fade
+    jump raptorroom
 
 label route05: # faking evidence to accuse Adrian - Evidence - Fake Transcript/ Fake ID card / Stuff - Plain paper/ Plain ID card - Plain paper found in reception, ID found in Lab, security puzzle completed in security room
     a asad "And that’s why i’m thinking we should be nicer to the guy. If he is going to die today, then the least we could do is not be dicks about it and-"
@@ -620,8 +631,10 @@ label route06: # any combination of incorrect evidence
     h hstern "..."
     h hstern "It was pretty nice evidence."
     $ location = 10
-    jump investistart
-    #!!removeaftertesting
+    $ refresh_location()
+    show mono empty with fade
+    show mono empty with fade
+    jump raptorroom
 
 label route07: # brain broken due to puzzle
     $ route = _("9/16: It wasn't that hard...")
@@ -639,7 +652,7 @@ label route07: # brain broken due to puzzle
     p phappy "Since, by definition, something that emcompasses everything should also contain itself."
     p phappy "And by that logic - why is my brain copper tasting."
     p phappy "..."
-    p pdumbass "It’s so delicious."
+    p pbrainmelt "It’s so delicious."
     show mono empty
     p "..."
     p "..."
