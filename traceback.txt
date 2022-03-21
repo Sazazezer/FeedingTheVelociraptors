@@ -1,26 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script_interacts.rpy", line 731, in script
-    $ forceBackToMap()
-  File "game/script_interacts.rpy", line 731, in <module>
-    $ forceBackToMap()
-NameError: name 'forceBackToMap' is not defined
+  File "game/script_logic.rpy", line 11, in script
+    ">>> Investigate the room with \[MOUSE\].\n>>> Change rooms with \[MAP\].{fast}"(advance=False)
+ScriptError: could not find label 'check_secondcorridor_4'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script_interacts.rpy", line 731, in script
-    $ forceBackToMap()
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ast.py", line 912, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\python.py", line 2004, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/script_interacts.rpy", line 731, in <module>
-    $ forceBackToMap()
-NameError: name 'forceBackToMap' is not defined
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\bootstrap.py", line 314, in bootstrap
+    renpy.main.main()
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\main.py", line 529, in main
+    run(restart)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\main.py", line 139, in run
+    renpy.execution.run_context(True)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\execution.py", line 892, in run_context
+    context.run()
+  File "game/script_logic.rpy", line 11, in script
+    ">>> Investigate the room with \[MOUSE\].\n>>> Change rooms with \[MAP\].{fast}"(advance=False)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\script.py", line 894, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'check_secondcorridor_4'.
 
 Windows-8-6.2.9200
 Ren'Py 7.3.2.320
 Feeding the Velociraptors 0.1
-Mon Mar 14 16:46:57 2022
+Mon Mar 21 17:31:03 2022

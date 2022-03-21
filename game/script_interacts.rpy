@@ -360,6 +360,7 @@ label check_corridor_1:
         p "Stuff like Jenny's woodworking club and keeping the corridor clean."
         p "A fire extinguisher safety notice and a reminder that we work on a site with living dinosaurs."
         p "None of it's exactly relevant."
+        $ toiletFound = True
         jump investistart
 
 label check_corridor_2:
@@ -378,7 +379,7 @@ label check_corridor_2:
     $ have_fuelcan = True
     jump investistart
 
-label check_corridor_3:
+label check_corridor_fire:
     p "A standard issue fire extinguisher."
     p "This one’s the electrical fire one."
     p "So it’s a cloud of crap rather than foam or water."
@@ -387,6 +388,61 @@ label check_corridor_3:
     p "Plus it’s heavy."
     p "I should only get this if it’s absolutely necessary."
     jump investistart #fire extinguisher needed!!
+
+label check_corridor_3:
+    $ ceoFound = True
+    $ location = 4
+    $ refresh_location()
+    jump investistart
+    #ceo
+
+label check_corridor_4:
+    $ secondCorridorFound = True
+    $ location = 9
+    $ refresh_location()
+    jump investistart
+    #second corridor
+
+label check_corridor_5:
+    $ toiletFound = True
+    $ location = 6
+    $ refresh_location()
+    jump investistart
+    #toilets
+
+label check_corridor_6:
+    $ bunksFound = True
+    $ location = 5
+    $ refresh_location()
+    jump investistart
+    #bunks
+
+## second corridor ##
+
+label check_secondcorridor_1:
+    $ securityRoomFound = True
+    $ location = 8
+    $ refresh_location()
+    jump investistart
+
+label check_secondcorridor_2:
+    $ researchRoomFound = True
+    $ location = 7
+    $ refresh_location()
+    jump investistart
+
+
+label check_secondcorridor_3:
+    $ receptionFound = True
+    $ location = 2
+    $ refresh_location()
+    jump investistart
+
+label check_secondcorridor_4:
+    $ location = 1
+    $ refresh_location()
+    jump investistart
+
 
 ## ceo ##
 

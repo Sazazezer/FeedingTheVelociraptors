@@ -671,13 +671,14 @@ init:
             ypos 150
             text _("Current location: ")
             text location_index[location] xpos 10
-        imagebutton:
-            style "interacter"
-            xpos 0
-            ypos 0
-            auto "mappy/%s/m_toilet.png"
-            action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",6),Function(refresh_location),Jump("toiletStart")]
-            alt _("Toilet")
+        if toiletFound:    
+            imagebutton:
+                style "interacter"
+                xpos 0
+                ypos 0
+                auto "mappy/%s/m_toilet.png"
+                action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",6),Function(refresh_location),Jump("toiletStart")]
+                alt _("Toilet")
         imagebutton:
             style "interacter"
             xpos 0
@@ -685,27 +686,30 @@ init:
             auto "mappy/%s/m_offices.png"
             action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",1),Function(refresh_location),Jump("investistart")]
             alt _("Offices")
-        imagebutton:
-            style "interacter"
-            xpos 0
-            ypos 0
-            auto "mappy/%s/m_reception.png"
-            action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",2),Function(refresh_location),Jump("investistart")]
-            alt _("Reception")
-        imagebutton:
-            style "interacter"
-            xpos 0
-            ypos 0
-            auto "mappy/%s/m_ceo.png"
-            action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",4),Function(refresh_location),Jump("investistart")]
-            alt _("Ceo")
-        imagebutton:
-            style "interacter"
-            xpos 0
-            ypos 0
-            auto "mappy/%s/m_bunks.png"
-            action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",5),Function(refresh_location),Jump("investistart")]
-            alt _("Bunks")
+        if receptionFound:    
+            imagebutton:
+                style "interacter"
+                xpos 0
+                ypos 0
+                auto "mappy/%s/m_reception.png"
+                action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",2),Function(refresh_location),Jump("investistart")]
+                alt _("Reception")
+        if ceoFound:
+            imagebutton:
+                style "interacter"
+                xpos 0
+                ypos 0
+                auto "mappy/%s/m_ceo.png"
+                action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",4),Function(refresh_location),Jump("investistart")]
+                alt _("Ceo")
+        if bunksFound:
+            imagebutton:
+                style "interacter"
+                xpos 0
+                ypos 0
+                auto "mappy/%s/m_bunks.png"
+                action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",5),Function(refresh_location),Jump("investistart")]
+                alt _("Bunks")
         imagebutton:
             style "interacter"
             xpos 0
@@ -713,20 +717,22 @@ init:
             auto "mappy/%s/m_corridor.png"
             action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",3),Function(refresh_location),Jump("investistart")]
             alt _("Corridor")
-        imagebutton:
-            style "interacter"
-            xpos 0
-            ypos 0
-            auto "mappy/%s/m_securityroom.png"
-            action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",8),Function(refresh_location),Jump("investistart")]
-            alt _("Security Office")
-        imagebutton:
-            style "interacter"
-            xpos 0
-            ypos 0
-            auto "mappy/%s/m_staffroom.png"
-            action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",7),Function(refresh_location),Jump("investistart")]
-            alt _("Staff Room")
+        if securityRoomFound:
+            imagebutton:
+                style "interacter"
+                xpos 0
+                ypos 0
+                auto "mappy/%s/m_securityroom.png"
+                action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",8),Function(refresh_location),Jump("investistart")]
+                alt _("Security Office")
+        if researchRoomFound:
+            imagebutton:
+                style "interacter"
+                xpos 0
+                ypos 0
+                auto "mappy/%s/m_staffroom.png"
+                action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",7),Function(refresh_location),Jump("investistart")]
+                alt _("Staff Room")
         textbutton _("> Close map <"):
             hover_sound "button_hover.wav"
             activate_sound "button_select.wav"
@@ -842,7 +848,7 @@ image billy:
 label start:
 ## Location variables
     $ location = 1
-    $ location_index = [_("Outside"),_("Offices"),_("Reception"),_("Corridor"),_("Ceo"),_("Bunks"),_("Toilet"),_("Staff Room"),_("Security Room"),_("Outside Corridor"),("Outside")]
+    $ location_index = [_("Outside"),_("Offices"),_("Reception"),_("Corridor"),_("Ceo"),_("Bunks"),_("Toilet"),_("Staff Room"),_("Security Room"),_("Second Corridor"),("Outside")]
 
 ## Bool for whether the right pane is Evidence or Stuff
     $ ev_bo = True
@@ -940,6 +946,15 @@ label start:
     $ raptorInReception = False
     $ raptorInBunks = False
     $ raptorInToilet = True
+    # locations
+    $ toiletFound = False
+    $ ceoFound = False
+    $ receptionFound = False
+    $ bunksFound = False
+    $ researchRoomFound = False
+    $ securityRoomFound = False
+    $ backDoorFound = False
+    $ secondCorridorFound = False
 
     # Pertaining to this and that
     # $ used_mask = False

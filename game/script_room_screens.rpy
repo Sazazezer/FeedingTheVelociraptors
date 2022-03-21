@@ -23,6 +23,7 @@ init:
             imagebutton:
                 style "interacter"
                 auto "interactives/offices/%s/1.png"
+                tooltip _("Angry people")
                 if interact_mode:
                     action [SetVariable("interact_mode",False),Jump('check_offices_1')]
                 else:
@@ -89,7 +90,50 @@ init:
                         action [SetVariable("interact_mode",False),Jump('check_corridor_2')]
                     else:
                         sensitive False
-            
+            imagebutton:
+                style "interacter"
+                auto "interactives/corridor/%s/3.png"
+                if ceoFound:
+                    tooltip _("CEO Office")
+                else:
+                    tooltip _("???")
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_corridor_3')]
+                else:
+                    sensitive False        
+            imagebutton:
+                style "interacter"
+                auto "interactives/corridor/%s/4.png"
+                if secondCorridorFound:
+                    tooltip _("Other Corridor")
+                else:
+                    tooltip _("???")
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_corridor_4')]
+                else:
+                    sensitive False 
+            imagebutton:
+                style "interacter"
+                auto "interactives/corridor/%s/5.png"
+                if toiletFound:
+                    tooltip _("Toilets")
+                else:
+                    tooltip _("???")
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_corridor_5')]
+                else:
+                    sensitive False 
+            imagebutton:
+                style "interacter"
+                auto "interactives/corridor/%s/6.png"
+                if bunksFound:
+                    tooltip _("Bunks")
+                else:
+                    tooltip _("???")
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_corridor_6')]
+                else:
+                    sensitive False 
 ## 4: Ceo was Bathroom \ bathroom
     screen sc_room_4():
         tag room_screen
@@ -362,21 +406,53 @@ init:
                     else:
                         sensitive False
 
-## 9: Temporary version of the corridor for early scene
-##rendered unecesary now that i've figured out auto scenes
+## 9: Other Corridor / was temp corridor
     screen sc_room_9():
         tag room_screen
         layer "under_master"
         use sc_room_frame():
-            add "site/corridor.png"
-            # if tonyincorridor:
-            #     imagebutton:
-            #         style "interacter"
-            #         auto "interactives/corridor/%s/temp.png"
-            #         if interact_mode:
-            #             action [SetVariable("interact_mode",False),Jump('temp_corridor')]
-            #         else:
-            #             sensitive False
+            add "site/secondcorridor.png"
+            imagebutton:
+                style "interacter"
+                auto "interactives/secondcorridor/%s/1.png"
+                if securityRoomFound:
+                    tooltip _("Security Room")
+                else:
+                    tooltip _("???")
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_secondcorridor_1')]
+                else:
+                    sensitive False        
+            imagebutton:
+                style "interacter"
+                auto "interactives/secondcorridor/%s/2.png"
+                if researchRoomFound:
+                    tooltip _("Research Place")
+                else:
+                    tooltip _("???")
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_secondcorridor_2')]
+                else:
+                    sensitive False 
+            imagebutton:
+                style "interacter"
+                auto "interactives/secondcorridor/%s/3.png"
+                if receptionFound:
+                    tooltip _("Reception")
+                else:
+                    tooltip _("???")
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_secondcorridor_3')]
+                else:
+                    sensitive False 
+            imagebutton:
+                style "interacter"
+                auto "interactives/secondcorridor/%s/4.png"
+                tooltip _("Offices")
+                if interact_mode:
+                    action [SetVariable("interact_mode",False),Jump('check_secondcorridor_4')]
+                else:
+                    sensitive False 
 
 ## 10: Raptor room
     screen sc_room_10():
