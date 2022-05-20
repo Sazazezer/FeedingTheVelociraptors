@@ -114,7 +114,7 @@ init:
     screen sc_left_ui():
         zorder 3
         add "scene_frame.png" xpos 0 ypos 100
-        text _("Feeding the Velociraptors") xpos 300 ypos 6 size 24 xalign 0.5 alt ""
+        text _("Feeding the Velociraptors") xpos 1000 ypos 1050 size 32 xalign 0.5 alt ""
         text location_index[location] xpos 300 ypos 50 size 42 xalign 0.5 alt ""
 
     screen sc_right_pane():
@@ -518,7 +518,7 @@ init:
         imagebutton:
             style "interacter"
             xpos 1000
-            ypos 0
+            ypos 900
             if ev_bo:
                 auto "buttons/widebutton_%s.png"
                 action [Function(renpy.show_screen,"sc_stuff_pane"),SetVariable("ev_bo",False)]
@@ -530,7 +530,7 @@ init:
         imagebutton:
             style "interacter"
             xpos 800
-            ypos 0
+            ypos 900
             if not ev_bo:
                 auto "buttons/widebutton_%s.png"
                 action [Function(renpy.show_screen,"sc_evidence_pane"),SetVariable("ev_bo",True)]
@@ -544,7 +544,7 @@ init:
             cols 2
             spacing 0
             xpos 800
-            ypos 0
+            ypos 900
             hbox:
                 xysize (200,100)
                 text _("EVIDENCE"):
@@ -574,7 +574,7 @@ init:
         imagebutton:
             style "interacter"
             xpos 800
-            ypos 900#650
+            ypos 0#650
             if interact_mode and prog == 2:
                 auto "buttons/general_button_%s.png"
                 action Function(renpy.show_screen,"sc_map")
@@ -584,21 +584,21 @@ init:
         imagebutton:
             style "interacter"
             xpos 900
-            ypos 900#650
+            ypos 0#650
             auto "buttons/general_button_%s.png"
             action ShowMenu('preferences')
             alt _("Options menu")
         imagebutton:
             style "interacter"
             xpos 1000
-            ypos 900#650
+            ypos 0#650
             auto "buttons/general_button_%s.png"
             action ShowMenu('save')
             alt _("Save game")
         imagebutton:
             style "interacter"
             xpos 1100
-            ypos 900#650
+            ypos 0#650
             auto "buttons/general_button_%s.png"
             action ShowMenu('help')
             alt _("Open help")
@@ -608,7 +608,7 @@ init:
             cols 4
             spacing 0
             xpos 800
-            ypos 900#650
+            ypos 0#650
             hbox:
                 xysize (100,100)
                 if interact_mode and prog == 2:
