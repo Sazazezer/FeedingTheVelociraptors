@@ -113,9 +113,9 @@ init:
 #############
     screen sc_left_ui():
         zorder 3
-        add "scene_frame.png" xpos 0 ypos 100
-        text _("Feeding the Velociraptors") xpos 1000 ypos 1050 size 32 xalign 0.5 alt ""
-        text location_index[location] xpos 300 ypos 50 size 42 xalign 0.5 alt ""
+        add "scene_frame.png" xpos 10 ypos 010 #the main box where the images show up
+        text _("Feeding the Velociraptors") xpos 1000 ypos 1050 size 32 xalign 0.5 alt "" #game title
+        text location_index[location] xpos 300 ypos 780 size 42 xalign 0.5 alt "" #room location label xpos 300 ypos 50
 
     screen sc_right_pane():
         zorder 3
@@ -129,7 +129,7 @@ init:
                 ypos 50
                 xpos 50
                 transclude
-            add "ite_frame.png" ypos 0 xpos 0
+            add "ite_frame.png" ypos 10 xpos 0 #inventory methinks
 
     screen sc_evidence_pane():
         zorder 2
@@ -570,7 +570,7 @@ init:
                         if style.default.font == "SourceSansPro-Regular.ttf":
                             size 38
 
-        ## THOSE ONES ##
+        ## the four menu buttons ##
         imagebutton:
             style "interacter"
             xpos 800
@@ -819,11 +819,11 @@ style duo:
     size 30
     outlines [(3,'#413a3a',0,0)]
 
-## TRANSFORMS ##
+## TRANSFORMS ## Controls position of character art
 transform basic:
     size (768,768) #600,450
     xpos 0
-    ypos 100
+    ypos 8
     xzoom 1.0
 
 ## CHARACTERS ##
@@ -844,11 +844,44 @@ image billy:
     1
     repeat
 
+##animations?##
+
+image animtest:
+    size (768,768) #600,450
+    xpos 394
+    ypos 778
+    #yalign 1.0
+    "sprites/mono tempty.png"
+    pause 0.2
+    "sprites/mono tempty1.png"
+    pause 0.2
+    repeat
+
 ## START
 label start:
 ## Location variables
     $ location = 1
-    $ location_index = [_("Outside"),_("Offices"),_("Reception"),_("Corridor"),_("Ceo"),_("Bunks"),_("Toilet"),_("Staff Room"),_("Security Room"),_("Second Corridor"),("Outside")]
+    $ location_index = [_("Outside"),_("Offices"),_("Reception"),_("Corridor"),_("Ceo"),_("Bunks"),_("Toilet"),_("Research Room"),_("Security Room"),_("Second Corridor"),("Outside"), ("Back Door"), ("Back Yard"), ("Non-Descript Path"), ("Garden"), ("Garden"), ("Garden"), ("Garden"), ("Car Park"), ("Helipad")]
+
+    $ offices = 1
+    $ reception = 2    
+    $ firstcorridor = 3
+    $ ceooffice = 4
+    $ bunks = 5
+    $ toilets = 6
+    $ researchroom = 7
+    $ securityroom = 8
+    $ secondcorridor = 9
+    $ raptorroom = 10
+    $ backdoor = 11
+    $ backyard = 12
+    $ nondescriptpath = 13
+    $ garden1 = 14
+    $ garden2 = 15
+    $ garden3 = 16
+    $ garden4 = 17
+    $ carpark = 18
+    $ helipad = 19
 
 ## Bool for whether the right pane is Evidence or Stuff
     $ ev_bo = True
@@ -865,19 +898,6 @@ label start:
     $ evidence_selected = []
 
 # ## Inventory variables
-#     $ have_knife = False
-#     $ have_gnome = False
-#     $ have_jaw = False
-#     $ have_wadofcash = False
-#     $ have_fish = False
-#     $ have_note = False
-
-#     $ have_gun = False
-#     $ have_mask = False
-#     $ have_book = False
-#     $ have_candle = False
-#     $ have_ruler = False
-#     $ have_key = False
 
     $ have_photo = False
     $ have_printout = False
@@ -945,7 +965,7 @@ label start:
     $ raptorInCEO = False
     $ raptorInReception = False
     $ raptorInBunks = False
-    $ raptorInToilet = True
+    $ raptorInToilet = False
     # locations
     $ toiletFound = False
     $ ceoFound = False
@@ -955,25 +975,12 @@ label start:
     $ securityRoomFound = False
     $ backDoorFound = False
     $ secondCorridorFound = False
+    $ backYardFound = False
+    $ nondescriptPathFound = False
+    $ gardenFound = False
+    $ carParkFound = False
+    $ helipadFound = False
 
-    # Pertaining to this and that
-    # $ used_mask = False
-    # $ paint_talk = False
-    # $ siggy = False
-    # # Pertaining to the secret ending
-    # $ summoning = 0
-    # $ trash_fire = False
-    # $ cake_prep = False
-    # $ cake_bake = False
-    # $ still_life = False
-    # $ fire_count = 0
-    # $ inferno = False
-    # # Pertaining to the stupid clown puzzle
-    # $ clowning_around = 0
-    # $ hint_get = False
-    # $ big_hint = 0
-    # $ clown_down = False
-    # $ clown_code = [0,0,0]
 
 ###########
 ## Start ##

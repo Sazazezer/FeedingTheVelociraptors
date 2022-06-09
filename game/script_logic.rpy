@@ -1,5 +1,5 @@
 label falsestart:
-    $ location = 1
+    $ location = offices
     $ interact_mode = True
     ">>> Investigate the room with \[MOUSE\].\n>>> Inspect highlighted objects with \[LEFT CLICK\].{fast}"(advance=False)
 

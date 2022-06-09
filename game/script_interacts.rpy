@@ -1,7 +1,8 @@
 ## Offices
 label check_offices_1:
     if prog == 0:
-        t tempty "So, it’s decided. Paul has to die."
+        #show animtest
+        t "So, it’s decided. Paul has to die."
         a asad "This is horrible. I can’t believe it’s come down to this."
         $ prog = 1
         h hstern "It is the only remaining response. The raptors have swarmed the compound. The lockdown system will only be active for a few more hours." 
@@ -54,7 +55,7 @@ label check_offices_1:
         # p phappy "You sure there’s no way for me to leave the building?"
         # j jangry "Jesus, no. And don’t even try. The lockdown field is the only thing keeping us alive."
         h hstern "Go. You have one hour."
-        $ location = 3
+        $ location = firstcorridor
         $ refresh_location()
         show mono empty
         jump temp_corridor
@@ -78,7 +79,7 @@ label check_offices_1:
             show mono empty
             j jshocked ". . . What the hell?"
             $ ak47Scare = True
-            $ location = 3
+            $ location = firstcorridor
             jump investistart
         else:
             if evi_count > 1:
@@ -92,7 +93,7 @@ label check_offices_1:
                 p phappy "Still haven't had my lunch yet."
                 p pevasive "...Be back soon."
                 t tempty "..."
-                $ location = 3
+                $ location = firstcorridor
                 jump investistart
 
 ## Special Temp Corridor for initial scene
@@ -134,7 +135,7 @@ label temp_corridor:
     ">>> Explore the Administration building to find \[EVIDENCE\] to switch with another passenger.\n>>> Gather \[STUFF\] to solve problems that you may encounter.{fast}"
     play music "FTV-A.wav"
     $ prog = 2
-    #$ location = 3
+    #$ location = firstcorridor
     jump investistart
 
 
@@ -391,28 +392,28 @@ label check_corridor_fire:
 
 label check_corridor_3:
     $ ceoFound = True
-    $ location = 4
+    $ location = ceooffice
     $ refresh_location()
     jump investistart
     #ceo
 
 label check_corridor_4:
     $ secondCorridorFound = True
-    $ location = 9
+    $ location = secondcorridor
     $ refresh_location()
     jump investistart
     #second corridor
 
 label check_corridor_5:
     $ toiletFound = True
-    $ location = 6
+    $ location = toilets
     $ refresh_location()
     jump investistart
     #toilets
 
 label check_corridor_6:
     $ bunksFound = True
-    $ location = 5
+    $ location = bunks
     $ refresh_location()
     jump investistart
     #bunks
@@ -421,25 +422,25 @@ label check_corridor_6:
 
 label check_secondcorridor_1:
     $ securityRoomFound = True
-    $ location = 8
+    $ location = securityroom
     $ refresh_location()
     jump investistart
 
 label check_secondcorridor_2:
     $ researchRoomFound = True
-    $ location = 7
+    $ location = researchroom
     $ refresh_location()
     jump investistart
 
 
 label check_secondcorridor_3:
     $ receptionFound = True
-    $ location = 2
+    $ location = reception
     $ refresh_location()
     jump investistart
 
 label check_secondcorridor_4:
-    $ location = 1
+    $ location = offices
     $ refresh_location()
     jump investistart
 
@@ -782,13 +783,17 @@ label toiletStart:
     if raptorInToilet:
         p "All further attempts at being in the toilets are disuaded by the presence of the magical toilet raptor."
         p "so many new sentences to say..."
-        $ location = 3
+        $ location = firstcorridor
         $ refresh_location()
         $ forceBackToMap()
     jump investistart
 
 label check_toilet_1:
     #mirror and sink I guess
+    p "For testing purposes, this is the magic entrance to the backdoor!"
+    $ location = backdoor
+    $ refresh_location()
+    jump investistart 
     p "It’s my home away from home."
     p "Well, away from my desk anyway."
     p "Technically the whole building is my home."
@@ -1140,6 +1145,74 @@ label check_securityroom_10:
             $ securityPuzzleOpen = False
             jump route07
         jump investistart
+
+label check_backdoor_1:
+    p "Yup. This is a back door, all right."
+    p "It leads to the back yard"
+    $ backyardFound = True
+    $ location = backyard
+    $ refresh_location()
+    jump investistart
+
+label check_backyard_1:
+    p "Yup. This is a back yard, all right."
+    p "It leads to the nondescriptpath"
+    $ nondescriptPathFound = True
+    $ location = nondescriptpath
+    $ refresh_location()
+    jump investistart
+
+label check_nondescriptpath_1:
+    p "Yup. This is a nondescriptpath, all right."
+    p "It leads to the garden1"
+    $ gardenFound = True
+    $ location = garden1
+    $ refresh_location()
+    jump investistart
+
+label check_garden1_1:
+    p "Yup. This is a garden1, all right."
+    p "It leads to the garden2"
+    $ location = garden2
+    $ refresh_location()
+    jump investistart
+
+label check_garden2_1:
+    p "Yup. This is a garden2, all right."
+    p "It leads to the garden3"
+    $ location = garden3
+    $ refresh_location()
+    jump investistart
+
+label check_garden3_1:
+    p "Yup. This is a garden3, all right."
+    p "It leads to the garden4"
+    $ location = garden4
+    $ refresh_location()
+    jump investistart
+
+label check_garden4_1:
+    p "Yup. This is a garden4, all right."
+    p "It leads to the carpark"
+    $ carParkFound = True
+    $ location = carpark
+    $ refresh_location()
+    jump investistart
+
+label check_carpark_1:
+    p "Yup. This is a carpark, all right."
+    p "It leads to the helipad"
+    $ helipadFound = True
+    $ location = helipad
+    $ refresh_location()
+    jump investistart
+
+label check_helipad_1:
+    p "Yup. This is a helipad, all right."
+    p "It leads all the way back to the first corridor... somehow"
+    $ location = firstcorridor
+    $ refresh_location()
+    jump investistart
 
 
 label play_with_grenade:

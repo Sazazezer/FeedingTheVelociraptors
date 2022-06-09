@@ -3,7 +3,7 @@ init:
         layer "under_master"
         add "images/black.png"
         viewport:
-            ypos 100
+            ypos 10
             xpos 0
             transclude
 
@@ -499,5 +499,158 @@ init:
                     auto "interactives/raptorroom/%s/wadofcash.png"
                     if interact_mode:
                         action [SetVariable("interact_mode",False),Jump('temp_corridor')]
+                    else:
+                        sensitive False
+## 11: Back Exit
+    screen sc_room_11():
+            tag room_screen
+            layer "under_master"
+            use sc_room_frame():
+                #add "site/backdoor.png"
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/backdoor/%s/1.png"
+                    if backDoorFound:
+                        tooltip _("Back Door")
+                    else:
+                        tooltip _("???")
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_backdoor_1')]
+                    else:
+                        sensitive False
+## 12: Back Yard
+    screen sc_room_12():
+            tag room_screen
+            layer "under_master"
+            use sc_room_frame():
+               # add "site/backyard.png"
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/backyard/%s/1.png"
+                    if backyardFound:
+                        tooltip _("Back Yard")
+                    else:
+                        tooltip _("???")
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_backyard_1')]
+                    else:
+                        sensitive False
+## 13: Non Descript path
+    screen sc_room_13():
+            tag room_screen
+            layer "under_master"
+            use sc_room_frame():
+                #add "site/nondescriptpath.png"
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/nondescriptpath/%s/1.png"
+                    if nondescriptPathFound:
+                        tooltip _("Non Descript Path")
+                    else:
+                        tooltip _("???")
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_nondescriptpath_1')]
+                    else:
+                        sensitive False
+## 14: Garden
+    screen sc_room_14():
+            tag room_screen
+            layer "under_master"
+            use sc_room_frame():
+                #add "site/garden.png"
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/garden/%s/1.png"
+                    if gardenFound:
+                        tooltip _("Garden")
+                    else:
+                        tooltip _("???")
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_garden1_1')]
+                    else:
+                        sensitive False
+## 15: Garden
+    screen sc_room_15():
+            tag room_screen
+            layer "under_master"
+            use sc_room_frame():
+                #add "site/garden.png"
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/garden/%s/1.png"
+                    if gardenFound:
+                        tooltip _("Garden")
+                    else:
+                        tooltip _("???")
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_garden2_1')]
+                    else:
+                        sensitive False
+## 16: Garden
+    screen sc_room_16():
+            tag room_screen
+            layer "under_master"
+            use sc_room_frame():
+                #add "site/garden.png"
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/garden/%s/1.png"
+                    if gardenFound:
+                        tooltip _("Garden")
+                    else:
+                        tooltip _("???")
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_garden3_1')]
+                    else:
+                        sensitive False
+## 17: Garden
+    screen sc_room_17():
+            tag room_screen
+            layer "under_master"
+            use sc_room_frame():
+                #add "site/garden.png"
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/garden/%s/1.png"
+                    if gardenFound:
+                        tooltip _("Garden")
+                    else:
+                        tooltip _("???")
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_garden4_1')]
+                    else:
+                        sensitive False
+## 18: Car Park
+    screen sc_room_18():
+            tag room_screen
+            layer "under_master"
+            use sc_room_frame():
+                #add "site/carpark.png"
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/carpark/%s/1.png"
+                    if carParkFound:
+                        tooltip _("Car Park")
+                    else:
+                        tooltip _("???")
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_carpark_1')]
+                    else:
+                        sensitive False
+## 19: Helipad
+    screen sc_room_19():
+            tag room_screen
+            layer "under_master"
+            use sc_room_frame():
+                #add "site/helipad.png"
+                imagebutton:
+                    style "interacter"
+                    auto "interactives/helipad/%s/1.png"
+                    if helipadFound:
+                        tooltip _("Helipad")
+                    else:
+                        tooltip _("???")
+                    if interact_mode:
+                        action [SetVariable("interact_mode",False),Jump('check_helipad_1')]
                     else:
                         sensitive False
