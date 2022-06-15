@@ -755,7 +755,7 @@ screen preferences():
                         label _("Font")
                         if _preferences.language != "spanish":
                             textbutton "Munro":
-                                text_font "munro.ttf"
+                                text_font "ModeS.TTF"
                                 action [StylePreference("text", "Default"),Function(style.rebuild)]
                         textbutton "VT323":
                             text_font "VT323-Regular.ttf"
