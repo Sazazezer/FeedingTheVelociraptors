@@ -1,9 +1,17 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <'Image' u'site/backyard.png'>:
+While running game code:
   File "game/script_logic.rpy", line 11, in script
     ">>> Investigate the room with \[MOUSE\].\n>>> Change rooms with \[MAP\].{fast}"(advance=False)
-IOError: Couldn't find file 'site/backyard.png'.
+  File "game/script.rpy", line 665, in execute
+    screen sc_map():
+  File "game/script.rpy", line 665, in execute
+    screen sc_map():
+  File "game/script.rpy", line 729, in execute
+    if researchRoomFound:
+  File "game/script.rpy", line 730, in execute
+    imagebutton:
+Exception: Imagebutton does not have a idle image. (auto=u'mappy/%s/m_staffroom.png').
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -26,51 +34,37 @@ Full traceback:
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 2699, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 3191, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 2091, in draw_screen
-    renpy.config.screen_height,
-  File "render.pyx", line 546, in renpy.display.render.render_screen
-  File "render.pyx", line 247, in renpy.display.render.render
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\layout.py", line 722, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 154, in renpy.display.render.render
-  File "render.pyx", line 247, in renpy.display.render.render
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\layout.py", line 722, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 154, in renpy.display.render.render
-  File "render.pyx", line 247, in renpy.display.render.render
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\layout.py", line 722, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 154, in renpy.display.render.render
-  File "render.pyx", line 247, in renpy.display.render.render
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\screen.py", line 675, in render
-    child = renpy.display.render.render(self.child, w, h, st, at)
-  File "render.pyx", line 154, in renpy.display.render.render
-  File "render.pyx", line 247, in renpy.display.render.render
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\layout.py", line 722, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 154, in renpy.display.render.render
-  File "render.pyx", line 247, in renpy.display.render.render
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\viewport.py", line 264, in render
-    surf = renpy.display.render.render(self.child, child_width, child_height, st, at)
-  File "render.pyx", line 154, in renpy.display.render.render
-  File "render.pyx", line 247, in renpy.display.render.render
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\layout.py", line 722, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 154, in renpy.display.render.render
-  File "render.pyx", line 247, in renpy.display.render.render
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\im.py", line 584, in render
-    return cache.get(self, render=True)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\im.py", line 266, in get
-    surf = image.load()
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\im.py", line 629, in load
-    surf = renpy.display.pgrender.load_image(renpy.loader.load(self.filename), self.filename)
-  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\loader.py", line 576, in load
-    raise IOError("Couldn't find file '%s'." % name)
-IOError: Couldn't find file 'site/backyard.png'.
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 3091, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\screen.py", line 430, in visit_all
+    callback(self)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\core.py", line 3091, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\screen.py", line 440, in per_interact
+    self.update()
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\display\screen.py", line 625, in update
+    self.screen.function(**self.scope)
+  File "game/script.rpy", line 665, in execute
+    screen sc_map():
+  File "game/script.rpy", line 665, in execute
+    screen sc_map():
+  File "game/script.rpy", line 729, in execute
+    if researchRoomFound:
+  File "game/script.rpy", line 730, in execute
+    imagebutton:
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ui.py", line 943, in _imagebutton
+    idle = choice(idle, idle_image, "idle", required=True)
+  File "C:\Users\itms2\NotOneDrive\FeedingTheVelociraptors\renpy\ui.py", line 937, in choice
+    raise Exception("Imagebutton does not have a %s image. (auto=%r)." % (name, auto))
+Exception: Imagebutton does not have a idle image. (auto=u'mappy/%s/m_staffroom.png').
 
 Windows-8-6.2.9200
 Ren'Py 7.3.2.320
 Feeding the Velociraptors 0.1
-Thu Jun 09 17:02:00 2022
+Wed Jun 22 16:07:03 2022

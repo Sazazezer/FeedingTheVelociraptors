@@ -113,8 +113,9 @@ init:
 #############
     screen sc_left_ui():
         zorder 3
-        add "scene_frame.png" xpos 10 ypos 010 #the main box where the images show up
-        text _("Feeding the Velociraptors") xpos 1000 ypos 1050 size 32 xalign 0.5 alt "" #game title
+        add "scene_frame.png" xpos 10 ypos 10 #the main box where the images show up
+        add "mytextbox.png" xpos 10 ypos 850 #my custom textbox
+        text _("Feeding the Velociraptors") xpos 1000 ypos 1000 size 32 xalign 0.5 alt "" #game title
         text location_index[location] xpos 300 ypos 780 size 42 xalign 0.5 alt "" #room location label xpos 300 ypos 50
 
     screen sc_right_pane():
@@ -574,7 +575,7 @@ init:
         imagebutton:
             style "interacter"
             xpos 800
-            ypos 0#650
+            ypos 10#650
             if interact_mode and prog == 2:
                 auto "buttons/general_button_%s.png"
                 action Function(renpy.show_screen,"sc_map")
@@ -584,21 +585,21 @@ init:
         imagebutton:
             style "interacter"
             xpos 900
-            ypos 0#650
+            ypos 10#650
             auto "buttons/general_button_%s.png"
             action ShowMenu('preferences')
             alt _("Options menu")
         imagebutton:
             style "interacter"
             xpos 1000
-            ypos 0#650
+            ypos 10#650
             auto "buttons/general_button_%s.png"
             action ShowMenu('save')
             alt _("Save game")
         imagebutton:
             style "interacter"
             xpos 1100
-            ypos 0#650
+            ypos 10#650
             auto "buttons/general_button_%s.png"
             action ShowMenu('help')
             alt _("Open help")
@@ -714,9 +715,25 @@ init:
             style "interacter"
             xpos 0
             ypos 0
-            auto "mappy/%s/m_corridor.png"
+            auto "mappy/%s/m_startcorridor.png"
             action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",3),Function(refresh_location),Jump("investistart")]
             alt _("Corridor")
+        if secondCorridorFound:
+            imagebutton:
+                style "interacter"
+                xpos 0
+                ypos 0
+                auto "mappy/%s/m_connectingcorridor.png"
+                action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",secondcorridor),Function(refresh_location),Jump("investistart")]
+                alt _("Connecting Corridor")
+        if backCorridorFound:
+            imagebutton:
+                style "interacter"
+                xpos 0
+                ypos 0
+                auto "mappy/%s/m_backcorridor.png"
+                action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",backcorridor),Function(refresh_location),Jump("investistart")]
+                alt _("Back Corridor")
         if securityRoomFound:
             imagebutton:
                 style "interacter"
@@ -730,14 +747,14 @@ init:
                 style "interacter"
                 xpos 0
                 ypos 0
-                auto "mappy/%s/m_staffroom.png"
+                auto "mappy/%s/m_researchroom.png"
                 action [Function(renpy.hide_screen,"sc_map"),SetVariable("location",7),Function(refresh_location),Jump("investistart")]
-                alt _("Staff Room")
+                alt _("Research Room")
         textbutton _("> Close map <"):
             hover_sound "button_hover.wav"
             activate_sound "button_select.wav"
-            xpos 750
-            ypos 650
+            xpos 850
+            ypos 850
             action [Function(renpy.hide_screen,"sc_map"),Jump("investistart")]
             text_style "closer"
             alt _("Close map")
@@ -882,6 +899,7 @@ label start:
     $ garden4 = 17
     $ carpark = 18
     $ helipad = 19
+    $ backCorridor = 20
 
 ## Bool for whether the right pane is Evidence or Stuff
     $ ev_bo = True
@@ -975,6 +993,7 @@ label start:
     $ securityRoomFound = False
     $ backDoorFound = False
     $ secondCorridorFound = False
+    $ backCorridorFound = False
     $ backYardFound = False
     $ nondescriptPathFound = False
     $ gardenFound = False

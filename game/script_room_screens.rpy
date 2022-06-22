@@ -4,7 +4,7 @@ init:
         add "images/black.png"
         viewport:
             ypos 10
-            xpos 0
+            xpos 10
             transclude
 
 ## 0: Outside

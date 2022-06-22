@@ -5,21 +5,21 @@
     renpy.register_style_preference(
         "text", "Default", style.say_dialogue, "line_spacing", 6)
     renpy.register_style_preference(
-        "text", "Default", style.say_dialogue, "font", "ModeS.TTF")
+        "text", "Default", style.say_dialogue, "font", "munro.ttf")
     renpy.register_style_preference(
-        "text", "Default", style.say_label, "font", "ModeS.TTF")
+        "text", "Default", style.say_label, "font", "munro.ttf")
     renpy.register_style_preference(
-        "text", "Default", style.default, "font", "ModeS.TTF")
+        "text", "Default", style.default, "font", "munro.ttf")
     renpy.register_style_preference(
-        "text", "Default", style.gui_text, "font", "ModeS.TTF")
+        "text", "Default", style.gui_text, "font", "munro.ttf")
     renpy.register_style_preference(
-        "text", "Default", style.gui_medium_button_text, "font", "ModeS.TTF")
+        "text", "Default", style.gui_medium_button_text, "font", "munro.ttf")
     renpy.register_style_preference(
-        "text", "Default", style.navigation_text, "font", "ModeS.TTF")
+        "text", "Default", style.navigation_text, "font", "munro.ttf")
     renpy.register_style_preference(
-        "text", "Default", style.navigation_button_text, "font", "ModeS.TTF")
+        "text", "Default", style.navigation_button_text, "font", "munro.ttf")
     renpy.register_style_preference(
-        "text", "Default", style.gui_button_text, "font", "ModeS.TTF")
+        "text", "Default", style.gui_button_text, "font", "munro.ttf")
 
 ## VT323 ##
     renpy.register_style_preference(

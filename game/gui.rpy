@@ -9,7 +9,7 @@ init offset = -2
 ## Calling gui.init resets the styles to sensible default values, and sets the
 ## width and height of the game.
 init python:
-    gui.init(1200, 1200)
+    gui.init(1200, 1100)
 #1000,750
 #######################
 ## Add another layer ##
@@ -58,13 +58,13 @@ define gui.interface_text_color = '#ffffff'
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "ModeS.TTF"
+define gui.text_font = "munro.ttf"
 
 ## The font used for character names.
-define gui.name_text_font = "ModeS.TTF"
+define gui.name_text_font = "munro.ttf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "ModeS.TTF"
+define gui.interface_text_font = "munro.ttf"
 
 ## The size of normal dialogue text.
 define gui.text_size = 24
@@ -98,7 +98,7 @@ define gui.game_menu_background = "gui/game_menu.png"
 ## time.
 
 ## The height of the textbox containing dialogue.
-define gui.textbox_height = 350
+define gui.textbox_height = 240
 
 ## The placement of the textbox vertically on the screen. 0.0 is the top, 0.5 is
 ## center, and 1.0 is the bottom.
